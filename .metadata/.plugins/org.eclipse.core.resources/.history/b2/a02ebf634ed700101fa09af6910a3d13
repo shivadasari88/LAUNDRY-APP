@@ -1,0 +1,5 @@
+package com.laundryapp.controller;
+
+public class AuthController {
+
+}

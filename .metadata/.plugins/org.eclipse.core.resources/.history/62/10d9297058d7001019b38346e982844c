@@ -1,0 +1,8 @@
+package com.laundryapp;
+
+import lombok.Data;
+
+@Data
+public class TestDto {
+    private String msg;
+}

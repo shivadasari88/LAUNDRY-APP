@@ -1,0 +1,1421 @@
+!SESSION 2025-12-12 18:14:51.386 -----------------------------------------------
+eclipse.buildId=4.38.0.202512010632
+java.version=25.0.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_IN
+Framework arguments:  -product org.springframework.boot.ide.branding.springtools
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.springframework.boot.ide.branding.springtools
+
+This is a continuation of log file D:\C DAC\LAUNDRY-APP\.metadata\.bak_0.log
+Created Time: 2025-12-12 18:15:01.551
+
+!ENTRY org.eclipse.ui.editors 4 10001 2025-12-12 18:15:01.552
+!MESSAGE Ignoring template 'markdownfilecomment' since validation failed.
+!STACK 0
+org.eclipse.jface.text.templates.TemplateException: Pattern is not a valid Java comment.
+	at org.eclipse.jdt.internal.core.manipulation.CodeTemplateContextType.validate(CodeTemplateContextType.java:416)
+	at org.eclipse.ui.editors.text.templates.ContributionTemplateStore.validateTemplate(ContributionTemplateStore.java:181)
+	at org.eclipse.ui.editors.text.templates.ContributionTemplateStore.readIncludedTemplates(ContributionTemplateStore.java:154)
+	at org.eclipse.ui.editors.text.templates.ContributionTemplateStore.readContributedTemplates(ContributionTemplateStore.java:120)
+	at org.eclipse.ui.editors.text.templates.ContributionTemplateStore.loadContributedTemplates(ContributionTemplateStore.java:109)
+	at org.eclipse.jface.text.templates.persistence.TemplateStore.load(TemplateStore.java:98)
+	at org.eclipse.jdt.internal.ui.JavaPlugin.getCodeTemplateStore(JavaPlugin.java:916)
+	at org.eclipse.jdt.internal.ui.JavaPlugin.start(JavaPlugin.java:429)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$2.run(BundleContextImpl.java:838)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$2.run(BundleContextImpl.java:1)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:251)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.startActivator(BundleContextImpl.java:830)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.start(BundleContextImpl.java:780)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.startWorker0(EquinoxBundle.java:1082)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$EquinoxModule.startWorker(EquinoxBundle.java:394)
+	at org.eclipse.osgi.container.Module.doStart(Module.java:643)
+	at org.eclipse.osgi.container.Module.start(Module.java:500)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:528)
+	at org.eclipse.osgi.internal.hooks.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:122)
+	at org.eclipse.osgi.internal.loader.classpath.ClasspathManager.findLocalClass(ClasspathManager.java:620)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.findLocalClass(ModuleClassLoader.java:353)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:418)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass0(BundleLoader.java:527)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:439)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:195)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:490)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:663)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:226)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:1034)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:286)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:65)
+	at org.eclipse.core.internal.preferences.PreferenceServiceRegistryHelper.runInitializer(PreferenceServiceRegistryHelper.java:288)
+	at org.eclipse.core.internal.preferences.PreferenceServiceRegistryHelper.applyRuntimeDefaults(PreferenceServiceRegistryHelper.java:114)
+	at org.eclipse.core.internal.preferences.PreferencesService.applyRuntimeDefaults(PreferencesService.java:338)
+	at org.eclipse.core.internal.preferences.DefaultPreferences.applyRuntimeDefaults(DefaultPreferences.java:233)
+	at org.eclipse.core.internal.preferences.DefaultPreferences.load(DefaultPreferences.java:288)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.create(EclipsePreferences.java:381)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.internalNode(EclipsePreferences.java:635)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.node(EclipsePreferences.java:771)
+	at org.eclipse.core.runtime.preferences.AbstractScope.getNode(AbstractScope.java:37)
+	at org.eclipse.e4.ui.css.swt.helpers.EclipsePreferencesHelper.overrideDefault(EclipsePreferencesHelper.java:147)
+	at org.eclipse.e4.ui.css.swt.properties.preference.EclipsePreferencesHandler.overrideProperty(EclipsePreferencesHandler.java:64)
+	at org.eclipse.e4.ui.css.swt.properties.preference.EclipsePreferencesHandler.overrideProperty(EclipsePreferencesHandler.java:55)
+	at org.eclipse.e4.ui.css.swt.properties.preference.EclipsePreferencesHandler.applyCSSProperty(EclipsePreferencesHandler.java:43)
+	at org.eclipse.e4.ui.css.core.impl.engine.AbstractCSSEngine.applyCSSProperty(AbstractCSSEngine.java:731)
+	at org.eclipse.e4.ui.css.core.impl.engine.AbstractCSSEngine.applyStyleDeclaration(AbstractCSSEngine.java:542)
+	at org.eclipse.e4.ui.css.core.impl.engine.AbstractCSSEngine.applyConditionalPseudoStyle(AbstractCSSEngine.java:503)
+	at org.eclipse.e4.ui.css.core.impl.engine.AbstractCSSEngine.applyStyles(AbstractCSSEngine.java:412)
+	at org.eclipse.e4.ui.css.core.impl.engine.AbstractCSSEngine.applyStyles(AbstractCSSEngine.java:369)
+	at org.eclipse.e4.ui.css.swt.internal.theme.ThemeEngine.applyStyles(ThemeEngine.java:553)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$StylingPreferencesHandler.overridePreferences(PartRenderingEngine.java:1485)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$StylingPreferencesHandler.handleEvent(PartRenderingEngine.java:1429)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.subscribeCssThemeChanged(PartRenderingEngine.java:378)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:58)
+	at org.eclipse.e4.core.di.internal.extensions.EventObjectSupplier$DIEventHandler.handleEvent(EventObjectSupplier.java:92)
+	at org.eclipse.equinox.internal.event.EventHandlerWrapper.handleEvent(EventHandlerWrapper.java:206)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:201)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.ListenerQueue.dispatchEventSynchronous(ListenerQueue.java:151)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.dispatchEvent(EventAdminImpl.java:132)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.sendEvent(EventAdminImpl.java:73)
+	at org.eclipse.equinox.internal.event.EventComponent.sendEvent(EventComponent.java:48)
+	at org.eclipse.e4.ui.css.swt.internal.theme.ThemeEngine.sendThemeChangeEvent(ThemeEngine.java:525)
+	at org.eclipse.e4.ui.css.swt.internal.theme.ThemeEngine.setTheme(ThemeEngine.java:504)
+	at org.eclipse.e4.ui.css.swt.internal.theme.ThemeEngine.setTheme(ThemeEngine.java:434)
+	at org.eclipse.e4.ui.css.swt.internal.theme.ThemeEngine.setTheme(ThemeEngine.java:426)
+	at org.eclipse.e4.ui.css.swt.internal.theme.ThemeEngine.restore(ThemeEngine.java:623)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.setCSSTheme(PartRenderingEngine.java:1409)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.initializeStyling(PartRenderingEngine.java:1316)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1042)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1038)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:153)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:677)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:583)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:185)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:219)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:149)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:115)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:467)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:298)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:615)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:563)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1415)
+
+!ENTRY org.eclipse.ui.editors 4 10001 2025-12-12 18:15:01.555
+!MESSAGE Ignoring template 'markdowntypecomment' since validation failed.
+!STACK 0
+org.eclipse.jface.text.templates.TemplateException: Pattern is not a valid Java comment.
+	at org.eclipse.jdt.internal.core.manipulation.CodeTemplateContextType.validate(CodeTemplateContextType.java:416)
+	at org.eclipse.ui.editors.text.templates.ContributionTemplateStore.validateTemplate(ContributionTemplateStore.java:181)
+	at org.eclipse.ui.editors.text.templates.ContributionTemplateStore.readIncludedTemplates(ContributionTemplateStore.java:154)
+	at org.eclipse.ui.editors.text.templates.ContributionTemplateStore.readContributedTemplates(ContributionTemplateStore.java:120)
+	at org.eclipse.ui.editors.text.templates.ContributionTemplateStore.loadContributedTemplates(ContributionTemplateStore.java:109)
+	at org.eclipse.jface.text.templates.persistence.TemplateStore.load(TemplateStore.java:98)
+	at org.eclipse.jdt.internal.ui.JavaPlugin.getCodeTemplateStore(JavaPlugin.java:916)
+	at org.eclipse.jdt.internal.ui.JavaPlugin.start(JavaPlugin.java:429)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$2.run(BundleContextImpl.java:838)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$2.run(BundleContextImpl.java:1)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:251)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.startActivator(BundleContextImpl.java:830)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.start(BundleContextImpl.java:780)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.startWorker0(EquinoxBundle.java:1082)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$EquinoxModule.startWorker(EquinoxBundle.java:394)
+	at org.eclipse.osgi.container.Module.doStart(Module.java:643)
+	at org.eclipse.osgi.container.Module.start(Module.java:500)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:528)
+	at org.eclipse.osgi.internal.hooks.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:122)
+	at org.eclipse.osgi.internal.loader.classpath.ClasspathManager.findLocalClass(ClasspathManager.java:620)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.findLocalClass(ModuleClassLoader.java:353)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:418)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass0(BundleLoader.java:527)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:439)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:195)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:490)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:663)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:226)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:1034)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:286)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:65)
+	at org.eclipse.core.internal.preferences.PreferenceServiceRegistryHelper.runInitializer(PreferenceServiceRegistryHelper.java:288)
+	at org.eclipse.core.internal.preferences.PreferenceServiceRegistryHelper.applyRuntimeDefaults(PreferenceServiceRegistryHelper.java:114)
+	at org.eclipse.core.internal.preferences.PreferencesService.applyRuntimeDefaults(PreferencesService.java:338)
+	at org.eclipse.core.internal.preferences.DefaultPreferences.applyRuntimeDefaults(DefaultPreferences.java:233)
+	at org.eclipse.core.internal.preferences.DefaultPreferences.load(DefaultPreferences.java:288)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.create(EclipsePreferences.java:381)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.internalNode(EclipsePreferences.java:635)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.node(EclipsePreferences.java:771)
+	at org.eclipse.core.runtime.preferences.AbstractScope.getNode(AbstractScope.java:37)
+	at org.eclipse.e4.ui.css.swt.helpers.EclipsePreferencesHelper.overrideDefault(EclipsePreferencesHelper.java:147)
+	at org.eclipse.e4.ui.css.swt.properties.preference.EclipsePreferencesHandler.overrideProperty(EclipsePreferencesHandler.java:64)
+	at org.eclipse.e4.ui.css.swt.properties.preference.EclipsePreferencesHandler.overrideProperty(EclipsePreferencesHandler.java:55)
+	at org.eclipse.e4.ui.css.swt.properties.preference.EclipsePreferencesHandler.applyCSSProperty(EclipsePreferencesHandler.java:43)
+	at org.eclipse.e4.ui.css.core.impl.engine.AbstractCSSEngine.applyCSSProperty(AbstractCSSEngine.java:731)
+	at org.eclipse.e4.ui.css.core.impl.engine.AbstractCSSEngine.applyStyleDeclaration(AbstractCSSEngine.java:542)
+	at org.eclipse.e4.ui.css.core.impl.engine.AbstractCSSEngine.applyConditionalPseudoStyle(AbstractCSSEngine.java:503)
+	at org.eclipse.e4.ui.css.core.impl.engine.AbstractCSSEngine.applyStyles(AbstractCSSEngine.java:412)
+	at org.eclipse.e4.ui.css.core.impl.engine.AbstractCSSEngine.applyStyles(AbstractCSSEngine.java:369)
+	at org.eclipse.e4.ui.css.swt.internal.theme.ThemeEngine.applyStyles(ThemeEngine.java:553)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$StylingPreferencesHandler.overridePreferences(PartRenderingEngine.java:1485)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$StylingPreferencesHandler.handleEvent(PartRenderingEngine.java:1429)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.subscribeCssThemeChanged(PartRenderingEngine.java:378)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:58)
+	at org.eclipse.e4.core.di.internal.extensions.EventObjectSupplier$DIEventHandler.handleEvent(EventObjectSupplier.java:92)
+	at org.eclipse.equinox.internal.event.EventHandlerWrapper.handleEvent(EventHandlerWrapper.java:206)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:201)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.ListenerQueue.dispatchEventSynchronous(ListenerQueue.java:151)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.dispatchEvent(EventAdminImpl.java:132)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.sendEvent(EventAdminImpl.java:73)
+	at org.eclipse.equinox.internal.event.EventComponent.sendEvent(EventComponent.java:48)
+	at org.eclipse.e4.ui.css.swt.internal.theme.ThemeEngine.sendThemeChangeEvent(ThemeEngine.java:525)
+	at org.eclipse.e4.ui.css.swt.internal.theme.ThemeEngine.setTheme(ThemeEngine.java:504)
+	at org.eclipse.e4.ui.css.swt.internal.theme.ThemeEngine.setTheme(ThemeEngine.java:434)
+	at org.eclipse.e4.ui.css.swt.internal.theme.ThemeEngine.setTheme(ThemeEngine.java:426)
+	at org.eclipse.e4.ui.css.swt.internal.theme.ThemeEngine.restore(ThemeEngine.java:623)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.setCSSTheme(PartRenderingEngine.java:1409)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.initializeStyling(PartRenderingEngine.java:1316)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1042)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1038)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:153)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:677)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:583)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:185)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:219)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:149)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:115)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:467)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:298)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:615)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:563)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1415)
+
+!ENTRY org.eclipse.ui.editors 4 10001 2025-12-12 18:15:01.557
+!MESSAGE Ignoring template 'markdownfieldcomment' since validation failed.
+!STACK 0
+org.eclipse.jface.text.templates.TemplateException: Pattern is not a valid Java comment.
+	at org.eclipse.jdt.internal.core.manipulation.CodeTemplateContextType.validate(CodeTemplateContextType.java:416)
+	at org.eclipse.ui.editors.text.templates.ContributionTemplateStore.validateTemplate(ContributionTemplateStore.java:181)
+	at org.eclipse.ui.editors.text.templates.ContributionTemplateStore.readIncludedTemplates(ContributionTemplateStore.java:154)
+	at org.eclipse.ui.editors.text.templates.ContributionTemplateStore.readContributedTemplates(ContributionTemplateStore.java:120)
+	at org.eclipse.ui.editors.text.templates.ContributionTemplateStore.loadContributedTemplates(ContributionTemplateStore.java:109)
+	at org.eclipse.jface.text.templates.persistence.TemplateStore.load(TemplateStore.java:98)
+	at org.eclipse.jdt.internal.ui.JavaPlugin.getCodeTemplateStore(JavaPlugin.java:916)
+	at org.eclipse.jdt.internal.ui.JavaPlugin.start(JavaPlugin.java:429)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$2.run(BundleContextImpl.java:838)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$2.run(BundleContextImpl.java:1)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:251)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.startActivator(BundleContextImpl.java:830)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.start(BundleContextImpl.java:780)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.startWorker0(EquinoxBundle.java:1082)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$EquinoxModule.startWorker(EquinoxBundle.java:394)
+	at org.eclipse.osgi.container.Module.doStart(Module.java:643)
+	at org.eclipse.osgi.container.Module.start(Module.java:500)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:528)
+	at org.eclipse.osgi.internal.hooks.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:122)
+	at org.eclipse.osgi.internal.loader.classpath.ClasspathManager.findLocalClass(ClasspathManager.java:620)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.findLocalClass(ModuleClassLoader.java:353)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:418)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass0(BundleLoader.java:527)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:439)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:195)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:490)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:663)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:226)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:1034)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:286)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:65)
+	at org.eclipse.core.internal.preferences.PreferenceServiceRegistryHelper.runInitializer(PreferenceServiceRegistryHelper.java:288)
+	at org.eclipse.core.internal.preferences.PreferenceServiceRegistryHelper.applyRuntimeDefaults(PreferenceServiceRegistryHelper.java:114)
+	at org.eclipse.core.internal.preferences.PreferencesService.applyRuntimeDefaults(PreferencesService.java:338)
+	at org.eclipse.core.internal.preferences.DefaultPreferences.applyRuntimeDefaults(DefaultPreferences.java:233)
+	at org.eclipse.core.internal.preferences.DefaultPreferences.load(DefaultPreferences.java:288)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.create(EclipsePreferences.java:381)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.internalNode(EclipsePreferences.java:635)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.node(EclipsePreferences.java:771)
+	at org.eclipse.core.runtime.preferences.AbstractScope.getNode(AbstractScope.java:37)
+	at org.eclipse.e4.ui.css.swt.helpers.EclipsePreferencesHelper.overrideDefault(EclipsePreferencesHelper.java:147)
+	at org.eclipse.e4.ui.css.swt.properties.preference.EclipsePreferencesHandler.overrideProperty(EclipsePreferencesHandler.java:64)
+	at org.eclipse.e4.ui.css.swt.properties.preference.EclipsePreferencesHandler.overrideProperty(EclipsePreferencesHandler.java:55)
+	at org.eclipse.e4.ui.css.swt.properties.preference.EclipsePreferencesHandler.applyCSSProperty(EclipsePreferencesHandler.java:43)
+	at org.eclipse.e4.ui.css.core.impl.engine.AbstractCSSEngine.applyCSSProperty(AbstractCSSEngine.java:731)
+	at org.eclipse.e4.ui.css.core.impl.engine.AbstractCSSEngine.applyStyleDeclaration(AbstractCSSEngine.java:542)
+	at org.eclipse.e4.ui.css.core.impl.engine.AbstractCSSEngine.applyConditionalPseudoStyle(AbstractCSSEngine.java:503)
+	at org.eclipse.e4.ui.css.core.impl.engine.AbstractCSSEngine.applyStyles(AbstractCSSEngine.java:412)
+	at org.eclipse.e4.ui.css.core.impl.engine.AbstractCSSEngine.applyStyles(AbstractCSSEngine.java:369)
+	at org.eclipse.e4.ui.css.swt.internal.theme.ThemeEngine.applyStyles(ThemeEngine.java:553)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$StylingPreferencesHandler.overridePreferences(PartRenderingEngine.java:1485)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$StylingPreferencesHandler.handleEvent(PartRenderingEngine.java:1429)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.subscribeCssThemeChanged(PartRenderingEngine.java:378)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:58)
+	at org.eclipse.e4.core.di.internal.extensions.EventObjectSupplier$DIEventHandler.handleEvent(EventObjectSupplier.java:92)
+	at org.eclipse.equinox.internal.event.EventHandlerWrapper.handleEvent(EventHandlerWrapper.java:206)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:201)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.ListenerQueue.dispatchEventSynchronous(ListenerQueue.java:151)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.dispatchEvent(EventAdminImpl.java:132)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.sendEvent(EventAdminImpl.java:73)
+	at org.eclipse.equinox.internal.event.EventComponent.sendEvent(EventComponent.java:48)
+	at org.eclipse.e4.ui.css.swt.internal.theme.ThemeEngine.sendThemeChangeEvent(ThemeEngine.java:525)
+	at org.eclipse.e4.ui.css.swt.internal.theme.ThemeEngine.setTheme(ThemeEngine.java:504)
+	at org.eclipse.e4.ui.css.swt.internal.theme.ThemeEngine.setTheme(ThemeEngine.java:434)
+	at org.eclipse.e4.ui.css.swt.internal.theme.ThemeEngine.setTheme(ThemeEngine.java:426)
+	at org.eclipse.e4.ui.css.swt.internal.theme.ThemeEngine.restore(ThemeEngine.java:623)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.setCSSTheme(PartRenderingEngine.java:1409)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.initializeStyling(PartRenderingEngine.java:1316)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1042)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1038)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:153)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:677)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:583)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:185)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:219)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:149)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:115)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:467)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:298)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:615)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:563)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1415)
+
+!ENTRY org.eclipse.ui.editors 4 10001 2025-12-12 18:15:01.562
+!MESSAGE Ignoring template 'markdownmethodcomment' since validation failed.
+!STACK 0
+org.eclipse.jface.text.templates.TemplateException: Pattern is not a valid Java comment.
+	at org.eclipse.jdt.internal.core.manipulation.CodeTemplateContextType.validate(CodeTemplateContextType.java:416)
+	at org.eclipse.ui.editors.text.templates.ContributionTemplateStore.validateTemplate(ContributionTemplateStore.java:181)
+	at org.eclipse.ui.editors.text.templates.ContributionTemplateStore.readIncludedTemplates(ContributionTemplateStore.java:154)
+	at org.eclipse.ui.editors.text.templates.ContributionTemplateStore.readContributedTemplates(ContributionTemplateStore.java:120)
+	at org.eclipse.ui.editors.text.templates.ContributionTemplateStore.loadContributedTemplates(ContributionTemplateStore.java:109)
+	at org.eclipse.jface.text.templates.persistence.TemplateStore.load(TemplateStore.java:98)
+	at org.eclipse.jdt.internal.ui.JavaPlugin.getCodeTemplateStore(JavaPlugin.java:916)
+	at org.eclipse.jdt.internal.ui.JavaPlugin.start(JavaPlugin.java:429)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$2.run(BundleContextImpl.java:838)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$2.run(BundleContextImpl.java:1)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:251)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.startActivator(BundleContextImpl.java:830)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.start(BundleContextImpl.java:780)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.startWorker0(EquinoxBundle.java:1082)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$EquinoxModule.startWorker(EquinoxBundle.java:394)
+	at org.eclipse.osgi.container.Module.doStart(Module.java:643)
+	at org.eclipse.osgi.container.Module.start(Module.java:500)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:528)
+	at org.eclipse.osgi.internal.hooks.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:122)
+	at org.eclipse.osgi.internal.loader.classpath.ClasspathManager.findLocalClass(ClasspathManager.java:620)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.findLocalClass(ModuleClassLoader.java:353)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:418)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass0(BundleLoader.java:527)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:439)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:195)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:490)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:663)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:226)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:1034)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:286)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:65)
+	at org.eclipse.core.internal.preferences.PreferenceServiceRegistryHelper.runInitializer(PreferenceServiceRegistryHelper.java:288)
+	at org.eclipse.core.internal.preferences.PreferenceServiceRegistryHelper.applyRuntimeDefaults(PreferenceServiceRegistryHelper.java:114)
+	at org.eclipse.core.internal.preferences.PreferencesService.applyRuntimeDefaults(PreferencesService.java:338)
+	at org.eclipse.core.internal.preferences.DefaultPreferences.applyRuntimeDefaults(DefaultPreferences.java:233)
+	at org.eclipse.core.internal.preferences.DefaultPreferences.load(DefaultPreferences.java:288)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.create(EclipsePreferences.java:381)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.internalNode(EclipsePreferences.java:635)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.node(EclipsePreferences.java:771)
+	at org.eclipse.core.runtime.preferences.AbstractScope.getNode(AbstractScope.java:37)
+	at org.eclipse.e4.ui.css.swt.helpers.EclipsePreferencesHelper.overrideDefault(EclipsePreferencesHelper.java:147)
+	at org.eclipse.e4.ui.css.swt.properties.preference.EclipsePreferencesHandler.overrideProperty(EclipsePreferencesHandler.java:64)
+	at org.eclipse.e4.ui.css.swt.properties.preference.EclipsePreferencesHandler.overrideProperty(EclipsePreferencesHandler.java:55)
+	at org.eclipse.e4.ui.css.swt.properties.preference.EclipsePreferencesHandler.applyCSSProperty(EclipsePreferencesHandler.java:43)
+	at org.eclipse.e4.ui.css.core.impl.engine.AbstractCSSEngine.applyCSSProperty(AbstractCSSEngine.java:731)
+	at org.eclipse.e4.ui.css.core.impl.engine.AbstractCSSEngine.applyStyleDeclaration(AbstractCSSEngine.java:542)
+	at org.eclipse.e4.ui.css.core.impl.engine.AbstractCSSEngine.applyConditionalPseudoStyle(AbstractCSSEngine.java:503)
+	at org.eclipse.e4.ui.css.core.impl.engine.AbstractCSSEngine.applyStyles(AbstractCSSEngine.java:412)
+	at org.eclipse.e4.ui.css.core.impl.engine.AbstractCSSEngine.applyStyles(AbstractCSSEngine.java:369)
+	at org.eclipse.e4.ui.css.swt.internal.theme.ThemeEngine.applyStyles(ThemeEngine.java:553)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$StylingPreferencesHandler.overridePreferences(PartRenderingEngine.java:1485)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$StylingPreferencesHandler.handleEvent(PartRenderingEngine.java:1429)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.subscribeCssThemeChanged(PartRenderingEngine.java:378)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:58)
+	at org.eclipse.e4.core.di.internal.extensions.EventObjectSupplier$DIEventHandler.handleEvent(EventObjectSupplier.java:92)
+	at org.eclipse.equinox.internal.event.EventHandlerWrapper.handleEvent(EventHandlerWrapper.java:206)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:201)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.ListenerQueue.dispatchEventSynchronous(ListenerQueue.java:151)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.dispatchEvent(EventAdminImpl.java:132)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.sendEvent(EventAdminImpl.java:73)
+	at org.eclipse.equinox.internal.event.EventComponent.sendEvent(EventComponent.java:48)
+	at org.eclipse.e4.ui.css.swt.internal.theme.ThemeEngine.sendThemeChangeEvent(ThemeEngine.java:525)
+	at org.eclipse.e4.ui.css.swt.internal.theme.ThemeEngine.setTheme(ThemeEngine.java:504)
+	at org.eclipse.e4.ui.css.swt.internal.theme.ThemeEngine.setTheme(ThemeEngine.java:434)
+	at org.eclipse.e4.ui.css.swt.internal.theme.ThemeEngine.setTheme(ThemeEngine.java:426)
+	at org.eclipse.e4.ui.css.swt.internal.theme.ThemeEngine.restore(ThemeEngine.java:623)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.setCSSTheme(PartRenderingEngine.java:1409)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.initializeStyling(PartRenderingEngine.java:1316)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1042)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1038)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:153)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:677)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:583)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:185)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:219)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:149)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:115)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:467)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:298)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:615)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:563)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1415)
+
+!ENTRY org.eclipse.ui.editors 4 10001 2025-12-12 18:15:01.564
+!MESSAGE Ignoring template 'markdownmodulecomment' since validation failed.
+!STACK 0
+org.eclipse.jface.text.templates.TemplateException: Pattern is not a valid Java comment.
+	at org.eclipse.jdt.internal.core.manipulation.CodeTemplateContextType.validate(CodeTemplateContextType.java:416)
+	at org.eclipse.ui.editors.text.templates.ContributionTemplateStore.validateTemplate(ContributionTemplateStore.java:181)
+	at org.eclipse.ui.editors.text.templates.ContributionTemplateStore.readIncludedTemplates(ContributionTemplateStore.java:154)
+	at org.eclipse.ui.editors.text.templates.ContributionTemplateStore.readContributedTemplates(ContributionTemplateStore.java:120)
+	at org.eclipse.ui.editors.text.templates.ContributionTemplateStore.loadContributedTemplates(ContributionTemplateStore.java:109)
+	at org.eclipse.jface.text.templates.persistence.TemplateStore.load(TemplateStore.java:98)
+	at org.eclipse.jdt.internal.ui.JavaPlugin.getCodeTemplateStore(JavaPlugin.java:916)
+	at org.eclipse.jdt.internal.ui.JavaPlugin.start(JavaPlugin.java:429)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$2.run(BundleContextImpl.java:838)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$2.run(BundleContextImpl.java:1)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:251)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.startActivator(BundleContextImpl.java:830)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.start(BundleContextImpl.java:780)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.startWorker0(EquinoxBundle.java:1082)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$EquinoxModule.startWorker(EquinoxBundle.java:394)
+	at org.eclipse.osgi.container.Module.doStart(Module.java:643)
+	at org.eclipse.osgi.container.Module.start(Module.java:500)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:528)
+	at org.eclipse.osgi.internal.hooks.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:122)
+	at org.eclipse.osgi.internal.loader.classpath.ClasspathManager.findLocalClass(ClasspathManager.java:620)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.findLocalClass(ModuleClassLoader.java:353)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:418)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass0(BundleLoader.java:527)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:439)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:195)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:490)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:663)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:226)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:1034)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:286)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:65)
+	at org.eclipse.core.internal.preferences.PreferenceServiceRegistryHelper.runInitializer(PreferenceServiceRegistryHelper.java:288)
+	at org.eclipse.core.internal.preferences.PreferenceServiceRegistryHelper.applyRuntimeDefaults(PreferenceServiceRegistryHelper.java:114)
+	at org.eclipse.core.internal.preferences.PreferencesService.applyRuntimeDefaults(PreferencesService.java:338)
+	at org.eclipse.core.internal.preferences.DefaultPreferences.applyRuntimeDefaults(DefaultPreferences.java:233)
+	at org.eclipse.core.internal.preferences.DefaultPreferences.load(DefaultPreferences.java:288)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.create(EclipsePreferences.java:381)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.internalNode(EclipsePreferences.java:635)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.node(EclipsePreferences.java:771)
+	at org.eclipse.core.runtime.preferences.AbstractScope.getNode(AbstractScope.java:37)
+	at org.eclipse.e4.ui.css.swt.helpers.EclipsePreferencesHelper.overrideDefault(EclipsePreferencesHelper.java:147)
+	at org.eclipse.e4.ui.css.swt.properties.preference.EclipsePreferencesHandler.overrideProperty(EclipsePreferencesHandler.java:64)
+	at org.eclipse.e4.ui.css.swt.properties.preference.EclipsePreferencesHandler.overrideProperty(EclipsePreferencesHandler.java:55)
+	at org.eclipse.e4.ui.css.swt.properties.preference.EclipsePreferencesHandler.applyCSSProperty(EclipsePreferencesHandler.java:43)
+	at org.eclipse.e4.ui.css.core.impl.engine.AbstractCSSEngine.applyCSSProperty(AbstractCSSEngine.java:731)
+	at org.eclipse.e4.ui.css.core.impl.engine.AbstractCSSEngine.applyStyleDeclaration(AbstractCSSEngine.java:542)
+	at org.eclipse.e4.ui.css.core.impl.engine.AbstractCSSEngine.applyConditionalPseudoStyle(AbstractCSSEngine.java:503)
+	at org.eclipse.e4.ui.css.core.impl.engine.AbstractCSSEngine.applyStyles(AbstractCSSEngine.java:412)
+	at org.eclipse.e4.ui.css.core.impl.engine.AbstractCSSEngine.applyStyles(AbstractCSSEngine.java:369)
+	at org.eclipse.e4.ui.css.swt.internal.theme.ThemeEngine.applyStyles(ThemeEngine.java:553)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$StylingPreferencesHandler.overridePreferences(PartRenderingEngine.java:1485)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$StylingPreferencesHandler.handleEvent(PartRenderingEngine.java:1429)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.subscribeCssThemeChanged(PartRenderingEngine.java:378)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:58)
+	at org.eclipse.e4.core.di.internal.extensions.EventObjectSupplier$DIEventHandler.handleEvent(EventObjectSupplier.java:92)
+	at org.eclipse.equinox.internal.event.EventHandlerWrapper.handleEvent(EventHandlerWrapper.java:206)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:201)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.ListenerQueue.dispatchEventSynchronous(ListenerQueue.java:151)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.dispatchEvent(EventAdminImpl.java:132)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.sendEvent(EventAdminImpl.java:73)
+	at org.eclipse.equinox.internal.event.EventComponent.sendEvent(EventComponent.java:48)
+	at org.eclipse.e4.ui.css.swt.internal.theme.ThemeEngine.sendThemeChangeEvent(ThemeEngine.java:525)
+	at org.eclipse.e4.ui.css.swt.internal.theme.ThemeEngine.setTheme(ThemeEngine.java:504)
+	at org.eclipse.e4.ui.css.swt.internal.theme.ThemeEngine.setTheme(ThemeEngine.java:434)
+	at org.eclipse.e4.ui.css.swt.internal.theme.ThemeEngine.setTheme(ThemeEngine.java:426)
+	at org.eclipse.e4.ui.css.swt.internal.theme.ThemeEngine.restore(ThemeEngine.java:623)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.setCSSTheme(PartRenderingEngine.java:1409)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.initializeStyling(PartRenderingEngine.java:1316)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1042)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1038)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:153)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:677)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:583)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:185)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:219)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:149)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:115)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:467)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:298)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:615)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:563)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1415)
+
+!ENTRY org.eclipse.ui.editors 4 10001 2025-12-12 18:15:01.565
+!MESSAGE Ignoring template 'markdowndelegatecomment' since validation failed.
+!STACK 0
+org.eclipse.jface.text.templates.TemplateException: Pattern is not a valid Java comment.
+	at org.eclipse.jdt.internal.core.manipulation.CodeTemplateContextType.validate(CodeTemplateContextType.java:416)
+	at org.eclipse.ui.editors.text.templates.ContributionTemplateStore.validateTemplate(ContributionTemplateStore.java:181)
+	at org.eclipse.ui.editors.text.templates.ContributionTemplateStore.readIncludedTemplates(ContributionTemplateStore.java:154)
+	at org.eclipse.ui.editors.text.templates.ContributionTemplateStore.readContributedTemplates(ContributionTemplateStore.java:120)
+	at org.eclipse.ui.editors.text.templates.ContributionTemplateStore.loadContributedTemplates(ContributionTemplateStore.java:109)
+	at org.eclipse.jface.text.templates.persistence.TemplateStore.load(TemplateStore.java:98)
+	at org.eclipse.jdt.internal.ui.JavaPlugin.getCodeTemplateStore(JavaPlugin.java:916)
+	at org.eclipse.jdt.internal.ui.JavaPlugin.start(JavaPlugin.java:429)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$2.run(BundleContextImpl.java:838)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$2.run(BundleContextImpl.java:1)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:251)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.startActivator(BundleContextImpl.java:830)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.start(BundleContextImpl.java:780)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.startWorker0(EquinoxBundle.java:1082)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$EquinoxModule.startWorker(EquinoxBundle.java:394)
+	at org.eclipse.osgi.container.Module.doStart(Module.java:643)
+	at org.eclipse.osgi.container.Module.start(Module.java:500)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:528)
+	at org.eclipse.osgi.internal.hooks.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:122)
+	at org.eclipse.osgi.internal.loader.classpath.ClasspathManager.findLocalClass(ClasspathManager.java:620)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.findLocalClass(ModuleClassLoader.java:353)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:418)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass0(BundleLoader.java:527)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:439)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:195)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:490)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:663)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:226)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:1034)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:286)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:65)
+	at org.eclipse.core.internal.preferences.PreferenceServiceRegistryHelper.runInitializer(PreferenceServiceRegistryHelper.java:288)
+	at org.eclipse.core.internal.preferences.PreferenceServiceRegistryHelper.applyRuntimeDefaults(PreferenceServiceRegistryHelper.java:114)
+	at org.eclipse.core.internal.preferences.PreferencesService.applyRuntimeDefaults(PreferencesService.java:338)
+	at org.eclipse.core.internal.preferences.DefaultPreferences.applyRuntimeDefaults(DefaultPreferences.java:233)
+	at org.eclipse.core.internal.preferences.DefaultPreferences.load(DefaultPreferences.java:288)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.create(EclipsePreferences.java:381)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.internalNode(EclipsePreferences.java:635)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.node(EclipsePreferences.java:771)
+	at org.eclipse.core.runtime.preferences.AbstractScope.getNode(AbstractScope.java:37)
+	at org.eclipse.e4.ui.css.swt.helpers.EclipsePreferencesHelper.overrideDefault(EclipsePreferencesHelper.java:147)
+	at org.eclipse.e4.ui.css.swt.properties.preference.EclipsePreferencesHandler.overrideProperty(EclipsePreferencesHandler.java:64)
+	at org.eclipse.e4.ui.css.swt.properties.preference.EclipsePreferencesHandler.overrideProperty(EclipsePreferencesHandler.java:55)
+	at org.eclipse.e4.ui.css.swt.properties.preference.EclipsePreferencesHandler.applyCSSProperty(EclipsePreferencesHandler.java:43)
+	at org.eclipse.e4.ui.css.core.impl.engine.AbstractCSSEngine.applyCSSProperty(AbstractCSSEngine.java:731)
+	at org.eclipse.e4.ui.css.core.impl.engine.AbstractCSSEngine.applyStyleDeclaration(AbstractCSSEngine.java:542)
+	at org.eclipse.e4.ui.css.core.impl.engine.AbstractCSSEngine.applyConditionalPseudoStyle(AbstractCSSEngine.java:503)
+	at org.eclipse.e4.ui.css.core.impl.engine.AbstractCSSEngine.applyStyles(AbstractCSSEngine.java:412)
+	at org.eclipse.e4.ui.css.core.impl.engine.AbstractCSSEngine.applyStyles(AbstractCSSEngine.java:369)
+	at org.eclipse.e4.ui.css.swt.internal.theme.ThemeEngine.applyStyles(ThemeEngine.java:553)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$StylingPreferencesHandler.overridePreferences(PartRenderingEngine.java:1485)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$StylingPreferencesHandler.handleEvent(PartRenderingEngine.java:1429)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.subscribeCssThemeChanged(PartRenderingEngine.java:378)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:58)
+	at org.eclipse.e4.core.di.internal.extensions.EventObjectSupplier$DIEventHandler.handleEvent(EventObjectSupplier.java:92)
+	at org.eclipse.equinox.internal.event.EventHandlerWrapper.handleEvent(EventHandlerWrapper.java:206)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:201)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.ListenerQueue.dispatchEventSynchronous(ListenerQueue.java:151)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.dispatchEvent(EventAdminImpl.java:132)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.sendEvent(EventAdminImpl.java:73)
+	at org.eclipse.equinox.internal.event.EventComponent.sendEvent(EventComponent.java:48)
+	at org.eclipse.e4.ui.css.swt.internal.theme.ThemeEngine.sendThemeChangeEvent(ThemeEngine.java:525)
+	at org.eclipse.e4.ui.css.swt.internal.theme.ThemeEngine.setTheme(ThemeEngine.java:504)
+	at org.eclipse.e4.ui.css.swt.internal.theme.ThemeEngine.setTheme(ThemeEngine.java:434)
+	at org.eclipse.e4.ui.css.swt.internal.theme.ThemeEngine.setTheme(ThemeEngine.java:426)
+	at org.eclipse.e4.ui.css.swt.internal.theme.ThemeEngine.restore(ThemeEngine.java:623)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.setCSSTheme(PartRenderingEngine.java:1409)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.initializeStyling(PartRenderingEngine.java:1316)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1042)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1038)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:153)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:677)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:583)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:185)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:219)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:149)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:115)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:467)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:298)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:615)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:563)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1415)
+
+!ENTRY org.eclipse.egit.ui 2 0 2025-12-12 18:15:09.401
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\HP'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:15:10.459
+!MESSAGE 18:15:10.438 [Simple-Language-Server main thread] INFO  o.s.i.v.b.a.BootVersionValidationConfig - Started Boot Version reconciler
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:15:10.581
+!MESSAGE 18:15:10.578 [Simple-Language-Server main thread] INFO  o.s.i.v.boot.app.SpringSymbolIndex - update settings of spring indexer - start
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:15:10.592
+!MESSAGE 18:15:10.591 [Simple-Language-Server main thread] INFO  o.s.i.v.b.j.l.v.SpringProcessConnectorRemote - updating settings for remote processses to track - start
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:15:10.595
+!MESSAGE 18:15:10.594 [Simple-Language-Server main thread] INFO  o.s.i.v.b.j.l.v.SpringProcessConnectorRemote - updating settings for remote processses to track - start
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:15:11.353
+!MESSAGE WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:15:11.355
+!MESSAGE WARNING: sun.misc.Unsafe::objectFieldOffset has been called by com.google.common.util.concurrent.AbstractFuture$UnsafeAtomicHelper (file:/C:/Users/HP/Downloads/spring-tools-for-eclipse-5.0.0.RC2-e4.38.0-win32.win32.x86_64/sts-5.0.0.RC2/plugins/org.springframework.tooling.boot.ls_2.0.0.202512010627/servers/spring-boot-language-server/lib/guava-31.1-jre.jar)
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:15:11.357
+!MESSAGE WARNING: Please consider reporting this to the maintainers of class com.google.common.util.concurrent.AbstractFuture$UnsafeAtomicHelper
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:15:11.358
+!MESSAGE WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:15:11.396
+!MESSAGE 18:15:11.387 [pool-6-thread-1] INFO  o.s.i.v.b.j.u.SpringFactoriesIndexer - scan factories files for symbols for project: laundry-app took ms: 36
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:15:11.499
+!MESSAGE 18:15:11.494 [pool-6-thread-1] INFO  o.s.i.v.b.j.utils.SpringIndexerJava - scan java files restored cached dependency data: 0 - no. of cached dependencies: {}
+
+!ENTRY org.eclipse.ui.workbench 4 0 2025-12-12 18:15:11.755
+!MESSAGE Failed to obtain 'WinDefend' service state
+!STACK 0
+java.io.IOException: Process timed-out and it was attempted to forcefully terminate it
+	at org.eclipse.ui.internal.WindowsDefenderConfigurator.runProcess(WindowsDefenderConfigurator.java:395)
+	at org.eclipse.ui.internal.WindowsDefenderConfigurator.runPowershell(WindowsDefenderConfigurator.java:369)
+	at org.eclipse.ui.internal.WindowsDefenderConfigurator.isWindowsDefenderServiceRunning(WindowsDefenderConfigurator.java:302)
+	at org.eclipse.ui.internal.WindowsDefenderConfigurator.runExclusionCheck(WindowsDefenderConfigurator.java:159)
+	at org.eclipse.ui.internal.WindowsDefenderConfigurator.lambda$0(WindowsDefenderConfigurator.java:106)
+	at org.eclipse.core.runtime.jobs.Job$2.run(Job.java:187)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:15:11.867
+!MESSAGE 18:15:11.867 [Project-Reconciler-1] INFO  o.s.i.v.boot.app.RestTemplateFactory - Env var https_proxy: null
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:15:13.238
+!MESSAGE 18:15:13.237 [Project-Reconciler-1] INFO  o.s.i.v.boot.app.RestTemplateFactory - Environment size: 51
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:15:13.812
+!MESSAGE 18:15:13.238 [pool-3-thread-2] INFO  o.s.i.v.boot.app.RestTemplateFactory - Proxy URL from env: null
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:15:13.812
+!MESSAGE 18:15:13.811 [pool-3-thread-1] INFO  o.s.i.v.boot.app.RestTemplateFactory - Proxy URL from env: null
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:15:28.776
+!MESSAGE 18:15:28.772 [Simple-Language-Server main thread] INFO  o.s.i.v.c.l.u.SimpleWorkspaceService - file deleted event: [file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/TestDto.java]
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-12-12 18:15:29.831
+!MESSAGE Direct modification of compileSourceRoots through clear() is deprecated and will not work in Maven 4.0.0. Please use the add/remove methods instead. If you're using a plugin that causes this warning, please upgrade to the latest version and report an issue if the warning persists. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-12-12 18:15:29.831
+!MESSAGE Direct modification of compileSourceRoots through add() is deprecated and will not work in Maven 4.0.0. Please use the add/remove methods instead. If you're using a plugin that causes this warning, please upgrade to the latest version and report an issue if the warning persists. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-12-12 18:15:29.832
+!MESSAGE Direct modification of testCompileSourceRoots through clear() is deprecated and will not work in Maven 4.0.0. Please use the add/remove methods instead. If you're using a plugin that causes this warning, please upgrade to the latest version and report an issue if the warning persists. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-12-12 18:15:29.833
+!MESSAGE Direct modification of testCompileSourceRoots through add() is deprecated and will not work in Maven 4.0.0. Please use the add/remove methods instead. If you're using a plugin that causes this warning, please upgrade to the latest version and report an issue if the warning persists. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:15:29.860
+!MESSAGE 18:15:29.860 [Simple-Language-Server main thread] INFO  o.s.i.v.boot.app.SpringSymbolIndex - Update document [file changed]: file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/target/classes/application.properties
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:15:30.809
+!MESSAGE 18:15:29.868 [Simple-Language-Server main thread] INFO  o.s.i.v.c.l.u.SimpleWorkspaceService - file changed event: [file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/target/classes/META-INF/maven/com.laundryapp/laundry-app/pom.properties, file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/target/classes/application.properties, file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/target/classes/com/laundryapp/service/UserService.class]
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:15:30.809
+!MESSAGE 18:15:29.895 [pool-6-thread-1] INFO  o.s.i.v.b.j.utils.SpringIndexerJava - additional reconciling with complete index triggered for: [D:\C DAC\LAUNDRY-APP\laundry-app\src\main\java\com\laundryapp\controller\AuthController.java]
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:15:51.654
+!MESSAGE 18:15:51.653 [pool-3-thread-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: work item submitted for doc file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/dto/RegisterRequest.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:15:51.713
+!MESSAGE 18:15:51.676 [pool-3-thread-4] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: work item submitted for doc file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/dto/RegisterRequest.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:15:52.271
+!MESSAGE 18:15:52.155 [Reconciler-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: start work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/dto/RegisterRequest.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:16:05.732
+!MESSAGE 18:15:52.288 [pool-3-thread-4] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: start work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/dto/RegisterRequest.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:16:05.753
+!MESSAGE 18:16:05.745 [pool-3-thread-4] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: start work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/dto/RegisterRequest.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:16:06.141
+!MESSAGE 18:16:06.140 [Reconciler-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: start work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/dto/RegisterRequest.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:16:07.286
+!MESSAGE 18:16:06.142 [Reconciler-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: end work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/dto/RegisterRequest.java
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-12-12 18:16:07.799
+!MESSAGE Direct modification of compileSourceRoots through clear() is deprecated and will not work in Maven 4.0.0. Please use the add/remove methods instead. If you're using a plugin that causes this warning, please upgrade to the latest version and report an issue if the warning persists. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-12-12 18:16:07.800
+!MESSAGE Direct modification of compileSourceRoots through add() is deprecated and will not work in Maven 4.0.0. Please use the add/remove methods instead. If you're using a plugin that causes this warning, please upgrade to the latest version and report an issue if the warning persists. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-12-12 18:16:07.801
+!MESSAGE Direct modification of testCompileSourceRoots through clear() is deprecated and will not work in Maven 4.0.0. Please use the add/remove methods instead. If you're using a plugin that causes this warning, please upgrade to the latest version and report an issue if the warning persists. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-12-12 18:16:07.803
+!MESSAGE Direct modification of testCompileSourceRoots through add() is deprecated and will not work in Maven 4.0.0. Please use the add/remove methods instead. If you're using a plugin that causes this warning, please upgrade to the latest version and report an issue if the warning persists. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:16:07.828
+!MESSAGE 18:16:07.419 [pool-6-thread-1] INFO  o.s.i.v.b.j.utils.SpringIndexerJava - Finished scanning affected files [D:\C DAC\LAUNDRY-APP\laundry-app\src\main\java\com\laundryapp\dto\RegisterRequest.java]
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:16:07.843
+!MESSAGE 18:16:07.842 [Simple-Language-Server main thread] INFO  o.s.i.v.c.l.u.SimpleWorkspaceService - file changed event: [file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/target/classes/application.properties, file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/target/classes/com/laundryapp/dto/RegisterRequest.class, file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/target/classes/com/laundryapp/service/UserService.class]
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:16:07.949
+!MESSAGE 18:16:07.931 [pool-6-thread-1] INFO  o.s.i.v.b.j.utils.SpringIndexerJava - additional reconciling with complete index triggered for: [D:\C DAC\LAUNDRY-APP\laundry-app\src\main\java\com\laundryapp\controller\AuthController.java]
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:16:08.392
+!MESSAGE 18:16:08.391 [pool-5-thread-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - Finished parsing CU for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/dto/RegisterRequest.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:16:08.400
+!MESSAGE 18:16:08.397 [pool-3-thread-4] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: start work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/dto/RegisterRequest.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:16:08.400
+!MESSAGE 18:16:08.399 [pool-3-thread-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: start work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/dto/RegisterRequest.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:16:08.401
+!MESSAGE 18:16:08.399 [pool-3-thread-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: end work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/dto/RegisterRequest.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:16:29.135
+!MESSAGE 18:16:28.942 [pool-14-thread-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - Invalidate AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/dto/LoginRequest.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:16:29.137
+!MESSAGE 18:16:28.954 [pool-3-thread-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: end work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/dto/LoginRequest.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:16:29.143
+!MESSAGE 18:16:29.143 [pool-3-thread-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: end work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/dto/LoginRequest.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:16:29.278
+!MESSAGE 18:16:29.277 [pool-3-thread-4] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: start work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/dto/RegisterRequest.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:16:29.447
+!MESSAGE 18:16:29.445 [Reconciler-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: start work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/dto/LoginRequest.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:16:31.967
+!MESSAGE 18:16:31.966 [pool-14-thread-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - Invalidate AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/dto/LoginRequest.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:16:32.067
+!MESSAGE 18:16:32.067 [pool-5-thread-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - Finished parsing CU for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/dto/LoginRequest.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:16:32.471
+!MESSAGE 18:16:32.470 [Reconciler-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: work item submitted for doc file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/dto/LoginRequest.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:16:32.472
+!MESSAGE 18:16:32.470 [Reconciler-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: start work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/dto/LoginRequest.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:16:33.989
+!MESSAGE 18:16:33.989 [Simple-Language-Server main thread] INFO  o.s.i.v.c.l.u.SimpleWorkspaceService - file changed event: [file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/dto/LoginRequest.java]
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-12-12 18:16:34.224
+!MESSAGE Direct modification of compileSourceRoots through clear() is deprecated and will not work in Maven 4.0.0. Please use the add/remove methods instead. If you're using a plugin that causes this warning, please upgrade to the latest version and report an issue if the warning persists. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-12-12 18:16:34.225
+!MESSAGE Direct modification of compileSourceRoots through add() is deprecated and will not work in Maven 4.0.0. Please use the add/remove methods instead. If you're using a plugin that causes this warning, please upgrade to the latest version and report an issue if the warning persists. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-12-12 18:16:34.225
+!MESSAGE Direct modification of testCompileSourceRoots through clear() is deprecated and will not work in Maven 4.0.0. Please use the add/remove methods instead. If you're using a plugin that causes this warning, please upgrade to the latest version and report an issue if the warning persists. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-12-12 18:16:34.226
+!MESSAGE Direct modification of testCompileSourceRoots through add() is deprecated and will not work in Maven 4.0.0. Please use the add/remove methods instead. If you're using a plugin that causes this warning, please upgrade to the latest version and report an issue if the warning persists. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:16:34.245
+!MESSAGE 18:16:34.083 [pool-6-thread-1] INFO  o.s.i.v.b.j.utils.SpringIndexerJava - Finished scanning affected files [D:\C DAC\LAUNDRY-APP\laundry-app\src\main\java\com\laundryapp\dto\LoginRequest.java]
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:16:34.351
+!MESSAGE 18:16:34.247 [Simple-Language-Server main thread] INFO  o.s.i.v.boot.app.SpringSymbolIndex - Update document [file changed]: file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/target/classes/application.properties
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:16:34.766
+!MESSAGE 18:16:34.764 [pool-5-thread-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - Started parsing CU for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/dto/LoginRequest.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:16:34.767
+!MESSAGE 18:16:34.764 [pool-5-thread-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - Creating name env for project 'laundry-app'
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:16:34.792
+!MESSAGE 18:16:34.792 [pool-5-thread-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - Parsed successfully CU for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/dto/LoginRequest.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:16:34.797
+!MESSAGE 18:16:34.796 [pool-3-thread-4] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: end work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/dto/LoginRequest.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:16:48.679
+!MESSAGE 18:16:48.677 [pool-3-thread-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: work item submitted for doc file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/dto/LoginRequest.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:16:49.530
+!MESSAGE 18:16:48.682 [pool-3-thread-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: start work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/dto/LoginRequest.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:16:49.531
+!MESSAGE 18:16:49.529 [pool-3-thread-4] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: work item submitted for doc file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/entity/User.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:16:49.532
+!MESSAGE 18:16:49.529 [pool-5-thread-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - Started parsing CU for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/entity/User.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:16:49.542
+!MESSAGE 18:16:49.541 [pool-5-thread-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - Parsed successfully CU for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/entity/User.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:16:49.542
+!MESSAGE 18:16:49.541 [pool-3-thread-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: start work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/entity/User.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:16:49.543
+!MESSAGE 18:16:49.541 [pool-3-thread-4] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: start work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/entity/User.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:16:49.661
+!MESSAGE 18:16:49.543 [pool-3-thread-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: end work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/entity/User.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:16:49.662
+!MESSAGE 18:16:49.656 [pool-3-thread-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: end work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/entity/User.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:16:49.663
+!MESSAGE 18:16:49.662 [pool-3-thread-2] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: start work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/entity/User.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:16:50.034
+!MESSAGE 18:16:50.033 [Reconciler-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: end work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/entity/User.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:16:55.849
+!MESSAGE 18:16:55.848 [pool-3-thread-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: work item submitted for doc file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/entity/User.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:16:55.871
+!MESSAGE 18:16:55.865 [pool-3-thread-2] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: start work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/entity/User.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:16:56.283
+!MESSAGE 18:16:56.282 [Reconciler-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: end work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/entity/User.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:16:57.835
+!MESSAGE 18:16:57.833 [Simple-Language-Server main thread] INFO  o.s.i.v.c.l.u.SimpleWorkspaceService - file changed event: [file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/entity/User.java]
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:16:57.950
+!MESSAGE 18:16:57.838 [Simple-Language-Server main thread] INFO  o.s.i.v.boot.app.SpringSymbolIndex - Update document [file changed]: file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/entity/User.java
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-12-12 18:16:58.116
+!MESSAGE Direct modification of compileSourceRoots through clear() is deprecated and will not work in Maven 4.0.0. Please use the add/remove methods instead. If you're using a plugin that causes this warning, please upgrade to the latest version and report an issue if the warning persists. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-12-12 18:16:58.116
+!MESSAGE Direct modification of compileSourceRoots through add() is deprecated and will not work in Maven 4.0.0. Please use the add/remove methods instead. If you're using a plugin that causes this warning, please upgrade to the latest version and report an issue if the warning persists. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-12-12 18:16:58.117
+!MESSAGE Direct modification of testCompileSourceRoots through clear() is deprecated and will not work in Maven 4.0.0. Please use the add/remove methods instead. If you're using a plugin that causes this warning, please upgrade to the latest version and report an issue if the warning persists. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-12-12 18:16:58.117
+!MESSAGE Direct modification of testCompileSourceRoots through add() is deprecated and will not work in Maven 4.0.0. Please use the add/remove methods instead. If you're using a plugin that causes this warning, please upgrade to the latest version and report an issue if the warning persists. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:16:58.655
+!MESSAGE 18:16:58.654 [pool-3-thread-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: work item submitted for doc file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/entity/User.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:16:58.685
+!MESSAGE 18:16:58.685 [pool-3-thread-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: work item submitted for doc file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/entity/User.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:16:58.686
+!MESSAGE 18:16:58.685 [pool-3-thread-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: start work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/entity/User.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:17:10.550
+!MESSAGE 18:17:10.546 [pool-3-thread-2] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: work item submitted for doc file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/entity/Role.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:17:10.561
+!MESSAGE 18:17:10.560 [pool-5-thread-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - Finished parsing CU for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/entity/Role.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:17:11.052
+!MESSAGE 18:17:10.619 [pool-3-thread-3] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: start work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/entity/User.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:17:11.053
+!MESSAGE 18:17:11.050 [pool-3-thread-3] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: work item submitted for doc file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/entity/Role.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:17:11.054
+!MESSAGE 18:17:11.050 [pool-3-thread-3] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: start work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/entity/Role.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:17:11.054
+!MESSAGE 18:17:11.051 [pool-3-thread-3] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: end work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/entity/Role.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:17:14.665
+!MESSAGE 18:17:14.665 [pool-3-thread-3] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: work item submitted for doc file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/entity/Role.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:17:14.673
+!MESSAGE 18:17:14.672 [pool-5-thread-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - Finished parsing CU for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/entity/Role.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:17:14.676
+!MESSAGE 18:17:14.675 [pool-3-thread-3] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: work item submitted for doc file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/entity/Role.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:17:14.678
+!MESSAGE 18:17:14.677 [pool-3-thread-2] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: start work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/entity/Role.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:17:15.114
+!MESSAGE 18:17:15.113 [Reconciler-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: start work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/entity/Role.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:17:15.879
+!MESSAGE 18:17:15.878 [Simple-Language-Server main thread] INFO  o.s.i.v.c.l.u.SimpleWorkspaceService - file changed event: [file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/entity/Role.java]
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-12-12 18:17:16.784
+!MESSAGE Direct modification of compileSourceRoots through clear() is deprecated and will not work in Maven 4.0.0. Please use the add/remove methods instead. If you're using a plugin that causes this warning, please upgrade to the latest version and report an issue if the warning persists. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-12-12 18:17:16.784
+!MESSAGE Direct modification of compileSourceRoots through add() is deprecated and will not work in Maven 4.0.0. Please use the add/remove methods instead. If you're using a plugin that causes this warning, please upgrade to the latest version and report an issue if the warning persists. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-12-12 18:17:16.785
+!MESSAGE Direct modification of testCompileSourceRoots through clear() is deprecated and will not work in Maven 4.0.0. Please use the add/remove methods instead. If you're using a plugin that causes this warning, please upgrade to the latest version and report an issue if the warning persists. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-12-12 18:17:16.786
+!MESSAGE Direct modification of testCompileSourceRoots through add() is deprecated and will not work in Maven 4.0.0. Please use the add/remove methods instead. If you're using a plugin that causes this warning, please upgrade to the latest version and report an issue if the warning persists. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:17:16.803
+!MESSAGE 18:17:15.962 [pool-6-thread-1] INFO  o.s.i.v.b.j.utils.SpringIndexerJava - Finished scanning affected files [D:\C DAC\LAUNDRY-APP\laundry-app\src\main\java\com\laundryapp\entity\Role.java]
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:17:16.908
+!MESSAGE 18:17:16.805 [Simple-Language-Server main thread] INFO  o.s.i.v.boot.app.SpringSymbolIndex - Update document [file changed]: file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/target/classes/application.properties
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:17:17.358
+!MESSAGE 18:17:17.320 [pool-5-thread-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - Creating name env for project 'laundry-app'
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-12-12 18:17:25.022
+!MESSAGE Direct modification of compileSourceRoots through clear() is deprecated and will not work in Maven 4.0.0. Please use the add/remove methods instead. If you're using a plugin that causes this warning, please upgrade to the latest version and report an issue if the warning persists. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-12-12 18:17:25.023
+!MESSAGE Direct modification of compileSourceRoots through add() is deprecated and will not work in Maven 4.0.0. Please use the add/remove methods instead. If you're using a plugin that causes this warning, please upgrade to the latest version and report an issue if the warning persists. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-12-12 18:17:25.023
+!MESSAGE Direct modification of testCompileSourceRoots through clear() is deprecated and will not work in Maven 4.0.0. Please use the add/remove methods instead. If you're using a plugin that causes this warning, please upgrade to the latest version and report an issue if the warning persists. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-12-12 18:17:25.024
+!MESSAGE Direct modification of testCompileSourceRoots through add() is deprecated and will not work in Maven 4.0.0. Please use the add/remove methods instead. If you're using a plugin that causes this warning, please upgrade to the latest version and report an issue if the warning persists. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:17:25.059
+!MESSAGE 18:17:24.793 [Simple-Language-Server main thread] INFO  o.s.i.v.c.l.u.SimpleWorkspaceService - file deleted event: 12
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:17:25.174
+!MESSAGE 18:17:25.174 [pool-6-thread-1] INFO  o.s.i.v.b.i.c.IndexCacheOnDiscDeltaBased - compacting...
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:17:25.597
+!MESSAGE 18:17:25.596 [pool-5-thread-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - Parsed successfully CU for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/entity/Role.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:17:25.601
+!MESSAGE 18:17:25.601 [pool-3-thread-3] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: start work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/entity/Role.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:17:25.603
+!MESSAGE 18:17:25.602 [pool-3-thread-2] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: work item submitted for doc file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/entity/Role.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:17:41.171
+!MESSAGE 18:17:41.157 [pool-3-thread-4] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: work item submitted for doc file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/service/UserService.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:17:41.172
+!MESSAGE 18:17:41.170 [pool-5-thread-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - Finished parsing CU for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/service/UserService.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:17:41.296
+!MESSAGE 18:17:41.295 [pool-3-thread-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: start work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/service/UserService.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:17:41.652
+!MESSAGE 18:17:41.651 [Reconciler-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: work item submitted for doc file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/service/UserService.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:17:46.823
+!MESSAGE 18:17:41.652 [Reconciler-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: end work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/service/UserService.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:17:46.824
+!MESSAGE 18:17:46.821 [pool-3-thread-2] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: end work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/service/UserService.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:17:47.287
+!MESSAGE 18:17:47.286 [pool-14-thread-1] INFO  o.s.i.v.c.l.u.SimpleTextDocumentService - change arrived: 2
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:17:47.365
+!MESSAGE 18:17:47.364 [pool-5-thread-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - Started parsing CU for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/service/UserService.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:17:47.376
+!MESSAGE 18:17:47.375 [pool-5-thread-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - Finished parsing CU for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/service/UserService.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:17:47.792
+!MESSAGE 18:17:47.380 [pool-3-thread-2] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: start work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/service/UserService.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:17:48.372
+!MESSAGE 18:17:48.372 [pool-3-thread-2] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: start work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/service/UserService.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:17:50.604
+!MESSAGE 18:17:50.586 [pool-14-thread-1] INFO  o.s.i.v.c.l.u.SimpleTextDocumentService - doc save event: file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/service/UserService.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:17:50.766
+!MESSAGE 18:17:50.605 [Simple-Language-Server main thread] INFO  o.s.i.v.boot.app.SpringSymbolIndex - Update document [file changed]: file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/service/UserService.java
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-12-12 18:17:50.794
+!MESSAGE Direct modification of compileSourceRoots through clear() is deprecated and will not work in Maven 4.0.0. Please use the add/remove methods instead. If you're using a plugin that causes this warning, please upgrade to the latest version and report an issue if the warning persists. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-12-12 18:17:50.795
+!MESSAGE Direct modification of compileSourceRoots through add() is deprecated and will not work in Maven 4.0.0. Please use the add/remove methods instead. If you're using a plugin that causes this warning, please upgrade to the latest version and report an issue if the warning persists. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-12-12 18:17:50.796
+!MESSAGE Direct modification of testCompileSourceRoots through clear() is deprecated and will not work in Maven 4.0.0. Please use the add/remove methods instead. If you're using a plugin that causes this warning, please upgrade to the latest version and report an issue if the warning persists. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-12-12 18:17:50.797
+!MESSAGE Direct modification of testCompileSourceRoots through add() is deprecated and will not work in Maven 4.0.0. Please use the add/remove methods instead. If you're using a plugin that causes this warning, please upgrade to the latest version and report an issue if the warning persists. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:17:50.830
+!MESSAGE 18:17:50.829 [Simple-Language-Server main thread] INFO  o.s.i.v.c.l.u.SimpleWorkspaceService - file changed event: [file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/target/classes/application.properties, file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/target/classes/com/laundryapp/service/UserService.class]
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:17:50.952
+!MESSAGE 18:17:50.932 [ForkJoinPool.commonPool-worker-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - Removing and cleaning up name env for project file:/D:/C%20DAC/LAUNDRY-APP/laundry-app
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:17:51.051
+!MESSAGE 18:17:51.015 [pool-5-thread-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - Started parsing CU for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/service/UserService.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:17:58.414
+!MESSAGE 18:17:58.413 [pool-3-thread-2] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: work item submitted for doc file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/service/UserService.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:17:58.424
+!MESSAGE 18:17:58.423 [pool-5-thread-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - Finished parsing CU for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/service/UserService.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:17:58.429
+!MESSAGE 18:17:58.427 [pool-3-thread-2] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: start work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/service/UserService.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:17:58.864
+!MESSAGE 18:17:58.862 [Reconciler-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: start work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/service/UserService.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:17:58.865
+!MESSAGE 18:17:58.864 [Reconciler-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: end work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/service/UserService.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:17:59.859
+!MESSAGE 18:17:59.856 [Simple-Language-Server main thread] INFO  o.s.i.v.c.l.u.SimpleWorkspaceService - file changed event: [file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/service/UserService.java]
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-12-12 18:18:00.088
+!MESSAGE Direct modification of compileSourceRoots through clear() is deprecated and will not work in Maven 4.0.0. Please use the add/remove methods instead. If you're using a plugin that causes this warning, please upgrade to the latest version and report an issue if the warning persists. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-12-12 18:18:00.088
+!MESSAGE Direct modification of compileSourceRoots through add() is deprecated and will not work in Maven 4.0.0. Please use the add/remove methods instead. If you're using a plugin that causes this warning, please upgrade to the latest version and report an issue if the warning persists. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-12-12 18:18:00.089
+!MESSAGE Direct modification of testCompileSourceRoots through clear() is deprecated and will not work in Maven 4.0.0. Please use the add/remove methods instead. If you're using a plugin that causes this warning, please upgrade to the latest version and report an issue if the warning persists. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-12-12 18:18:00.089
+!MESSAGE Direct modification of testCompileSourceRoots through add() is deprecated and will not work in Maven 4.0.0. Please use the add/remove methods instead. If you're using a plugin that causes this warning, please upgrade to the latest version and report an issue if the warning persists. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:18:00.105
+!MESSAGE 18:17:59.966 [pool-6-thread-1] INFO  o.s.i.v.b.j.utils.SpringIndexerJava - Finished scanning affected files [D:\C DAC\LAUNDRY-APP\laundry-app\src\main\java\com\laundryapp\service\UserService.java]
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:18:00.193
+!MESSAGE 18:18:00.107 [Simple-Language-Server main thread] INFO  o.s.i.v.boot.app.SpringSymbolIndex - Update document [file changed]: file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/target/classes/application.properties
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:18:00.654
+!MESSAGE 18:18:00.623 [pool-5-thread-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - Started parsing CU for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/service/UserService.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:18:00.655
+!MESSAGE 18:18:00.654 [pool-3-thread-2] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: start work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/service/UserService.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:18:00.659
+!MESSAGE 18:18:00.657 [pool-3-thread-2] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: start work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/service/UserService.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:18:00.660
+!MESSAGE 18:18:00.659 [pool-3-thread-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: end work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/service/UserService.java
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-12-12 18:18:15.597
+!MESSAGE Direct modification of compileSourceRoots through clear() is deprecated and will not work in Maven 4.0.0. Please use the add/remove methods instead. If you're using a plugin that causes this warning, please upgrade to the latest version and report an issue if the warning persists. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-12-12 18:18:15.597
+!MESSAGE Direct modification of compileSourceRoots through add() is deprecated and will not work in Maven 4.0.0. Please use the add/remove methods instead. If you're using a plugin that causes this warning, please upgrade to the latest version and report an issue if the warning persists. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-12-12 18:18:15.598
+!MESSAGE Direct modification of testCompileSourceRoots through clear() is deprecated and will not work in Maven 4.0.0. Please use the add/remove methods instead. If you're using a plugin that causes this warning, please upgrade to the latest version and report an issue if the warning persists. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-12-12 18:18:15.598
+!MESSAGE Direct modification of testCompileSourceRoots through add() is deprecated and will not work in Maven 4.0.0. Please use the add/remove methods instead. If you're using a plugin that causes this warning, please upgrade to the latest version and report an issue if the warning persists. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:18:15.692
+!MESSAGE 18:18:14.240 [pool-3-thread-2] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: start work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/service/UserService.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:18:15.693
+!MESSAGE 18:18:15.685 [pool-3-thread-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: work item submitted for doc file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/entity/User.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:18:15.705
+!MESSAGE 18:18:15.694 [pool-5-thread-3] INFO  o.s.i.v.b.j.u.CompilationUnitCache - Started parsing CU for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/service/UserService.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:18:15.743
+!MESSAGE 18:18:15.732 [Simple-Language-Server main thread] INFO  o.s.i.v.c.l.u.SimpleWorkspaceService - file deleted event: 12
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:18:15.745
+!MESSAGE 18:18:15.742 [pool-3-thread-10] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: start work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/dto/LoginRequest.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:18:15.748
+!MESSAGE 18:18:15.747 [pool-5-thread-2] INFO  o.s.i.v.b.j.u.CompilationUnitCache - Finished parsing CU for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/entity/Role.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:18:15.750
+!MESSAGE 18:18:15.748 [pool-3-thread-17] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: end work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/dto/RegisterRequest.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:18:15.752
+!MESSAGE 18:18:15.752 [pool-3-thread-16] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: end work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/dto/LoginRequest.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:18:15.756
+!MESSAGE 18:18:15.755 [pool-3-thread-6] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: end work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/service/UserService.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:18:15.763
+!MESSAGE 18:18:15.758 [pool-3-thread-19] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: end work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/dto/RegisterRequest.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:18:15.907
+!MESSAGE 18:18:15.906 [pool-6-thread-1] INFO  o.s.i.v.b.j.utils.SpringIndexerJava - reconciling stats - counter: 42
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-12-12 18:18:16.028
+!MESSAGE Direct modification of compileSourceRoots through clear() is deprecated and will not work in Maven 4.0.0. Please use the add/remove methods instead. If you're using a plugin that causes this warning, please upgrade to the latest version and report an issue if the warning persists. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-12-12 18:18:16.029
+!MESSAGE Direct modification of compileSourceRoots through add() is deprecated and will not work in Maven 4.0.0. Please use the add/remove methods instead. If you're using a plugin that causes this warning, please upgrade to the latest version and report an issue if the warning persists. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-12-12 18:18:16.029
+!MESSAGE Direct modification of testCompileSourceRoots through clear() is deprecated and will not work in Maven 4.0.0. Please use the add/remove methods instead. If you're using a plugin that causes this warning, please upgrade to the latest version and report an issue if the warning persists. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-12-12 18:18:16.030
+!MESSAGE Direct modification of testCompileSourceRoots through add() is deprecated and will not work in Maven 4.0.0. Please use the add/remove methods instead. If you're using a plugin that causes this warning, please upgrade to the latest version and report an issue if the warning persists. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:18:16.132
+!MESSAGE 18:18:16.132 [pool-6-thread-1] INFO  o.s.i.v.b.j.utils.SpringIndexerJava - additional reconciling with complete index triggered for: [D:\C DAC\LAUNDRY-APP\laundry-app\src\main\java\com\laundryapp\controller\AuthController.java]
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:18:16.178
+!MESSAGE 18:18:16.177 [Reconciler-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: work item submitted for doc file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/entity/Role.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:18:16.206
+!MESSAGE 18:18:16.205 [pool-5-thread-3] INFO  o.s.i.v.b.j.u.CompilationUnitCache - Parsed successfully CU for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/entity/Role.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:18:16.221
+!MESSAGE 18:18:16.220 [pool-5-thread-3] INFO  o.s.i.v.b.j.u.CompilationUnitCache - Finished parsing CU for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/dto/LoginRequest.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:18:16.223
+!MESSAGE 18:18:16.221 [Reconciler-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: end work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/dto/LoginRequest.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:18:16.232
+!MESSAGE 18:18:16.229 [pool-5-thread-3] INFO  o.s.i.v.b.j.u.CompilationUnitCache - Finished parsing CU for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/entity/User.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:18:16.232
+!MESSAGE 18:18:16.231 [Reconciler-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: work item submitted for doc file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/service/UserService.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:18:16.942
+!MESSAGE 18:18:16.241 [pool-5-thread-3] INFO  o.s.i.v.b.j.u.CompilationUnitCache - Finished parsing CU for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/service/UserService.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:18:16.943
+!MESSAGE 18:18:16.247 [Reconciler-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: end work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/dto/RegisterRequest.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:21:38.446
+!MESSAGE 18:21:38.301 [pool-3-thread-22] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: work item submitted for doc file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/service/UserService.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:21:38.459
+!MESSAGE 18:21:38.456 [pool-3-thread-22] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: start work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/service/UserService.java
+
+!ENTRY org.eclipse.jface 2 0 2025-12-12 18:27:34.266
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2025-12-12 18:27:34.266
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.jdt.ui.navigate.open.type"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolInWorkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.lsp4e.symbolInWorkspace"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:27:56.384
+!MESSAGE 18:27:56.383 [pool-14-thread-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - Invalidate AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/resources/application.properties
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:27:57.052
+!MESSAGE 18:27:57.051 [Reconciler-1] INFO  o.s.i.v.b.m.SpringPropertiesIndexManager - Indexing Spring Boot Properties for laundry-app DONE
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:29:04.714
+!MESSAGE 18:29:04.713 [pool-14-thread-1] INFO  o.s.i.v.c.l.u.SimpleTextDocumentService - change arrived: 3
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:29:06.808
+!MESSAGE 18:29:06.808 [Simple-Language-Server main thread] INFO  o.s.i.v.boot.app.SpringSymbolIndex - Update document [file changed]: file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/resources/application.properties
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-12-12 18:29:06.953
+!MESSAGE Direct modification of compileSourceRoots through clear() is deprecated and will not work in Maven 4.0.0. Please use the add/remove methods instead. If you're using a plugin that causes this warning, please upgrade to the latest version and report an issue if the warning persists. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-12-12 18:29:06.953
+!MESSAGE Direct modification of compileSourceRoots through add() is deprecated and will not work in Maven 4.0.0. Please use the add/remove methods instead. If you're using a plugin that causes this warning, please upgrade to the latest version and report an issue if the warning persists. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-12-12 18:29:06.954
+!MESSAGE Direct modification of testCompileSourceRoots through clear() is deprecated and will not work in Maven 4.0.0. Please use the add/remove methods instead. If you're using a plugin that causes this warning, please upgrade to the latest version and report an issue if the warning persists. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-12-12 18:29:06.955
+!MESSAGE Direct modification of testCompileSourceRoots through add() is deprecated and will not work in Maven 4.0.0. Please use the add/remove methods instead. If you're using a plugin that causes this warning, please upgrade to the latest version and report an issue if the warning persists. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:29:06.986
+!MESSAGE 18:29:06.986 [Simple-Language-Server main thread] INFO  o.s.i.v.c.l.u.SimpleWorkspaceService - file changed event: [file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/target/classes/application.properties]
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:29:07.029
+!MESSAGE 18:29:06.989 [Simple-Language-Server main thread] INFO  o.s.i.v.boot.app.SpringSymbolIndex - Update document [file changed]: file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/target/classes/application.properties
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:46:53.349
+!MESSAGE 18:46:53.163 [pool-5-thread-7] INFO  o.s.i.v.b.j.u.CompilationUnitCache - Started parsing CU for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/entity/User.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:46:53.361
+!MESSAGE 18:46:53.360 [pool-3-thread-30] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: start work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/entity/User.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:46:56.714
+!MESSAGE 18:46:56.712 [pool-14-thread-1] INFO  o.s.i.v.c.l.u.SimpleTextDocumentService - Closed: file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/entity/Role.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:46:57.773
+!MESSAGE 18:46:57.772 [pool-5-thread-7] INFO  o.s.i.v.b.j.u.CompilationUnitCache - Started parsing CU for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/dto/LoginRequest.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:46:57.808
+!MESSAGE 18:46:57.807 [pool-5-thread-7] INFO  o.s.i.v.b.j.u.CompilationUnitCache - Finished parsing CU for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/dto/LoginRequest.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:46:57.815
+!MESSAGE 18:46:57.815 [pool-3-thread-29] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: start work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/dto/LoginRequest.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:46:57.823
+!MESSAGE 18:46:57.822 [pool-3-thread-30] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: start work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/dto/LoginRequest.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:46:59.093
+!MESSAGE 18:46:59.024 [pool-5-thread-7] INFO  o.s.i.v.b.j.u.CompilationUnitCache - Started parsing CU for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/service/UserService.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:46:59.101
+!MESSAGE 18:46:59.100 [pool-3-thread-29] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: work item submitted for doc file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/service/UserService.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:46:59.104
+!MESSAGE 18:46:59.103 [pool-3-thread-30] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: start work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/service/UserService.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:47:06.527
+!MESSAGE 18:47:06.526 [pool-3-thread-29] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: work item submitted for doc file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/service/UserService.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:47:06.707
+!MESSAGE 18:47:06.706 [pool-3-thread-29] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: start work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/service/UserService.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:47:06.812
+!MESSAGE 18:47:06.708 [pool-3-thread-30] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: start work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/service/UserService.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:47:06.812
+!MESSAGE 18:47:06.709 [pool-3-thread-30] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: end work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/service/UserService.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:47:06.864
+!MESSAGE 18:47:06.858 [pool-3-thread-30] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: start work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/service/UserService.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:47:06.867
+!MESSAGE 18:47:06.866 [pool-3-thread-29] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: end work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/service/UserService.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:47:09.662
+!MESSAGE 18:47:07.237 [Reconciler-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: start work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/service/UserService.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:47:09.677
+!MESSAGE 18:47:09.676 [Simple-Language-Server main thread] INFO  o.s.i.v.boot.app.SpringSymbolIndex - Update document [file changed]: file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/service/UserService.java
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-12-12 18:47:09.999
+!MESSAGE Direct modification of compileSourceRoots through clear() is deprecated and will not work in Maven 4.0.0. Please use the add/remove methods instead. If you're using a plugin that causes this warning, please upgrade to the latest version and report an issue if the warning persists. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-12-12 18:47:10.000
+!MESSAGE Direct modification of compileSourceRoots through add() is deprecated and will not work in Maven 4.0.0. Please use the add/remove methods instead. If you're using a plugin that causes this warning, please upgrade to the latest version and report an issue if the warning persists. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-12-12 18:47:10.001
+!MESSAGE Direct modification of testCompileSourceRoots through clear() is deprecated and will not work in Maven 4.0.0. Please use the add/remove methods instead. If you're using a plugin that causes this warning, please upgrade to the latest version and report an issue if the warning persists. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-12-12 18:47:10.002
+!MESSAGE Direct modification of testCompileSourceRoots through add() is deprecated and will not work in Maven 4.0.0. Please use the add/remove methods instead. If you're using a plugin that causes this warning, please upgrade to the latest version and report an issue if the warning persists. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:47:10.036
+!MESSAGE 18:47:10.009 [pool-6-thread-1] INFO  o.s.i.v.b.j.utils.SpringIndexerJava - Finished scanning affected files [D:\C DAC\LAUNDRY-APP\laundry-app\src\main\java\com\laundryapp\service\UserService.java]
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:47:10.044
+!MESSAGE 18:47:10.043 [Simple-Language-Server main thread] INFO  o.s.i.v.boot.app.SpringSymbolIndex - Update document [file changed]: file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/target/classes/application.properties
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:47:10.073
+!MESSAGE 18:47:10.068 [pool-3-thread-30] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: end work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/service/UserService.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:47:10.079
+!MESSAGE 18:47:10.078 [pool-3-thread-29] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: work item submitted for doc file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/service/UserService.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:47:11.550
+!MESSAGE 18:47:10.148 [ForkJoinPool.commonPool-worker-4] INFO  o.s.i.v.b.j.u.CompilationUnitCache - Removing and cleaning up name env for project file:/D:/C%20DAC/LAUNDRY-APP/laundry-app
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:47:11.664
+!MESSAGE 18:47:11.663 [pool-5-thread-7] INFO  o.s.i.v.b.j.u.CompilationUnitCache - Finished parsing CU for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/dto/RegisterRequest.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:47:11.674
+!MESSAGE 18:47:11.668 [pool-3-thread-29] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: start work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/dto/RegisterRequest.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:47:16.629
+!MESSAGE 18:47:15.375 [pool-14-thread-1] INFO  o.s.i.v.c.l.u.SimpleTextDocumentService - Closed: file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/pom.xml
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:47:16.659
+!MESSAGE 18:47:16.657 [pool-5-thread-7] INFO  o.s.i.v.b.j.u.CompilationUnitCache - Finished parsing CU for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/controller/AuthController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:47:16.660
+!MESSAGE 18:47:16.657 [pool-3-thread-32] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: end work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/controller/AuthController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:47:16.820
+!MESSAGE 18:47:16.762 [pool-3-thread-31] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: end work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/controller/AuthController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:47:16.832
+!MESSAGE 18:47:16.831 [pool-3-thread-31] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: work item submitted for doc file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/controller/AuthController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:47:16.846
+!MESSAGE 18:47:16.835 [pool-3-thread-29] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: end work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/controller/AuthController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:47:17.144
+!MESSAGE 18:47:17.131 [Reconciler-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: start work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/controller/AuthController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:47:36.305
+!MESSAGE 18:47:36.305 [pool-3-thread-31] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: end work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/service/UserService.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:47:41.871
+!MESSAGE 18:47:41.870 [pool-14-thread-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - Invalidate AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/dto/LoginRequest.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:47:53.518
+!MESSAGE 18:47:53.518 [pool-14-thread-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - Invalidate AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/repository/UserRepository.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:47:53.542
+!MESSAGE 18:47:53.531 [pool-3-thread-32] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: work item submitted for doc file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/repository/UserRepository.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:47:53.543
+!MESSAGE 18:47:53.531 [pool-3-thread-30] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: work item submitted for doc file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/repository/UserRepository.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:47:53.681
+!MESSAGE 18:47:53.554 [pool-3-thread-31] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: end work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/repository/UserRepository.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:47:53.681
+!MESSAGE 18:47:53.677 [pool-3-thread-32] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: start work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/repository/UserRepository.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:47:53.682
+!MESSAGE 18:47:53.677 [pool-3-thread-32] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: end work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/repository/UserRepository.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:47:53.683
+!MESSAGE 18:47:53.680 [pool-3-thread-32] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: start work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/repository/UserRepository.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:47:54.028
+!MESSAGE 18:47:54.027 [Reconciler-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: work item submitted for doc file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/repository/UserRepository.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:47:54.029
+!MESSAGE 18:47:54.028 [Reconciler-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: start work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/repository/UserRepository.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:47:54.058
+!MESSAGE 18:47:54.057 [Reconciler-1] INFO  o.s.i.v.b.j.r.JdtReconciler - reconciling (JDT): file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/repository/UserRepository.java done in 29ms
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:47:57.819
+!MESSAGE 18:47:57.818 [pool-3-thread-31] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: start work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/repository/UserRepository.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:48:01.549
+!MESSAGE 18:47:58.446 [pool-3-thread-31] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: start work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/repository/UserRepository.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:48:01.973
+!MESSAGE 18:48:01.824 [pool-6-thread-1] INFO  o.s.i.v.b.j.utils.SpringIndexerJava - Finished scanning affected files [D:\C DAC\LAUNDRY-APP\laundry-app\src\main\java\com\laundryapp\repository\UserRepository.java]
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-12-12 18:48:01.980
+!MESSAGE Direct modification of compileSourceRoots through clear() is deprecated and will not work in Maven 4.0.0. Please use the add/remove methods instead. If you're using a plugin that causes this warning, please upgrade to the latest version and report an issue if the warning persists. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-12-12 18:48:01.986
+!MESSAGE Direct modification of compileSourceRoots through add() is deprecated and will not work in Maven 4.0.0. Please use the add/remove methods instead. If you're using a plugin that causes this warning, please upgrade to the latest version and report an issue if the warning persists. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-12-12 18:48:01.988
+!MESSAGE Direct modification of testCompileSourceRoots through clear() is deprecated and will not work in Maven 4.0.0. Please use the add/remove methods instead. If you're using a plugin that causes this warning, please upgrade to the latest version and report an issue if the warning persists. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-12-12 18:48:01.990
+!MESSAGE Direct modification of testCompileSourceRoots through add() is deprecated and will not work in Maven 4.0.0. Please use the add/remove methods instead. If you're using a plugin that causes this warning, please upgrade to the latest version and report an issue if the warning persists. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:48:02.150
+!MESSAGE 18:48:02.034 [Simple-Language-Server main thread] INFO  o.s.i.v.boot.app.SpringSymbolIndex - Update document [file changed]: file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/target/classes/application.properties
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:48:02.557
+!MESSAGE 18:48:02.556 [pool-3-thread-31] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: work item submitted for doc file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/repository/UserRepository.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:48:02.558
+!MESSAGE 18:48:02.557 [pool-5-thread-7] INFO  o.s.i.v.b.j.u.CompilationUnitCache - Creating name env for project 'laundry-app'
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:48:02.605
+!MESSAGE 18:48:02.604 [pool-5-thread-7] INFO  o.s.i.v.b.j.u.CompilationUnitCache - Parsed successfully CU for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/repository/UserRepository.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:48:02.606
+!MESSAGE 18:48:02.604 [pool-5-thread-7] INFO  o.s.i.v.b.j.u.CompilationUnitCache - Finished parsing CU for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/repository/UserRepository.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:48:02.608
+!MESSAGE 18:48:02.607 [pool-3-thread-31] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: end work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/repository/UserRepository.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:48:02.617
+!MESSAGE 18:48:02.616 [pool-3-thread-31] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: start work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/repository/UserRepository.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:48:03.661
+!MESSAGE 18:48:03.660 [pool-3-thread-29] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: work item submitted for doc file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/service/UserService.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:48:10.465
+!MESSAGE 18:48:03.664 [pool-3-thread-29] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: start work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/service/UserService.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:48:10.478
+!MESSAGE 18:48:10.476 [pool-3-thread-29] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: start work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/service/UserService.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:48:13.198
+!MESSAGE 18:48:13.197 [pool-3-thread-31] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: work item submitted for doc file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/service/UserService.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:48:13.200
+!MESSAGE 18:48:13.198 [pool-3-thread-31] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: start work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/service/UserService.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:48:13.212
+!MESSAGE 18:48:13.212 [pool-3-thread-31] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: start work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/service/UserService.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:48:58.713
+!MESSAGE 18:48:58.712 [pool-3-thread-31] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: work item submitted for doc file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/service/UserService.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:48:58.716
+!MESSAGE 18:48:58.716 [pool-3-thread-29] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: work item submitted for doc file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/service/UserService.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:49:04.981
+!MESSAGE 18:49:04.981 [pool-5-thread-9] INFO  o.s.i.v.b.j.u.CompilationUnitCache - Parsed successfully CU for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/service/UserService.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:49:04.991
+!MESSAGE 18:49:04.987 [pool-3-thread-29] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: start work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/service/UserService.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:52:18.733
+!MESSAGE 18:52:18.733 [pool-5-thread-10] INFO  o.s.i.v.b.j.u.CompilationUnitCache - Started parsing CU for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/service/UserService.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:52:18.889
+!MESSAGE 18:52:18.883 [pool-3-thread-33] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: end work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/service/UserService.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:52:40.285
+!MESSAGE 18:52:40.282 [pool-14-thread-1] INFO  o.s.i.v.c.l.u.SimpleTextDocumentService - Closed: file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/resources/application.properties
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:52:40.285
+!MESSAGE 18:52:40.284 [pool-14-thread-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - Invalidate AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/resources/application.properties
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:52:40.375
+!MESSAGE 18:52:40.374 [pool-14-thread-1] INFO  o.s.i.v.c.l.u.SimpleTextDocumentService - Closed: file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/repository/UserRepository.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-12 18:52:40.376
+!MESSAGE 18:52:40.374 [pool-14-thread-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - Invalidate AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/repository/UserRepository.java
