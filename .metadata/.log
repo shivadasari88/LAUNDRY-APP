@@ -10735,3 +10735,54 @@ java.util.concurrent.TimeoutException
 
 !ENTRY org.eclipse.lsp4e 4 0 2025-12-18 07:02:57.669
 !MESSAGE 07:02:57.667 [Reconciler-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: end work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/entity/Role.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-18 07:25:09.388
+!MESSAGE 07:25:09.257 [Simple-Language-Server main thread] INFO  o.s.i.v.c.l.u.SimpleWorkspaceService - file created event: [file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/dto/ShopRequest.java]
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-18 07:25:09.449
+!MESSAGE 07:25:09.443 [pool-3-thread-39] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: work item submitted for doc file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/entity/Shop.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-18 07:25:09.814
+!MESSAGE 07:25:09.812 [pool-5-thread-6] INFO  o.s.i.v.b.j.u.CompilationUnitCache - Finished parsing CU for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/entity/Shop.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-18 07:25:09.855
+!MESSAGE 07:25:09.841 [pool-3-thread-38] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: end work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/entity/Shop.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-18 07:25:10.013
+!MESSAGE 07:25:10.012 [pool-3-thread-39] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: work item submitted for doc file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/dto/ShopRequest.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-18 07:25:10.038
+!MESSAGE 07:25:10.034 [pool-3-thread-41] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: work item submitted for doc file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/dto/ShopRequest.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-18 07:25:10.253
+!MESSAGE 07:25:10.251 [pool-3-thread-40] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: work item submitted for doc file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/dto/ShopRequest.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-18 07:25:10.268
+!MESSAGE 07:25:10.265 [pool-3-thread-40] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: start work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/dto/ShopRequest.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-18 07:25:10.509
+!MESSAGE 07:25:10.502 [pool-3-thread-38] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: start work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/entity/Shop.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-18 07:25:10.521
+!MESSAGE 07:25:10.518 [Reconciler-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: start work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/dto/ShopRequest.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-18 07:25:21.890
+!MESSAGE 07:25:21.887 [pool-3-thread-40] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: work item submitted for doc file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/dto/ShopRequest.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-18 07:25:22.226
+!MESSAGE 07:25:22.112 [pool-14-thread-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - Invalidate AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/dto/ShopRequest.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-18 07:25:22.251
+!MESSAGE 07:25:22.249 [pool-5-thread-6] INFO  o.s.i.v.b.j.u.CompilationUnitCache - Finished parsing CU for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/dto/ShopRequest.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-18 07:25:22.257
+!MESSAGE 07:25:22.255 [pool-3-thread-38] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: start work on AST for file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/dto/ShopRequest.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-18 07:25:22.618
+!MESSAGE 07:25:22.614 [Reconciler-1] INFO  o.s.i.v.b.j.u.CompilationUnitCache - CU Cache: work item submitted for doc file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/dto/ShopRequest.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-18 07:25:26.425
+!MESSAGE 07:25:26.410 [pool-3-thread-38] INFO  o.s.i.v.boot.app.SpringSymbolIndex - Update document [didSave event]: file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/dto/ShopRequest.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-12-18 07:25:26.612
+!MESSAGE 07:25:26.428 [Simple-Language-Server main thread] INFO  o.s.i.v.boot.app.SpringSymbolIndex - Update document [file changed]: file:///D:/C%20DAC/LAUNDRY-APP/laundry-app/src/main/java/com/laundryapp/dto/ShopRequest.java
