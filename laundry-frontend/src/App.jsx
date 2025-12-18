@@ -1,25 +1,31 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Landing from "./pages/Landing";
-import Register from "./pages/Register";
-import Login from "./pages/Login";
-import CustomerDashboard from "./pages/CustomerDashboard";
-import ProviderDashboard from "./pages/ProviderDashboard";
-import AdminDashboard from "./pages/AdminDashboard";
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Layout from './components/layout/Layout';
+import { CartProvider } from './context/CartContext';
 
-export default function App() {
+// Pages
+import Dashboard from './pages/Dashboard';
+import Services from './pages/Services';
+import Cart from './pages/Cart';
+import MyOrders from './pages/MyOrders';
+import Profile from './pages/Profile';
+
+function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Landing />} />
-       <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
-
-       
-        <Route path="/customer" element={<CustomerDashboard />} />
-        <Route path="/provider" element={<ProviderDashboard />} />
-        <Route path="/admin" element={<AdminDashboard />} />
-        
-      </Routes>
+      <CartProvider>
+        <Layout>
+          <Routes>
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/orders" element={<MyOrders />} />
+            <Route path="/profile" element={<Profile />} />
+          </Routes>
+        </Layout>
+      </CartProvider>
     </BrowserRouter>
   );
 }
+
+export default App;
