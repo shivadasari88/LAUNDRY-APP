@@ -1,5 +1,0 @@
-package com.laundryapp.dto;
-
-public class LoginRequest {
-
-}
