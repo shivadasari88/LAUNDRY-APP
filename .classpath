@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="laundry-app/src/main/java"/>
+	<classpathentry kind="src" path="laundry-app/src/test/java"/>
+	<classpathentry kind="output" path="laundry-app/target/classes"/>
+</classpath>
