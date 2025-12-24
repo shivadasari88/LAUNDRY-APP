@@ -13,7 +13,7 @@ export default function Login() {
 
       localStorage.setItem("user", JSON.stringify(user));
 
-      if (user.role === "CUSTOMER") navigate("/customer");
+      if (user.role === "CUSTOMER") navigate('/home');
       if (user.role === "PROVIDER") navigate("/provider");
       if (user.role === "ADMIN") navigate("/admin");
 
