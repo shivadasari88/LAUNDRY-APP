@@ -19,7 +19,7 @@ export default function Register() {
   };
 
   return (
-    <div className="flex flex-col w-full min-h-screen bg-gradient-to-br from-blue-500 to-indigo-700">
+    <div className="flex flex-col w-full min-h-screen bg-linear-to-r from-blue-500 to-indigo-700">
       {/* Navbar - Same as Landing */}
       <header className="w-full flex items-center justify-between px-4 md:px-10 py-4 text-white">
         <div className="text-2xl font-bold tracking-tight">
@@ -110,7 +110,7 @@ export default function Register() {
           {/* Register Button */}
           <button
             onClick={handleRegister}
-            className="w-full px-4 py-3 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-semibold text-lg hover:from-blue-600 hover:to-indigo-700 transition-all duration-300 shadow-md hover:shadow-lg mb-4"
+            className="w-full px-4 py-3 rounded-full bg-linear-to-r from-blue-500 to-indigo-600 text-white font-semibold text-lg hover:from-blue-600 hover:to-indigo-700 transition-all duration-300 shadow-md hover:shadow-lg mb-4"
           >
             Create Account
           </button>

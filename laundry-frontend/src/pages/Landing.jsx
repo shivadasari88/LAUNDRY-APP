@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function Landing() {
   return (
-    <div className="flex flex-col w-full min-h-screen bg-gradient-to-br from-blue-500 to-indigo-700">
+    <div className="flex flex-col w-full min-h-screen bg-linear-to-r from-blue-500 to-indigo-700">
       {/* Navbar */}
       <header className="w-full flex items-center justify-between px-10 py-4 text-white">
         <div className="text-2xl font-bold tracking-tight">
