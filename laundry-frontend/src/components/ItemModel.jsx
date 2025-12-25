@@ -48,6 +48,8 @@ const ItemModal = ({ item, onClose, onAddToCart }) => {
       specialInstructions: '',
       imageIndex: 0, // Which image this item belongs to
       boundingBox: null, // For future: drawing boxes on image
+      price: item.price || 0, // ADD THIS: Use the base item price
+      basePrice: item.price || 0, // ADD THIS: Store base price for calculations
     };
     setItemsInGroup(prev => [...prev, newItem]);
     setCurrentItemIndex(itemsInGroup.length);
@@ -57,7 +59,18 @@ const ItemModal = ({ item, onClose, onAddToCart }) => {
     setItemsInGroup(prev => {
       const updated = [...prev];
       if (updated[currentItemIndex]) {
-        updated[currentItemIndex] = { ...updated[currentItemIndex], [field]: value };
+        updated[currentItemIndex] = { 
+          ...updated[currentItemIndex], 
+          [field]: value 
+        };
+        
+        // Update price when service changes
+        if (field === 'service' || field === 'quantity') {
+          const serviceMultiplier = value === 'Dry Cleaning' ? 1.5 : 1;
+          updated[currentItemIndex].price = (updated[currentItemIndex].basePrice || item.price || 0) * 
+                                           serviceMultiplier * 
+                                           updated[currentItemIndex].quantity;
+        }
       }
       return updated;
     });
@@ -69,6 +82,13 @@ const ItemModal = ({ item, onClose, onAddToCart }) => {
       return;
     }
 
+    // Calculate total price
+    const totalPrice = itemsInGroup.reduce((sum, currentItem) => {
+      const serviceMultiplier = currentItem.service === 'Dry Cleaning' ? 1.5 : 1;
+      const itemPrice = currentItem.basePrice || item.price || 0;
+      return sum + (itemPrice * serviceMultiplier * currentItem.quantity);
+    }, 0);
+
     // Group all items with their specifications
     const groupData = {
       id: Date.now(),
@@ -76,17 +96,35 @@ const ItemModal = ({ item, onClose, onAddToCart }) => {
       baseItem: item,
       images,
       items: itemsInGroup,
-      totalQuantity: itemsInGroup.reduce((sum, item) => sum + item.quantity, 0),
-      totalPrice: itemsInGroup.reduce((sum, item) => {
-        const servicePrice = item.service === 'Dry Cleaning' ? item.price * 1.5 : item.price;
-        return sum + (servicePrice * item.quantity);
-      }, 0)
+      totalQuantity: itemsInGroup.reduce((sum, currentItem) => sum + currentItem.quantity, 0),
+      totalPrice: totalPrice
     };
 
+    console.log('Adding to cart:', groupData); // Debug log
     onAddToCart(groupData);
   };
 
   const currentItem = itemsInGroup[currentItemIndex];
+
+  // Calculate total price for display
+  const calculateTotalPrice = () => {
+    return itemsInGroup.reduce((sum, currentItem) => {
+      const serviceMultiplier = currentItem.service === 'Dry Cleaning' ? 1.5 : 1;
+      const itemPrice = currentItem.basePrice || item.price || 0;
+      return sum + (itemPrice * serviceMultiplier * currentItem.quantity);
+    }, 0);
+  };
+
+  // Calculate price for current item
+  const calculateCurrentItemPrice = () => {
+    if (!currentItem) return 0;
+    const serviceMultiplier = currentItem.service === 'Dry Cleaning' ? 1.5 : 1;
+    const itemPrice = currentItem.basePrice || item.price || 0;
+    return itemPrice * serviceMultiplier * currentItem.quantity;
+  };
+
+  // Get base price from props or default
+  const basePrice = item?.price || 0;
 
   return (
     <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
@@ -97,6 +135,11 @@ const ItemModal = ({ item, onClose, onAddToCart }) => {
             <div>
               <h3 className="text-2xl font-bold text-white">Customize {item.name}</h3>
               <p className="text-white/70 mt-1">Upload photos & specify services for each item</p>
+              {basePrice > 0 && (
+                <div className="mt-1 text-sm text-green-300">
+                  Base Price: ₹{basePrice} per item
+                </div>
+              )}
             </div>
             <button 
               onClick={onClose} 
@@ -366,9 +409,9 @@ const ItemModal = ({ item, onClose, onAddToCart }) => {
                     <>
                       {/* Item Selection Tabs */}
                       <div className="flex flex-wrap gap-2 mb-6">
-                        {itemsInGroup.map((item, index) => (
+                        {itemsInGroup.map((currentItem, index) => (
                           <button
-                            key={item.id}
+                            key={currentItem.id}
                             onClick={() => setCurrentItemIndex(index)}
                             className={`px-4 py-2.5 rounded-xl border transition-all duration-300 ${
                               currentItemIndex === index 
@@ -376,7 +419,7 @@ const ItemModal = ({ item, onClose, onAddToCart }) => {
                               : 'bg-white/10 border-white/20 text-white hover:bg-white/20'
                             }`}
                           >
-                            {item.name}
+                            {currentItem.name}
                           </button>
                         ))}
                       </div>
@@ -478,6 +521,15 @@ const ItemModal = ({ item, onClose, onAddToCart }) => {
                                   +
                                 </button>
                               </div>
+                              {/* Price Display for current item */}
+                              {basePrice > 0 && (
+                                <div className="mt-2 text-sm text-white/70">
+                                  Price for this item: ₹{calculateCurrentItemPrice()}
+                                  {currentItem.service === 'Dry Cleaning' && (
+                                    <span className="text-red-300 ml-2">(Includes +50% for Dry Cleaning)</span>
+                                  )}
+                                </div>
+                              )}
                             </div>
 
                             {/* Special Instructions */}
@@ -526,7 +578,7 @@ const ItemModal = ({ item, onClose, onAddToCart }) => {
                             </div>
                             <div className="text-center">
                               <div className="text-2xl font-bold text-white">
-                                {itemsInGroup.reduce((sum, item) => sum + item.quantity, 0)}
+                                {itemsInGroup.reduce((sum, currentItem) => sum + currentItem.quantity, 0)}
                               </div>
                               <div className="text-white/70 text-sm">Total Pieces</div>
                             </div>
@@ -538,14 +590,16 @@ const ItemModal = ({ item, onClose, onAddToCart }) => {
                             </div>
                             <div className="text-center">
                               <div className="text-2xl font-bold text-white">
-                                ₹{itemsInGroup.reduce((sum, item) => {
-                                  const servicePrice = item.service === 'Dry Cleaning' ? item.price * 1.5 : item.price;
-                                  return sum + (servicePrice * item.quantity);
-                                }, 0)}
+                                ₹{calculateTotalPrice()}
                               </div>
                               <div className="text-white/70 text-sm">Est. Total</div>
                             </div>
                           </div>
+                          {itemsInGroup.some(item => item.service === 'Dry Cleaning') && (
+                            <div className="mt-3 text-sm text-red-300">
+                              *Dry Cleaning items have 50% additional charge
+                            </div>
+                          )}
                         </div>
                       )}
 
