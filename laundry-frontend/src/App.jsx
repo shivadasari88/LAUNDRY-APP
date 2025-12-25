@@ -21,6 +21,8 @@ export default function App() {
 
        
         <Route path="/provider" element={<ProviderDashboard />} />
+       {/* <Route path="/provider/dashboard" element={<ProviderDashboard />} /> */ } 
+
         <Route path="/admin" element={<AdminDashboard />} />
         
 
