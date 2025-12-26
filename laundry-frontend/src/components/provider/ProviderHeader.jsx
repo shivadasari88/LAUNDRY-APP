@@ -15,7 +15,7 @@ const ProviderHeader = ({ shopName, shopId, activeTab, onTabChange }) => {
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-linear-to-r from-slate-900/95 via-blue-900/95 to-purple-900/95 backdrop-blur-lg border-b border-white/10">
+    <header className="sticky top-0 z-50 bg-linear-to-r from-slate-900 via-blue-900 to-indigo-900">
       <div className="max-w-7xl mx-auto px-4">
         {/* Top Bar */}
         <div className="flex items-center justify-between py-4">

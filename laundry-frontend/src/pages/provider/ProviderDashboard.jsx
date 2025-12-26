@@ -136,7 +136,7 @@ const ProviderDashboard = () => {
   };
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-gray-900 via-blue-900 to-purple-900">
+    <div className="min-h-screen bg-linear-to-r from-slate-900 via-blue-900 to-indigo-900">
       <ProviderHeader 
         shopName={providerData.shopName}
         shopId={providerData.shopId}
