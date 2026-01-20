@@ -6,5 +6,5 @@ import com.laundryapp.entity.ServiceItem;
 import com.laundryapp.entity.ServiceType;
 
 public interface ServiceItemRepository extends JpaRepository<ServiceItem, Long> {
-    List<ServiceItem> findByService(ServiceType service);
+    List<ServiceItem> findByServiceType(ServiceType serviceType);
 }
