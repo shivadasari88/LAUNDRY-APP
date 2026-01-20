@@ -1,33 +1,44 @@
 package com.laundryapp.dto;
 
 public class ItemRequest {
-    private String itemName;
-    private double price;
-    private Long serviceId;
-
-    public ItemRequest() {}
-
-    public String getItemName() {
-        return itemName;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public Long getServiceId() {
-        return serviceId;
-    }
-
-    public void setItemName(String itemName) {
-        this.itemName = itemName;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    public void setServiceId(Long serviceId) {
-        this.serviceId = serviceId;
-    }
+	 private Long serviceTypeId;
+	    private String itemName;
+	    private String category;
+	    private double price;
+	    private boolean popular;
+	    
+	    
+		public Long getServiceTypeId() {
+			return serviceTypeId;
+		}
+		public void setServiceTypeId(Long serviceTypeId) {
+			this.serviceTypeId = serviceTypeId;
+		}
+		public String getItemName() {
+			return itemName;
+		}
+		public void setItemName(String itemName) {
+			this.itemName = itemName;
+		}
+		public String getCategory() {
+			return category;
+		}
+		public void setCategory(String category) {
+			this.category = category;
+		}
+		public double getPrice() {
+			return price;
+		}
+		public void setPrice(double price) {
+			this.price = price;
+		}
+		public boolean isPopular() {
+			return popular;
+		}
+		public void setPopular(boolean popular) {
+			this.popular = popular;
+		}
+	    
+	    
+	    
 }
