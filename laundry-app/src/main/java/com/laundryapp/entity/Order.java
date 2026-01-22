@@ -1,18 +1,17 @@
 package com.laundryapp.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import jakarta.persistence.*;
 
 @Entity
-@Table(name = "orders") // optional but recommended
+@Table(name = "orders")
 public class Order {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -26,9 +25,16 @@ public class Order {
     private Shop shop;
 
     @Enumerated(EnumType.STRING)
-    private OrderStatus status; // DRAFT, CONFIRMED, PICKED, DELIVERED
+    private OrderStatus status;
 
     private Double totalAmount;
+
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonManagedReference
+    @JsonIgnore
+
+    private List<OrderGroup> groups = new ArrayList<>();
+    
 
 	public Long getId() {
 		return id;
@@ -69,6 +75,16 @@ public class Order {
 	public void setTotalAmount(Double totalAmount) {
 		this.totalAmount = totalAmount;
 	}
+
+	public List<OrderGroup> getGroups() {
+		return groups;
+	}
+
+	public void setGroups(List<OrderGroup> groups) {
+		this.groups = groups;
+	}
+
+    // getters & setters
     
     
 }

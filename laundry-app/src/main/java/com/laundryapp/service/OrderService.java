@@ -1,5 +1,7 @@
 package com.laundryapp.service;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,10 +27,12 @@ public class OrderService {
 
     public Order getOrCreateDraftOrder(Long customerId, Long shopId) {
 
-        Order draft = orderRepository
-            .findByCustomerIdAndStatus(customerId, OrderStatus.DRAFT);
+        Optional<Order> draftOpt =
+                orderRepository.findByCustomerIdAndStatus(customerId, OrderStatus.DRAFT);
 
-        if (draft != null) {
+        if (draftOpt.isPresent()) {
+            Order draft = draftOpt.get();
+
             // ❌ Prevent mixing shops
             if (!draft.getShop().getId().equals(shopId)) {
                 throw new RuntimeException("Cart already contains items from another shop");
@@ -51,4 +55,3 @@ public class OrderService {
         return orderRepository.save(order);
     }
 }
-
