@@ -11,9 +11,12 @@ export default function Login() {
       const res = await api.post("/auth/login", form);
       const user = res.data;
 
+      // ✅ STORE LOGIN DATA
       localStorage.setItem("user", JSON.stringify(user));
+      localStorage.setItem("userId", user.id);   // ✅ REQUIRED
+      localStorage.setItem("role", user.role);
 
-      if (user.role === "CUSTOMER") navigate('/home');
+      if (user.role === "CUSTOMER") navigate("/home");
       if (user.role === "PROVIDER") navigate("/provider");
       if (user.role === "ADMIN") navigate("/admin");
 

@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.laundryapp.dto.ShopCreateRequest;
-import com.laundryapp.entity.*;
+import com.laundryapp.entity.ApprovalStatus;
+import com.laundryapp.entity.Shop;
+import com.laundryapp.entity.User;
 import com.laundryapp.repository.ShopRepository;
 import com.laundryapp.repository.UserRepository;
 
@@ -19,6 +21,8 @@ public class ShopService {
     @Autowired
     private UserRepository userRepository;
 
+    // ================= PROVIDER =================
+
     // Provider creates shop
     public Shop createShop(ShopCreateRequest request) {
 
@@ -28,8 +32,6 @@ public class ShopService {
         if (shopRepository.existsByProviderId(provider.getId())) {
             throw new RuntimeException("Provider already has a shop");
         }
-
-
 
         Shop shop = new Shop();
         shop.setName(request.getName());
@@ -44,36 +46,6 @@ public class ShopService {
         return shopRepository.save(shop);
     }
 
-
-    // Admin views pending shops
-    public List<Shop> getPendingShops() {
-        return shopRepository.findByApprovalStatus(ApprovalStatus.PENDING);
-    }
-
-    // Admin approves shop
-    public Shop approveShop(Long shopId) {
-        Shop shop = shopRepository.findById(shopId).orElse(null);
-        
-        if (shop.getApprovalStatus() != ApprovalStatus.PENDING) {
-            throw new RuntimeException("Shop already processed");
-        }
-
-        
-        if (shop == null) return null;
-
-        shop.setApprovalStatus(ApprovalStatus.APPROVED);
-        return shopRepository.save(shop);
-    }
-
-    // Admin rejects shop
-    public Shop rejectShop(Long shopId) {
-        Shop shop = shopRepository.findById(shopId).orElse(null);
-        if (shop == null) return null;
-
-        shop.setApprovalStatus(ApprovalStatus.REJECTED);
-        return shopRepository.save(shop);
-    }
-
     // Provider views own shop
     public Shop getShopByProvider(Long providerId) {
 
@@ -83,4 +55,39 @@ public class ShopService {
         return shopRepository.findByProviderId(provider.getId());
     }
 
+    // ================= ADMIN =================
+
+    // ✅ Admin views ONLY pending shops
+    public List<Shop> getPendingShops() {
+        return shopRepository.findByApprovalStatus(ApprovalStatus.PENDING);
+    }
+
+    // ✅ Admin views ALL shops (🔥 REQUIRED FOR STEP 7)
+    public List<Shop> getAllShops() {
+        return shopRepository.findAll();
+    }
+
+    // Admin approves shop
+    public Shop approveShop(Long shopId) {
+
+        Shop shop = shopRepository.findById(shopId)
+                .orElseThrow(() -> new RuntimeException("Shop not found"));
+
+        if (shop.getApprovalStatus() != ApprovalStatus.PENDING) {
+            throw new RuntimeException("Shop already processed");
+        }
+
+        shop.setApprovalStatus(ApprovalStatus.APPROVED);
+        return shopRepository.save(shop);
+    }
+
+    // Admin rejects shop
+    public Shop rejectShop(Long shopId) {
+
+        Shop shop = shopRepository.findById(shopId)
+                .orElseThrow(() -> new RuntimeException("Shop not found"));
+
+        shop.setApprovalStatus(ApprovalStatus.REJECTED);
+        return shopRepository.save(shop);
+    }
 }
