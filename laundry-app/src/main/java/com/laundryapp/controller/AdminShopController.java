@@ -16,16 +16,25 @@ public class AdminShopController {
     @Autowired
     private ShopService shopService;
 
+    // ✅ ADMIN: VIEW ALL SHOPS (APPROVED + PENDING + REJECTED)
+    @GetMapping
+    public List<Shop> getAllShops() {
+        return shopService.getAllShops();
+    }
+
+    // ✅ ADMIN: VIEW ONLY PENDING SHOPS
     @GetMapping("/pending")
     public List<Shop> getPendingShops() {
         return shopService.getPendingShops();
     }
 
+    // ✅ ADMIN: APPROVE SHOP
     @PutMapping("/{shopId}/approve")
     public Shop approveShop(@PathVariable Long shopId) {
         return shopService.approveShop(shopId);
     }
 
+    // ✅ ADMIN: REJECT SHOP
     @PutMapping("/{shopId}/reject")
     public Shop rejectShop(@PathVariable Long shopId) {
         return shopService.rejectShop(shopId);
