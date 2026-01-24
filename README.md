@@ -1,3 +1,4 @@
+
 # 📗 README.md — **dev branch**
 
 > **Branch purpose:** Active development, experiments, new features
@@ -100,6 +101,7 @@ Request Body
   "deliveryTime": "24 hours"
 }
 
+📌 Note: Shop status will be PENDING initially.
 
 ➤ Get Provider’s Shop
 
@@ -175,6 +177,118 @@ Example
 GET /api/provider/catalog/services/3/items
 
 
+🛒 5. CUSTOMER – CART & ORDER (DRAFT STAGE)
+
+➤ Initialize Cart (Create / Fetch Draft Order)
+
+POST /api/customer/cart/init
+
+Query Params
+
+customerId=14
+shopId=8
+
+📌 Rules
+
+One active cart per customer
+
+Cart is locked to one shop
+
+Status = DRAFT
+
+➤ Create Order Group (Batch Processing)
+
+POST /api/customer/order-group/create
+
+Request Body
+
+{
+  "orderId": 1,
+  "groupName": "Office Shirts - March"
+}
+
+📌 Groups represent batch uploads (photos + specifications).
+
+
+➤ Add Item to Order Group
+
+POST /api/customer/order-item/add
+
+Request Body
+
+{
+  "groupId": 1,
+  "itemName": "Shirt",
+  "serviceType": "Dry Cleaning",
+  "fabricType": "Cotton",
+  "quantity": 3,
+  "instructions": "Remove stains"
+}
+
+
+📌 Smart Logic
+
+Same item + service + fabric → quantity merged
+
+Price auto-calculated
+
+Group & order totals auto-updated
+
+➤ View Cart (Frontend Cart Page)
+
+GET /api/customer/cart/view
+
+Query Param
+
+customerId=14
+
+
+{
+  "orderId": 1,
+  "orderStatus": "DRAFT",
+  "totalAmount": 405.0,
+  "shop": {
+    "shopId": 8,
+    "address": "Hyderabad"
+  },
+  "groups": [
+    {
+      "groupId": 1,
+      "groupName": "Office Shirts - March",
+      "groupTotal": 405.0,
+      "items": [
+        {
+          "itemId": 1,
+          "itemName": "Shirt",
+          "serviceType": "Dry Cleaning",
+          "fabricType": "Cotton",
+          "quantity": 9,
+          "unitPrice": 45.0,
+          "totalPrice": 405.0,
+          "instructions": "Remove stains"
+        }
+      ]
+    }
+  ]
+}
+
+ENTITY RELATIONSHIPS (CURRENT STATE)
+
+User (CUSTOMER)
+   |
+   | 1–M
+   |
+ Order (DRAFT)
+   |
+   | 1–M
+   |
+ OrderGroup (Batch)
+   |
+   | 1–M
+   |
+ OrderItem (Item + Service + Fabric)
+
+
 
 🔗 ENTITY RELATIONSHIP (FOR UNDERSTANDING)
 
@@ -191,3 +305,16 @@ User (PROVIDER)
    | 1–M
    |
  ServiceItem (Shirt, Pant)
+
+
+
+✅ CURRENT STATUS (IMPORTANT)
+
+✔ Auth complete
+✔ Provider onboarding complete
+✔ Admin approval flow complete
+✔ Service catalog complete
+✔ Advanced customer cart with batch processing complete
+✔ Cart totals & merge logic verified
+
+🚫 Checkout & payment → intentionally excluded for now

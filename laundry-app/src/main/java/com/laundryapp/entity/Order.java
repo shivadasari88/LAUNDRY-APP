@@ -1,47 +1,90 @@
-
 package com.laundryapp.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.*;
-import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "customer_orders") // 'order' is a reserved keyword in SQL
+@Table(name = "orders")
 public class Order {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // "ORD001" logic can be generated in frontend or backend. Storing simple ID for now.
-    private String orderDisplayId; 
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    private User customer;
 
-    private String customerName;
-    private String itemsDescription; // e.g. "5 items (Shirt, Pant...)"
-    private double amount;
-    private String status; // PENDING, PROCESSING, READY, DELIVERED
+    @ManyToOne
+    @JoinColumn(name = "shop_id")
+    private Shop shop;
+
+    @Enumerated(EnumType.STRING)
+    private OrderStatus status;
+
+    private Double totalAmount;
+
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonManagedReference
+    @JsonIgnore
+
+    private List<OrderGroup> groups = new ArrayList<>();
     
-    private LocalDateTime orderTime;
 
-    @Column(name = "shop_id")
-    private Long shopId;
+	public Long getId() {
+		return id;
+	}
 
-    public Order() {}
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    // Getters and Setters
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
-    public String getOrderDisplayId() { return orderDisplayId; }
-    public void setOrderDisplayId(String orderDisplayId) { this.orderDisplayId = orderDisplayId; }
-    public String getCustomerName() { return customerName; }
-    public void setCustomerName(String customerName) { this.customerName = customerName; }
-    public String getItemsDescription() { return itemsDescription; }
-    public void setItemsDescription(String itemsDescription) { this.itemsDescription = itemsDescription; }
-    public double getAmount() { return amount; }
-    public void setAmount(double amount) { this.amount = amount; }
-    public String getStatus() { return status; }
-    public void setStatus(String status) { this.status = status; }
-    public LocalDateTime getOrderTime() { return orderTime; }
-    public void setOrderTime(LocalDateTime orderTime) { this.orderTime = orderTime; }
-    public Long getShopId() { return shopId; }
-    public void setShopId(Long shopId) { this.shopId = shopId; }
+	public User getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(User customer) {
+		this.customer = customer;
+	}
+
+	public Shop getShop() {
+		return shop;
+	}
+
+	public void setShop(Shop shop) {
+		this.shop = shop;
+	}
+
+	public OrderStatus getStatus() {
+		return status;
+	}
+
+	public void setStatus(OrderStatus status) {
+		this.status = status;
+	}
+
+	public Double getTotalAmount() {
+		return totalAmount;
+	}
+
+	public void setTotalAmount(Double totalAmount) {
+		this.totalAmount = totalAmount;
+	}
+
+	public List<OrderGroup> getGroups() {
+		return groups;
+	}
+
+	public void setGroups(List<OrderGroup> groups) {
+		this.groups = groups;
+	}
+
+    // getters & setters
+    
+    
 }
