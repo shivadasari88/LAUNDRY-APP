@@ -45,6 +45,9 @@ main → stable release
 ✅ Keep commits small & meaningful
 
 
+
+
+
 API's(backend base url - http://localhost:8080)
 
 ---
@@ -272,6 +275,179 @@ customerId=14
   ]
 }
 
+
+---------------------new-------------------
+
+🧾 CUSTOMER – ORDER CONFIRMATION (DRAFT → CONFIRMED)
+
+✅ Validate cart
+✅ Lock the order
+✅ Change status from DRAFT → CONFIRMED
+✅ Make it visible to Provider
+✅ Prevent further cart changes
+
+
+POST http://localhost:8080/api/customer/order/confirm
+
+
+Params
+Key	Value
+orderId	1
+customerId	14
+
+✅ Success Response
+
+
+
+{
+  "id": 1,
+  "status": "CONFIRMED",
+  "totalAmount": 405.0
+}
+
+
+❌ Possible Errors
+Scenario	Error
+Empty cart	"Cart is empty"
+Already confirmed	"Order already confirmed"
+Wrong customer	"Unauthorized order access"
+No order	"Order not found"
+
+
+------------------------------------------------
+
+🔄 WHAT HAPPENS NEXT (FLOW)
+
+Customer Cart (DRAFT)
+        ↓ Confirm
+Order Status → CONFIRMED
+        ↓
+Provider sees order
+        ↓
+Provider updates → IN_PROGRESS → READY
+        ↓
+Customer receives updates
+
+---------------------------------------------------
+
+PROVIDER ORDER MANAGEMENT (START)
+
+1️⃣ PROVIDER Get Orders for Provider Shop
+
+GET
+
+/api/provider/orders/shop/{shopId}
+
+Sample Response
+
+GET http://localhost:8080/api/provider/orders/shop/8
+
+
+[
+  {
+    "orderId": 1,
+    "customerName": "customer1",
+    "totalAmount": 405.0,
+    "status": "CONFIRMED",
+    "groups": [
+      {
+        "groupId": 1,
+        "groupName": "Office Shirts - March",
+        "groupTotal": 405.0,
+        "items": [
+          {
+            "itemName": "Shirt",
+            "serviceType": "Dry Cleaning",
+            "quantity": 9,
+            "totalPrice": 405.0
+          }
+        ]
+      }
+    ]
+  }
+]
+
+
+2️⃣ PROVIDER – VIEW SINGLE ORDER DETAILS
+
+GET
+
+/api/provider/orders/{orderId}
+
+
+3️⃣ PROVIDER – UPDATE ORDER STATUS
+
+➤ API
+
+PUT
+
+/api/provider/orders/{orderId}/status
+
+{
+  "status": "IN_PROGRESS"
+}
+
+
+📦 4️⃣ PROVIDER DASHBOARD – WHAT FRONTEND CAN SHOW
+
+For each order:
+
+Order ID
+Customer name
+Total amount
+Statas badge
+Groups count
+Items count
+Actions (Start, Mark Ready, Complete)
+
+
+
+
+CUSTOMER – ORDER HISTORY & ACTIONS
+
+➤ View Order History
+
+GET /api/customer/orders
+
+Query Param
+
+customerId=14
+
+Purpose:
+
+View all past orders
+Latest orders first
+Shows status & total amount
+
+[
+  {
+    "orderId": 5,
+    "shopName": "Clean Wash Laundry",
+    "status": "COMPLETED",
+    "totalAmount": 520.0
+  },
+  {
+    "orderId": 4,
+    "shopName": "Clean Wash Laundry",
+    "status": "CONFIRMED",
+    "totalAmount": 405.0
+  }
+]
+
+Cancel Order (Customer)
+
+POST /api/customer/order/cancel
+
+Query Params
+
+orderId=4
+customerId=14
+
+📌 Cancellation Rules
+✅ Allowed only when status = CONFIRMED
+❌ Not allowed for IN_PROGRESS, READY, COMPLETED
+
+
 ENTITY RELATIONSHIPS (CURRENT STATE)
 
 User (CUSTOMER)
@@ -316,5 +492,9 @@ User (PROVIDER)
 ✔ Service catalog complete
 ✔ Advanced customer cart with batch processing complete
 ✔ Cart totals & merge logic verified
+CUSTOMER – ORDER CONFIRMATION (DRAFT → CONFIRMED)
+PROVIDER ORDER MANAGEMENT (START)
+✔ Customer order history implemented
+✔ Customer order cancellation implemented
 
 🚫 Checkout & payment → intentionally excluded for now
