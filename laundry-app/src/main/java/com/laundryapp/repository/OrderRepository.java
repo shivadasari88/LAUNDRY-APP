@@ -13,5 +13,8 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
     Optional<Order> findByCustomerIdAndStatus(Long customerId, OrderStatus status);
     
     List<Order> findByShopIdAndStatusNot(Long shopId, OrderStatus status);
+    
+    List<Order> findByCustomerIdOrderByIdDesc(Long customerId);
+
 
 }
