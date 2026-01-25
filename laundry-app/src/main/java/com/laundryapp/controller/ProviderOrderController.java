@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.laundryapp.dto.OrderStatusUpdateRequest;
-import com.laundryapp.entity.Order;
+import com.laundryapp.dto.ProviderOrderResponse;
 import com.laundryapp.service.ProviderOrderService;
 
 @RestController
@@ -23,18 +23,25 @@ public class ProviderOrderController {
     @Autowired
     private ProviderOrderService providerOrderService;
 
+    // ✅ View all orders for shop (summary)
     @GetMapping("/shop/{shopId}")
-    public List<Order> getOrdersByShop(@PathVariable Long shopId) {
+    public List<ProviderOrderResponse> getOrdersByShop(
+            @PathVariable Long shopId) {
+
         return providerOrderService.getOrdersForShop(shopId);
     }
-    
+
+    // ✅ View single order (detailed, but DTO)
     @GetMapping("/{orderId}")
-    public Order getOrder(@PathVariable Long orderId) {
+    public ProviderOrderResponse getOrderDetails(
+            @PathVariable Long orderId) {
+
         return providerOrderService.getOrderDetails(orderId);
     }
-    
+
+    // ✅ Update order status
     @PutMapping("/{orderId}/status")
-    public Order updateStatus(
+    public ProviderOrderResponse updateStatus(
             @PathVariable Long orderId,
             @RequestBody OrderStatusUpdateRequest request) {
 
@@ -43,6 +50,4 @@ public class ProviderOrderController {
                 request.getStatus()
         );
     }
-
-
 }
