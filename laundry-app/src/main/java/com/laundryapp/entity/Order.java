@@ -25,7 +25,9 @@ public class Order {
     private Shop shop;
 
     @Enumerated(EnumType.STRING)
+    @Column(name = "status", length = 20) // 👈 IMPORTANT
     private OrderStatus status;
+
 
     private Double totalAmount;
 

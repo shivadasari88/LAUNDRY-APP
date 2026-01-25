@@ -1,8 +1,11 @@
 package com.laundryapp.entity;
 
 public enum OrderStatus {
-	 DRAFT,
-	    CONFIRMED,
-	    PICKED,
-	    DELIVERED
+    DRAFT,        // Customer cart
+    CONFIRMED,    // Customer placed order
+    IN_PROGRESS,  // Provider started processing
+    READY,        // Ready for pickup / delivery
+    COMPLETED,    // Delivered
+    CANCELLED
 }
+
