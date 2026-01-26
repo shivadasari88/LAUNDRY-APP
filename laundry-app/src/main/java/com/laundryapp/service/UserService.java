@@ -33,17 +33,15 @@ public class UserService {
 
     public User login(LoginRequest request) {
 
-        User user = userRepository.findByUsername(request.getUsername());
-
-        if (user == null) {
-            return null;
-        }
+        User user = userRepository.findByUsername(request.getUsername())
+                .orElseThrow(() -> new RuntimeException("User not found"));
 
         if (!user.getPassword().equals(request.getPassword())) {
-            return null;
+            throw new RuntimeException("Invalid password");
         }
 
         return user;
     }
+
 }
 
