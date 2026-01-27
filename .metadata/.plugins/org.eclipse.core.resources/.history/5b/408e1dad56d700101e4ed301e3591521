@@ -1,5 +1,0 @@
-package com.laundryapp.repository;
-
-public interface UserRepository {
-
-}

@@ -1,25 +1,46 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import Landing from "./pages/Landing";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
-import CustomerDashboard from "./pages/CustomerDashboard";
-import ProviderDashboard from "./pages/ProviderDashboard";
-import AdminDashboard from "./pages/AdminDashboard";
+
+import ProviderDashboard from "./pages/provider/ProviderDashboard";
+import ProviderLayout from "./components/provider/ProviderLayout";
+import Services from "./components/provider/Services";
+import Orders from "./components/provider/Orders";
+
+import AdminDashboard from "./pages/admin/AdminDashboard";
+
+import Home from "./pages/customer/Home";
+import Shop from "./pages/customer/Shop";
+
+import { CartProvider } from "./context/CartContext";
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Landing />} />
-       <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
+    <CartProvider>
+      <BrowserRouter>
+        <Routes>
+          {/* Public */}
+          <Route path="/" element={<Landing />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
 
-       
-        <Route path="/customer" element={<CustomerDashboard />} />
-        <Route path="/provider" element={<ProviderDashboard />} />
-        <Route path="/admin" element={<AdminDashboard />} />
-        
-      </Routes>
-    </BrowserRouter>
+          {/* Customer */}
+          <Route path="/home" element={<Home />} />
+          <Route path="/shop/:shopId" element={<Shop />} />
+
+          {/* Provider */}
+          <Route path="/provider" element={<ProviderDashboard />}>
+            {/* These render INSIDE ProviderLayout */}
+            <Route path="services" element={<Services />} />
+            <Route path="orders" element={<Orders />} />
+          </Route>
+
+          {/* Admin */}
+          <Route path="/admin" element={<AdminDashboard />} />
+        </Routes>
+      </BrowserRouter>
+    </CartProvider>
   );
 }

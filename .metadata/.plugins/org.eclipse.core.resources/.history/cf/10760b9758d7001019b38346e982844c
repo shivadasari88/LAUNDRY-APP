@@ -1,9 +1,0 @@
-package com.laundryapp.dto;
-
-import lombok.Data;
-
-@Data   // IMPORTANT
-public class LoginRequest {
-    private String username;
-    private String password;
-}
