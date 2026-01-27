@@ -1,6 +1,7 @@
 package com.laundryapp.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -43,8 +44,12 @@ public class CartController {
     
  // ✅ NEW (FRONTEND USES THIS)
     @GetMapping("/view")
-    public CartResponse viewCart(@RequestParam Long customerId) {
-        return cartViewService.getCart(customerId);
+    public CartResponse viewCart(Authentication authentication) {
+
+        String username = authentication.getName(); // from JWT
+
+        return cartViewService.getCartByUsername(username);
     }
+
 }
 

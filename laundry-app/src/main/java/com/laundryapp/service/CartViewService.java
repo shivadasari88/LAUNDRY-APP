@@ -15,7 +15,9 @@ import com.laundryapp.entity.OrderGroup;
 import com.laundryapp.entity.OrderItem;
 import com.laundryapp.entity.OrderStatus;
 import com.laundryapp.entity.Shop;
+import com.laundryapp.entity.User;
 import com.laundryapp.repository.OrderRepository;
+import com.laundryapp.repository.UserRepository;
 
 @Service
 public class CartViewService {
@@ -23,10 +25,16 @@ public class CartViewService {
     @Autowired
     private OrderRepository orderRepository;
 
-    public CartResponse getCart(Long customerId) {
+    @Autowired
+    private UserRepository userRepository;
+
+    public CartResponse getCartByUsername(String username) {
+
+        User user = userRepository.findByUsername(username)
+                .orElseThrow(() -> new RuntimeException("User not found"));
 
         Order order = orderRepository
-                .findByCustomerIdAndStatus(customerId, OrderStatus.DRAFT)
+                .findByCustomerIdAndStatus(user.getId(), OrderStatus.DRAFT)
                 .orElseThrow(() -> new RuntimeException("No active cart"));
 
         CartResponse response = new CartResponse();
@@ -73,4 +81,3 @@ public class CartViewService {
         return response;
     }
 }
-
