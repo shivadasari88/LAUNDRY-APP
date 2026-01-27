@@ -1,5 +1,7 @@
 package com.laundryapp.controller;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.laundryapp.dto.LoginRequest;
 import com.laundryapp.dto.RegisterRequest;
 import com.laundryapp.entity.User;
+import com.laundryapp.security.JwtUtil;
 import com.laundryapp.service.UserService;
 
 @RestController
@@ -20,6 +23,8 @@ public class AuthController {
 
     @Autowired
     private UserService userService;
+    @Autowired
+    private JwtUtil jwtUtil;
 
     @PostMapping("/register")
     public ResponseEntity<?> register(@RequestBody RegisterRequest request) {
@@ -30,12 +35,14 @@ public class AuthController {
     public ResponseEntity<?> login(@RequestBody LoginRequest request) {
 
         User user = userService.login(request);
+        String token=jwtUtil.generateToken(user.getUsername());
 
-        if (user == null) {
-            return ResponseEntity.status(401).body("Invalid credentials");
-        }
-
-        return ResponseEntity.ok(user);
+        return ResponseEntity.ok(
+        		Map.of("token",token,
+        				"username",user.getUsername(),
+        				"role",user.getRole()
+        				)
+        		);
     }
 }
 

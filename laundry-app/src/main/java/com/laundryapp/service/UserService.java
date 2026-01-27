@@ -1,6 +1,7 @@
 package com.laundryapp.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.laundryapp.dto.LoginRequest;
@@ -14,6 +15,8 @@ public class UserService {
 
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     public String register(RegisterRequest request) {
 
@@ -23,7 +26,7 @@ public class UserService {
 
         User user = new User();
         user.setUsername(request.getUsername());
-        user.setPassword(request.getPassword()); // plain text for phase 1
+        user.setPassword(passwordEncoder.encode(request.getPassword())); // plain text for phase 1
         user.setRole(request.getRole());
 
         userRepository.save(user);
@@ -33,10 +36,11 @@ public class UserService {
 
     public User login(LoginRequest request) {
 
-        User user = userRepository.findByUsername(request.getUsername())
-                .orElseThrow(() -> new RuntimeException("User not found"));
+    	User user = userRepository.findByUsername(request.getUsername())
+    	        .orElseThrow(() -> new RuntimeException("User not found"));
 
-        if (!user.getPassword().equals(request.getPassword())) {
+
+        if (!passwordEncoder.matches(request.getPassword(),user.getPassword())) {
             throw new RuntimeException("Invalid password");
         }
 
