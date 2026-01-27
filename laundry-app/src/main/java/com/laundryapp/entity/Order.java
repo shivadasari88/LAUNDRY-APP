@@ -1,15 +1,23 @@
 package com.laundryapp.entity;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
-import jakarta.persistence.*;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "orders")
+@Table(name = "orders") // Rename table to avoid SQL keyword conflicts
 public class Order {
 
     @Id
@@ -25,68 +33,37 @@ public class Order {
     private Shop shop;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "status", length = 20) // 👈 IMPORTANT
     private OrderStatus status;
-
 
     private Double totalAmount;
 
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JsonManagedReference
-    @JsonIgnore
+    // ✅ ADD THIS FIELD
+    private LocalDateTime orderTime;
 
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<OrderGroup> groups = new ArrayList<>();
-    
 
-	public Long getId() {
-		return id;
-	}
+    // --- GETTERS AND SETTERS ---
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
 
-	public User getCustomer() {
-		return customer;
-	}
+    public User getCustomer() { return customer; }
+    public void setCustomer(User customer) { this.customer = customer; }
 
-	public void setCustomer(User customer) {
-		this.customer = customer;
-	}
+    public Shop getShop() { return shop; }
+    public void setShop(Shop shop) { this.shop = shop; }
 
-	public Shop getShop() {
-		return shop;
-	}
+    public OrderStatus getStatus() { return status; }
+    public void setStatus(OrderStatus status) { this.status = status; }
 
-	public void setShop(Shop shop) {
-		this.shop = shop;
-	}
+    public Double getTotalAmount() { return totalAmount; }
+    public void setTotalAmount(Double totalAmount) { this.totalAmount = totalAmount; }
 
-	public OrderStatus getStatus() {
-		return status;
-	}
+    // ✅ ADD THESE METHODS
+    public LocalDateTime getOrderTime() { return orderTime; }
+    public void setOrderTime(LocalDateTime orderTime) { this.orderTime = orderTime; }
 
-	public void setStatus(OrderStatus status) {
-		this.status = status;
-	}
-
-	public Double getTotalAmount() {
-		return totalAmount;
-	}
-
-	public void setTotalAmount(Double totalAmount) {
-		this.totalAmount = totalAmount;
-	}
-
-	public List<OrderGroup> getGroups() {
-		return groups;
-	}
-
-	public void setGroups(List<OrderGroup> groups) {
-		this.groups = groups;
-	}
-
-    // getters & setters
-    
-    
+    public List<OrderGroup> getGroups() { return groups; }
+    public void setGroups(List<OrderGroup> groups) { this.groups = groups; }
 }
