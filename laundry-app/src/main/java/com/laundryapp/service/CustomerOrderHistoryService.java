@@ -7,7 +7,9 @@ import org.springframework.stereotype.Service;
 
 import com.laundryapp.entity.Order;
 import com.laundryapp.entity.OrderHistoryResponse;
+import com.laundryapp.entity.User;
 import com.laundryapp.repository.OrderRepository;
+import com.laundryapp.repository.UserRepository;
 
 @Service
 public class CustomerOrderHistoryService {
@@ -15,10 +17,16 @@ public class CustomerOrderHistoryService {
     @Autowired
     private OrderRepository orderRepository;
 
-    public List<OrderHistoryResponse> getOrderHistory(Long customerId) {
+    @Autowired
+    private UserRepository userRepository;
+
+    public List<OrderHistoryResponse> getOrderHistoryByUsername(String username) {
+
+        User user = userRepository.findByUsername(username)
+                .orElseThrow(() -> new RuntimeException("User not found"));
 
         List<Order> orders =
-                orderRepository.findByCustomerIdOrderByIdDesc(customerId);
+                orderRepository.findByCustomerIdOrderByIdDesc(user.getId());
 
         return orders.stream().map(order -> {
 
@@ -32,4 +40,5 @@ public class CustomerOrderHistoryService {
         }).toList();
     }
 }
+
 

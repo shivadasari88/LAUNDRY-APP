@@ -6,6 +6,8 @@ import io.jsonwebtoken.security.Keys;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
+import com.laundryapp.entity.User;
+
 import java.security.Key;
 import java.util.Date;
 
@@ -20,14 +22,16 @@ public class JwtUtil {
         return Keys.hmacShaKeyFor(SECRET_KEY.getBytes());
     }
 
-    public String generateToken(String username) {
+    public String generateToken(User user) {
         return Jwts.builder()
-                .setSubject(username)
+                .setSubject(user.getUsername())
+                .claim("role", user.getRole().name()) // ✅ ROLE ADDED
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
-                .signWith(getSigningKey(), SignatureAlgorithm.HS256)
+                .signWith(getSigningKey(), SignatureAlgorithm.HS256) // ✅ FIX
                 .compact();
     }
+
 
     public String extractUsername(String token) {
         return Jwts.parserBuilder()
@@ -37,6 +41,16 @@ public class JwtUtil {
                 .getBody()
                 .getSubject();
     }
+    
+    public String extractRole(String token) {
+        return Jwts.parserBuilder()
+                .setSigningKey(getSigningKey())
+                .build()
+                .parseClaimsJws(token)
+                .getBody()
+                .get("role", String.class);
+    }
+
 
     public boolean validateToken(String token, UserDetails userDetails) {
         try {

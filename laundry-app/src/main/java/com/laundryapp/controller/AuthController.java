@@ -35,14 +35,17 @@ public class AuthController {
     public ResponseEntity<?> login(@RequestBody LoginRequest request) {
 
         User user = userService.login(request);
-        String token=jwtUtil.generateToken(user.getUsername());
+
+        String token = jwtUtil.generateToken(user); // ✅ FIXED
 
         return ResponseEntity.ok(
-        		Map.of("token",token,
-        				"username",user.getUsername(),
-        				"role",user.getRole()
-        				)
-        		);
+            Map.of(
+                "token", token,
+                "username", user.getUsername(),
+                "role", user.getRole()
+            )
+        );
     }
+
 }
 

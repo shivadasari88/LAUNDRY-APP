@@ -3,6 +3,7 @@ package com.laundryapp.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,10 +22,11 @@ public class CustomerOrderHistoryController {
     private CustomerOrderHistoryService historyService;
 
     @GetMapping
-    public List<OrderHistoryResponse> getOrderHistory(
-            @RequestParam Long customerId) {
+    public List<OrderHistoryResponse> getOrderHistory(Authentication authentication) {
 
-        return historyService.getOrderHistory(customerId);
+        String username = authentication.getName(); // extracted from JWT
+
+        return historyService.getOrderHistoryByUsername(username);
     }
 }
 
