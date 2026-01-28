@@ -22,14 +22,28 @@ const ProviderDashboard = () => {
       .finally(() => setLoading(false));
   }, [providerId]);
 
-  if (loading) return <div className="p-6">Loading...</div>;
-  if (!providerId) return <div className="p-6 text-red-600">Provider not logged in</div>;
-  if (!shop) return <AddShop />;
-  if (shop.approvalStatus === "PENDING") return <ShopPending />;
+  if (loading) return (
+    <div className="min-h-screen bg-slate-900 flex items-center justify-center text-white">
+      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-white mb-4"></div>
+    </div>
+  );
 
-  // ✅ THIS IS THE MOST IMPORTANT LINE
+  if (!providerId) return <div className="p-6 text-red-500 font-bold bg-slate-900 h-screen">Error: Not Logged In</div>;
+
+  // 1. No Shop Created Yet -> Show Create Shop Form
+  if (!shop) return <AddShop />;
+
+  // 2. Shop Created but Pending Approval -> Show Pending Screen
+  if (shop.approvalStatus === "PENDING" || shop.approvalStatus === "REJECTED") {
+      return <ShopPending status={shop.approvalStatus} />;
+  }
+
+  // 3. Shop Approved -> Show Full Dashboard (Navbar + Content)
   return (
     <ProviderLayout>
+      {/* Passing 'shop' context allows child pages (Services/Orders) 
+          to access shop ID without re-fetching 
+      */}
       <Outlet context={{ shop }} />
     </ProviderLayout>
   );
