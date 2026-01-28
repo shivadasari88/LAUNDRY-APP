@@ -25,3 +25,6 @@ export const getApprovedShops = () => api.get("/admin/shops/approved");
 
 // 🔹 Rejected shops
 export const getRejectedShops = () => api.get("/admin/shops/rejected");
+
+// 🔍 Get shop by ID
+export const getShopById = (shopId) => api.get(`/admin/shops/${shopId}`);

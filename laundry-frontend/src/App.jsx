@@ -10,6 +10,7 @@ import Services from "./components/provider/Services";
 import Orders from "./components/provider/Orders";
 
 import AdminDashboard from "./pages/admin/AdminDashboard";
+import AdminShopDetails from "./pages/admin/AdminShopDetails";
 
 import Home from "./pages/customer/Home";
 import Shop from "./pages/customer/Shop";
@@ -41,8 +42,9 @@ export default function App() {
 
           {/* Admin */}
           <Route path="/admin" element={<AdminDashboard />} />
-          <Route path="/admin/approvedShops" element={<ApprovedShops/>} />
-          <Route path="/admin/rejectedShops" element={<RejectedShops/>} />
+          <Route path="/admin/shop/:shopId" element={<AdminShopDetails />} />
+          <Route path="/admin/approvedShops" element={<ApprovedShops />} />
+          <Route path="/admin/rejectedShops" element={<RejectedShops />} />
 
         </Routes>
       </BrowserRouter>
