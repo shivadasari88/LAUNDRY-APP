@@ -19,10 +19,10 @@ const AdminShopDetails = () => {
                 setShop({
                     id: shopId,
                     name: "Premium Laundry Hub",
-                    address: "456 Skyline Blvd, Metro City",
-                    phone: "+1 234 567 890",
+                    address: "  Telanagana Housing Board Colony , Srisailam Highway,Hyderabad",
+                    phone: "+91 6552522222",
                     rating: 4.8,
-                    openingHours: "08:00 AM - 09:00 PM",
+                    openingHours: "09:00 AM - 09:00 PM",
                     deliveryTime: "24 Hours",
                     description: "Our high-end laundry facility equipped with state-of-the-art machinery.",
                     images: [
@@ -126,10 +126,10 @@ const AdminShopDetails = () => {
                         </h2>
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                             {(shop.serviceGallery || [
-                                "https://images.unsplash.com/photo-1517677208171-0bc6725a3e60?auto=format&fit=crop&q=80&w=400",
-                                "https://images.unsplash.com/photo-1489274495757-95c7c137b29b?auto=format&fit=crop&q=80&w=400",
-                                "https://images.unsplash.com/photo-1549443161-0aeec83908f4?auto=format&fit=crop&q=80&w=400",
-                                "https://images.unsplash.com/photo-1558227691-41ea78d1f631?auto=format&fit=crop&q=80&w=400"
+                                // "https://images.unsplash.com/photo-1517677208171-0bc6725a3e60?auto=format&fit=crop&q=80&w=400",
+                                // "https://images.unsplash.com/photo-1489274495757-95c7c137b29b?auto=format&fit=crop&q=80&w=400",
+                                // "https://images.unsplash.com/photo-1549443161-0aeec83908f4?auto=format&fit=crop&q=80&w=400",
+                                
                             ]).map((img, index) => (
                                 <div key={index} className="group relative overflow-hidden rounded-xl border border-white/5 aspect-square shadow-lg">
                                     <img
@@ -146,11 +146,11 @@ const AdminShopDetails = () => {
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                         <div className="bg-white/5 backdrop-blur-lg p-6 rounded-2xl border border-white/10">
                             <p className="text-indigo-300/50 text-xs uppercase mb-2">Contact Number</p>
-                            <p className="text-lg font-semibold">{shop.phone}</p>
+                            <p className="text-lg font-semibold">📞{shop.phone}</p>
                         </div>
                         <div className="bg-white/5 backdrop-blur-lg p-6 rounded-2xl border border-white/10">
                             <p className="text-indigo-300/50 text-xs uppercase mb-2">Delivery Time</p>
-                            <p className="text-lg font-semibold">{shop.deliveryTime}</p>
+                            <p className="text-lg font-semibold">🚚{shop.deliveryTime}</p>
                         </div>
                         <div className="bg-white/5 backdrop-blur-lg p-6 rounded-2xl border border-white/10">
                             <p className="text-indigo-300/50 text-xs uppercase mb-2">Service Status</p>
