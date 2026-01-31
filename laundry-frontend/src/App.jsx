@@ -9,7 +9,7 @@ import ProviderDashboard from "./pages/provider/ProviderDashboard";
 import Services from "./components/provider/Services";
 import Orders from "./components/provider/Orders";
 import ProviderProfile from "./components/provider/ProviderProfile"; 
-import OrderFlow from "./components/provider/OrderFlow"; 
+
 
 // Admin Components
 import AdminDashboard from "./pages/admin/AdminDashboard";
@@ -17,6 +17,7 @@ import AdminDashboard from "./pages/admin/AdminDashboard";
 // Customer Components
 import Home from "./pages/customer/Home";
 import Shop from "./pages/customer/Shop";
+import CustomerStatus from "./pages/customer/CustomerStatus"; // ✅ IMPORT THIS
 
 import { CartProvider } from "./context/CartContext";
 
@@ -25,26 +26,27 @@ export default function App() {
     <CartProvider>
       <BrowserRouter>
         <Routes>
-          {/* Public */}
+          {/* Public Routes */}
           <Route path="/" element={<Landing />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
 
-          {/* Customer */}
+          {/* Customer Routes */}
           <Route path="/home" element={<Home />} />
           <Route path="/shop/:shopId" element={<Shop />} />
+          
+          {/* ✅ FIXED: ADDED MISSING ROUTE FOR CUSTOMER STATUS */}
+          <Route path="/customer/status" element={<CustomerStatus />} />
 
-          {/* Provider */}
+          {/* Provider Routes */}
           <Route path="/provider" element={<ProviderDashboard />}>
             <Route path="services" element={<Services />} />
             <Route path="orders" element={<Orders />} />
             <Route path="profile" element={<ProviderProfile />} />
-            
-            {/* ✅ RENAMED ROUTE TO 'status' */}
-            <Route path="status" element={<OrderFlow />} />
+            {/* Removed 'status' flow from provider as requested, they use 'orders' page now */}
           </Route>
 
-          {/* Admin */}
+          {/* Admin Routes */}
           <Route path="/admin" element={<AdminDashboard />} />
         </Routes>
       </BrowserRouter>
