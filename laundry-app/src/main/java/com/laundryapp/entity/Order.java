@@ -37,6 +37,29 @@ public class Order {
 
     private List<OrderGroup> groups = new ArrayList<>();
     
+    @Column(name = "pickup_address", length = 500)
+    private String pickupAddress;
+
+    @Column(name = "delivery_address", length = 500)
+    private String deliveryAddress;
+
+    
+
+	public String getPickupAddress() {
+		return pickupAddress;
+	}
+
+	public void setPickupAddress(String pickupAddress) {
+		this.pickupAddress = pickupAddress;
+	}
+
+	public String getDeliveryAddress() {
+		return deliveryAddress;
+	}
+
+	public void setDeliveryAddress(String deliveryAddress) {
+		this.deliveryAddress = deliveryAddress;
+	}
 
 	public Long getId() {
 		return id;
