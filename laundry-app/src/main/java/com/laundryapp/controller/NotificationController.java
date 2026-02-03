@@ -1,35 +1,46 @@
 package com.laundryapp.controller;
 
 import java.util.List;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import com.laundryapp.dto.NotificationDTO;
 import com.laundryapp.service.NotificationService;
+import com.laundryapp.entity.OrderStatus;
 
 @RestController
 @RequestMapping("/api/notifications")
 public class NotificationController {
-
     private final NotificationService notificationService;
 
     public NotificationController(NotificationService notificationService) {
         this.notificationService = notificationService;
     }
 
-    // POST: Create a notification via JSON
+    // POST: Create notification with OrderStatus
     @PostMapping
     public ResponseEntity<String> createNotification(@RequestBody NotificationDTO notificationDTO) {
         notificationService.createNotification(
                 notificationDTO.getUserId(),
                 notificationDTO.getUserRole(),
                 notificationDTO.getOrderId(),
-                notificationDTO.getTitle(),
                 notificationDTO.getMessage(),
-                notificationDTO.getType()
+                notificationDTO.getOrderStatus()
         );
         return ResponseEntity.ok("Notification created successfully");
+    }
+
+    // POST: Send OrderStatus notification
+    @PostMapping("/order/{orderId}/status/{status}")
+    public ResponseEntity<String> sendOrderStatusNotification(
+            @PathVariable Long orderId,
+            @PathVariable String status) {
+        try {
+            OrderStatus orderStatus = OrderStatus.valueOf(status.toUpperCase());
+            notificationService.sendOrderStatusNotification(orderId, orderStatus);
+            return ResponseEntity.ok("Notification sent");
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().body("Invalid status. Use: DRAFT, CONFIRMED, IN_PROGRESS, READY, COMPLETED, CANCELLED");
+        }
     }
 
     // GET: Fetch notifications for user
@@ -48,14 +59,5 @@ public class NotificationController {
         notificationService.markAsRead(id);
         return ResponseEntity.ok("Notification marked as read");
     }
- // PUT: Update notification for order status
-    @PutMapping("/{id}/order-status")
-    public ResponseEntity<String> updateOrderStatusNotification(
-            @PathVariable Long id,
-            @RequestBody NotificationDTO notificationDTO
-    ) {
-        notificationService.updateOrderStatus(id, notificationDTO.getType(), notificationDTO.getMessage());
-        return ResponseEntity.ok("Notification updated successfully");
-    }
-
 }
+
