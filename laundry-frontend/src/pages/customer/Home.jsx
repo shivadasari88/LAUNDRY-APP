@@ -36,13 +36,17 @@ const Home = () => {
     { id: 6, name: 'Curtain', icon: '🪟' }
   ];
 
-  // Mock shop data
-  const allShops = [
-    { id: 1, name: 'Quick Clean', distance: '0.5 km', services: ['Washing', 'Ironing'], rating: 4.5, deliveryTime: '1-2 hours' },
-    { id: 2, name: 'Dry Clean Pro', distance: '1.2 km', services: ['Dry Cleaning'], rating: 4.2, deliveryTime: '24 hours' },
-    { id: 3, name: 'Premium Laundry', distance: '2.1 km', services: ['Washing', 'Dry Cleaning', 'Ironing'], rating: 4.8, deliveryTime: 'Same day' },
-    { id: 4, name: 'Express Wash', distance: '0.8 km', services: ['Washing'], rating: 4.0, deliveryTime: '2-3 hours' },
-  ];
+
+  useEffect(() => {
+fetch("http://localhost:8080/api/customer/shops")
+    .then(res => res.json())
+    .then(data => {
+      setNearbyShops(data);
+      setFilteredShops(data);
+    })
+    .catch(err => console.error(err));
+}, []);
+
 
   // Get user location
   useEffect(() => {
@@ -63,21 +67,19 @@ const Home = () => {
     }
   }, []);
 
-  // Filter shops based on selections
-  useEffect(() => {
-    let filtered = [...allShops];
-    
-    if (selectedService) {
-      filtered = filtered.filter(shop => 
-        shop.services.includes(selectedService)
-      );
-    }
-    
-    // Add more filtering logic for category and items if needed
-    
-    setFilteredShops(filtered);
-    setNearbyShops(allShops); // In real app, sort by distance
-  }, [selectedService, selectedCategory, selectedItem]);
+useEffect(() => {
+  let filtered = [...nearbyShops];
+
+  if (selectedService) {
+    filtered = filtered.filter(shop =>
+      shop.services?.some(
+        service => service.name === selectedService
+      )
+    );
+  }
+
+  setFilteredShops(filtered);
+}, [selectedService, selectedCategory, selectedItem, nearbyShops]);
 
   const handleShopSelect = (shopId) => {
     navigate(`/shop/${shopId}`);
@@ -139,7 +141,7 @@ const Home = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
           <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-4 border border-white/10">
             <p className="text-white/60 text-sm">Available Shops</p>
-            <p className="text-2xl font-bold text-white">{allShops.length}</p>
+<p className="text-2xl font-bold text-white">{nearbyShops.length}</p>
           </div>
           <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-4 border border-white/10">
             <p className="text-white/60 text-sm">Services</p>

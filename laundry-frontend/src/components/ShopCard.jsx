@@ -77,7 +77,7 @@ const ShopCard = ({ shop, onClick }) => {
           <p className="text-white/80 font-medium">Services Offered</p>
         </div>
         <div className="flex flex-wrap gap-2">
-          {shop.services.map((service, index) => (
+          {shop.services?.map((service, index) => (
             <span 
               key={index} 
               className={`px-3 py-2 text-sm font-medium rounded-lg border ${getServiceColor(service)} transition-transform group-hover:scale-105`}
