@@ -8,44 +8,50 @@ import CartSidebar from '../../components/CartSidebar';
 
 const Shop = () => {
   const { shopId } = useParams();
-  const [shop, setShop] = useState(null);
-  const [items, setItems] = useState([]);
+const [shop, setShop] = useState(null);
+const [items, setItems] = useState([]);
+const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
   const [filterCategory, setFilterCategory] = useState('');
   const [selectedItem, setSelectedItem] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const { addItemToCart } = useCart();
+  const [services, setServices] = useState([]);
+const [selectedServiceId, setSelectedServiceId] = useState(null);
 
-  // Mock data for shop
-  useEffect(() => {
-    // In real app, fetch shop data from API
-    const mockShop = {
-      id: parseInt(shopId),
-      name: 'Quick Clean Laundry',
-      address: '123 Main St, New York, NY 10001',
-      rating: 4.5,
-      services: ['Washing', 'Ironing', 'Dry Cleaning'],
-      openingHours: '9 AM - 8 PM',
-      deliveryTime: '1-2 hours',
-      phone: '+1 (555) 123-4567',
-      description: 'Professional laundry service with quick turnaround time and premium quality.'
-    };
-    setShop(mockShop);
 
-    // Mock items
-    const mockItems = [
-      { id: 1, name: 'Cotton Shirt', category: 'Men', price: 30, serviceTypes: ['Washing', 'Ironing'], popular: true },
-      { id: 2, name: 'Jeans', category: 'Men', price: 40, serviceTypes: ['Washing'], popular: true },
-      { id: 3, name: 'Silk Saree', category: 'Women', price: 100, serviceTypes: ['Dry Cleaning'], popular: false },
-      { id: 4, name: 'Woolen Jacket', category: 'Men', price: 150, serviceTypes: ['Dry Cleaning'], popular: true },
-      { id: 5, name: 'Bedsheet', category: 'Home', price: 80, serviceTypes: ['Washing'], popular: false },
-      { id: 6, name: 'Cotton Kurta', category: 'Men', price: 50, serviceTypes: ['Washing', 'Ironing'], popular: true },
-      { id: 7, name: 'Formal Trousers', category: 'Men', price: 45, serviceTypes: ['Washing', 'Ironing'], popular: false },
-      { id: 8, name: 'Designer Dress', category: 'Women', price: 120, serviceTypes: ['Dry Cleaning'], popular: true },
-    ];
-    setItems(mockItems);
-  }, [shopId]);
+useEffect(() => {
+  setLoading(true);
+
+  fetch(`http://localhost:8080/api/customer/shops/${shopId}`)
+    .then(res => res.json())
+    .then(shopData => {
+      setShop(shopData);
+      return fetch(`http://localhost:8080/api/customer/shops/${shopId}/services`);
+    })
+    .then(res => res.json())
+    .then(servicesData => {
+      setServices(servicesData);
+
+      // auto-select first service
+      if (servicesData.length > 0) {
+        setSelectedServiceId(servicesData[0].id);
+      }
+    })
+    .catch(err => console.error(err))
+    .finally(() => setLoading(false));
+}, [shopId]);
+
+useEffect(() => {
+  if (!selectedServiceId) return;
+
+  fetch(`http://localhost:8080/api/customer/services/${selectedServiceId}/items`)
+    .then(res => res.json())
+    .then(itemsData => setItems(itemsData))
+    .catch(err => console.error(err));
+}, [selectedServiceId]);
+
 
   const handleItemSelect = (item) => {
     setSelectedItem(item);
@@ -72,12 +78,35 @@ const Shop = () => {
   };
 
   const filteredItems = items.filter(item => {
-    const matchesSearch = item.name.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesCategory = !filterCategory || item.category === filterCategory;
-    return matchesSearch && matchesCategory;
-  });
+  const itemName =
+    item.name ||
+    item.itemName ||
+    '';
 
-  const categories = [...new Set(items.map(item => item.category))];
+  const matchesSearch = itemName
+    .toLowerCase()
+    .includes(searchTerm.toLowerCase());
+
+  const matchesCategory =
+    !filterCategory ||
+    (typeof item.category === 'string'
+      ? item.category === filterCategory
+      : item.category?.name === filterCategory);
+
+  return matchesSearch && matchesCategory;
+});
+
+
+const categories = [
+  ...new Set(
+    items
+      .map(item =>
+        item.category?.name || item.category || null
+      )
+      .filter(Boolean)
+  )
+];
+
 
   if (!shop) return (
     <div className="flex items-center justify-center min-h-screen bg-linear-to-r from-slate-900 via-blue-900 to-indigo-900">
@@ -139,11 +168,27 @@ const Shop = () => {
           <p className="text-white/80 mb-6">{shop.description}</p>
           
           <div className="flex flex-wrap gap-3">
-            {shop.services.map((service, index) => (
-              <span key={index} className="px-4 py-2 bg-blue-500/20 rounded-full text-blue-300 border border-blue-400/30">
-                {service}
-              </span>
-            ))}
+            {shop.services?.map((service, index) => {
+  const serviceName =
+    typeof service === 'string' ? service : service.name;
+
+  return (
+    <span
+      key={index}
+      className="px-4 py-2 bg-blue-500/20 rounded-full text-blue-300 border border-blue-400/30"
+    >
+      {serviceName}
+    </span>
+  );
+})}
+
+{(!shop.services || shop.services.length === 0) && (
+  <span className="text-white/50 text-sm">
+    Services not listed
+  </span>
+)}
+
+
           </div>
         </div>
 
@@ -203,9 +248,32 @@ const Shop = () => {
           </div>
           <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-4 border border-white/10">
             <p className="text-white/60 text-sm">Starting at</p>
-            <p className="text-2xl font-bold text-white">₹{Math.min(...items.map(item => item.price))}</p>
+            <p className="text-2xl font-bold text-white">₹{
+  items.length > 0
+    ? Math.min(...items.map(item => item.price || 0))
+    : 0
+}
+</p>
           </div>
         </div>
+
+        <div className="flex gap-3 mb-6 flex-wrap">
+  {services.map(service => (
+    <button
+      key={service.id}
+      onClick={() => setSelectedServiceId(service.id)}
+      className={`px-4 py-2 rounded-full border transition
+        ${
+          selectedServiceId === service.id
+            ? 'bg-blue-500 text-white border-blue-400'
+            : 'bg-white/10 text-white border-white/20'
+        }`}
+    >
+      {service.name}
+    </button>
+  ))}
+</div>
+
 
         {/* Items List */}
 <div className="mb-8">
