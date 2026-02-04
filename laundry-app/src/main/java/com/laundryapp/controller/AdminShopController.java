@@ -39,4 +39,22 @@ public class AdminShopController {
     public Shop rejectShop(@PathVariable Long shopId) {
         return shopService.rejectShop(shopId);
     }
+
+    // ✅ ADMIN: VIEW APPROVED SHOPS
+    @GetMapping("/approved")
+    public List<Shop> getApprovedShops() {
+        return shopService.getApprovedShops();
+    }
+
+    // ✅ ADMIN: VIEW REJECTED SHOPS
+    @GetMapping("/rejected")
+    public List<Shop> getRejectedShops() {
+        return shopService.getRejectedShops();
+    }
+
+    // ✅ ADMIN: GET SHOP BY ID
+    @GetMapping("/{shopId}")
+    public Shop getShopById(@PathVariable Long shopId) {
+        return shopService.getShopById(shopId);
+    }
 }

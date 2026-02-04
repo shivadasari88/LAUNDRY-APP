@@ -20,15 +20,13 @@ public class ProviderOrderService {
 
     public List<ProviderOrderResponse> getOrdersForShop(Long shopId) {
 
-        List<Order> orders =
-                orderRepository.findByShopIdAndStatusNot(
-                        shopId,
-                        OrderStatus.DRAFT
-                );
+        List<Order> orders = orderRepository.findByShopIdAndStatusNot(
+                shopId,
+                OrderStatus.DRAFT);
 
         return orders.stream().map(this::mapToResponse).toList();
     }
-    
+
     public ProviderOrderResponse getOrderDetails(Long orderId) {
 
         Order order = orderRepository.findById(orderId)
@@ -37,7 +35,6 @@ public class ProviderOrderService {
         return mapToResponse(order);
     }
 
-    
     public ProviderOrderResponse updateOrderStatus(
             Long orderId,
             String newStatus) {
@@ -63,47 +60,53 @@ public class ProviderOrderService {
         return mapToResponse(order);
     }
 
-
     private ProviderOrderResponse mapToResponse(Order order) {
 
         ProviderOrderResponse response = new ProviderOrderResponse();
         response.setOrderId(order.getId());
         response.setTotalAmount(order.getTotalAmount());
         response.setStatus(order.getStatus().name());
-        response.setCustomerName(order.getCustomer().getUsername());
 
-        List<ProviderOrderGroupSummary> groupResponses =
-                order.getGroups().stream().map(group -> {
+        if (order.getCustomer() != null) {
+            response.setCustomerName(order.getCustomer().getUsername());
+        } else {
+            response.setCustomerName("Unknown Customer");
+        }
 
-                    ProviderOrderGroupSummary gr = new ProviderOrderGroupSummary();
-                    gr.setGroupId(group.getId());
-                    gr.setGroupName(group.getGroupName());
-                    gr.setGroupTotal(group.getGroupTotal());
+        if (order.getGroups() != null) {
+            List<ProviderOrderGroupSummary> groupResponses = order.getGroups().stream().map(group -> {
 
-                    List<ProviderOrderItemSummary> items =
-                            group.getItems().stream().map(item -> {
+                ProviderOrderGroupSummary gr = new ProviderOrderGroupSummary();
+                gr.setGroupId(group.getId());
+                gr.setGroupName(group.getGroupName());
+                gr.setGroupTotal(group.getGroupTotal() != null ? group.getGroupTotal() : 0.0);
 
-                                ProviderOrderItemSummary ir =
-                                        new ProviderOrderItemSummary();
+                if (group.getItems() != null) {
+                    List<ProviderOrderItemSummary> items = group.getItems().stream().map(item -> {
 
-                                ir.setItemName(item.getItemName());
-                                ir.setServiceType(item.getServiceType());
-                                ir.setQuantity(item.getQuantity());
-                                ir.setTotalPrice(item.getTotalPrice());
+                        ProviderOrderItemSummary ir = new ProviderOrderItemSummary();
 
-                                return ir;
-                            }).toList();
+                        ir.setItemName(item.getItemName());
+                        ir.setServiceType(item.getServiceType());
+                        ir.setQuantity(item.getQuantity());
+                        ir.setTotalPrice(item.getTotalPrice());
 
+                        return ir;
+                    }).toList();
                     gr.setItems(items);
-                    return gr;
+                } else {
+                    gr.setItems(java.util.Collections.emptyList());
+                }
 
-                }).toList();
+                return gr;
 
-        response.setGroups(groupResponses);
+            }).toList();
+            response.setGroups(groupResponses);
+        } else {
+            response.setGroups(java.util.Collections.emptyList());
+        }
+
         return response;
     }
 
-
 }
-
-

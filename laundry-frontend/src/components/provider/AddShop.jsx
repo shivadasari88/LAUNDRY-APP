@@ -26,9 +26,9 @@ const AddShop = () => {
         }
 
         try {
+
             const payload = {
-                ...form,
-                providerId
+                ...form
             };
 
             console.log("Creating shop:", payload);

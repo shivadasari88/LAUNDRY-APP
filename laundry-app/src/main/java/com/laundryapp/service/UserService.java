@@ -10,20 +10,22 @@ import com.laundryapp.repository.UserRepository;
 
 @Service
 public class UserService {
-	
 
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private org.springframework.security.crypto.password.PasswordEncoder passwordEncoder;
+
     public String register(RegisterRequest request) {
 
         if (userRepository.existsByUsername(request.getUsername())) {
-            return "Username already exists";
+            throw new IllegalArgumentException("Username already exists");
         }
 
         User user = new User();
         user.setUsername(request.getUsername());
-        user.setPassword(request.getPassword()); // plain text for phase 1
+        user.setPassword(passwordEncoder.encode(request.getPassword()));
         user.setRole(request.getRole());
 
         userRepository.save(user);
@@ -32,18 +34,8 @@ public class UserService {
     }
 
     public User login(LoginRequest request) {
-
-        User user = userRepository.findByUsername(request.getUsername());
-
-        if (user == null) {
-            return null;
-        }
-
-        if (!user.getPassword().equals(request.getPassword())) {
-            return null;
-        }
-
-        return user;
+        // This method is now legacy/unused by AuthController but kept as helper if
+        // needed
+        return userRepository.findByUsername(request.getUsername());
     }
 }
-

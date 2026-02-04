@@ -13,7 +13,7 @@ export default function Login() {
 
       // ✅ STORE LOGIN DATA
       localStorage.setItem("user", JSON.stringify(user));
-      localStorage.setItem("userId", user.id);   // ✅ REQUIRED
+
       localStorage.setItem("role", user.role);
 
       if (user.role === "CUSTOMER") navigate("/home");

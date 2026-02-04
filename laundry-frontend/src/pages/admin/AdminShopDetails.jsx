@@ -57,7 +57,7 @@ const AdminShopDetails = () => {
     if (!shop) return <div className="p-6 text-white text-center">Shop not found</div>;
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-[#0f172a] via-[#1e1b4b] to-[#0f172a] p-6 text-white">
+        <div>
             <div className="max-w-5xl mx-auto">
                 {/* Back Button */}
                 <button
@@ -129,7 +129,7 @@ const AdminShopDetails = () => {
                                 // "https://images.unsplash.com/photo-1517677208171-0bc6725a3e60?auto=format&fit=crop&q=80&w=400",
                                 // "https://images.unsplash.com/photo-1489274495757-95c7c137b29b?auto=format&fit=crop&q=80&w=400",
                                 // "https://images.unsplash.com/photo-1549443161-0aeec83908f4?auto=format&fit=crop&q=80&w=400",
-                                
+
                             ]).map((img, index) => (
                                 <div key={index} className="group relative overflow-hidden rounded-xl border border-white/5 aspect-square shadow-lg">
                                     <img

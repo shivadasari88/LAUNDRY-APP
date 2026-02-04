@@ -21,16 +21,20 @@ public class CartController {
 
     @Autowired
     private OrderService orderService;
-    
+
     @Autowired
-    private CartViewService cartViewService; // ✅ ADD THIS
+    private CartViewService cartViewService;
+
+    @Autowired
+    private com.laundryapp.repository.UserRepository userRepository;
 
     @PostMapping("/init")
     public InitCartResponse initCart(
-            @RequestParam Long customerId,
+            @org.springframework.security.core.annotation.AuthenticationPrincipal org.springframework.security.core.userdetails.UserDetails userDetails,
             @RequestParam Long shopId) {
 
-        Order order = orderService.getOrCreateDraftOrder(customerId, shopId);
+        com.laundryapp.entity.User user = userRepository.findByUsername(userDetails.getUsername());
+        Order order = orderService.getOrCreateDraftOrder(user.getId(), shopId);
 
         InitCartResponse response = new InitCartResponse();
         response.setOrderId(order.getId());
@@ -40,11 +44,32 @@ public class CartController {
 
         return response;
     }
-    
- // ✅ NEW (FRONTEND USES THIS)
+
     @GetMapping("/view")
-    public CartResponse viewCart(@RequestParam Long customerId) {
-        return cartViewService.getCart(customerId);
+    public CartResponse viewCart(
+            @org.springframework.security.core.annotation.AuthenticationPrincipal org.springframework.security.core.userdetails.UserDetails userDetails) {
+        com.laundryapp.entity.User user = userRepository.findByUsername(userDetails.getUsername());
+        return cartViewService.getCart(user.getId());
+    }
+
+    @org.springframework.transaction.annotation.Transactional
+    @org.springframework.web.bind.annotation.DeleteMapping("/clear")
+    public void clearCart(
+            @org.springframework.security.core.annotation.AuthenticationPrincipal org.springframework.security.core.userdetails.UserDetails userDetails) {
+        com.laundryapp.entity.User user = userRepository.findByUsername(userDetails.getUsername());
+        orderService.clearCart(user.getId());
+    }
+
+    @PostMapping("/groups")
+    public com.laundryapp.dto.GroupResponse createGroup(
+            @RequestParam Long orderId,
+            @RequestParam String groupName) {
+        return orderService.createGroup(orderId, groupName);
+    }
+
+    @PostMapping("/item")
+    public com.laundryapp.dto.ItemResponse addItem(
+            @org.springframework.web.bind.annotation.RequestBody com.laundryapp.dto.AddOrderItemRequest request) {
+        return orderService.addOrderItem(request);
     }
 }
-

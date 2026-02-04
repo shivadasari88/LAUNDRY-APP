@@ -40,11 +40,10 @@ public class OrderConfirmationService {
         if (order.getTotalAmount() <= 0) {
             throw new RuntimeException("Invalid order total");
         }
-        
+
         order.setPickupAddress(pickupAddress);
         order.setDeliveryAddress(
-                deliveryAddress != null ? deliveryAddress : pickupAddress
-        );
+                deliveryAddress != null ? deliveryAddress : pickupAddress);
 
         // ✅ CONFIRM ORDER
         order.setStatus(OrderStatus.CONFIRMED);
@@ -52,4 +51,3 @@ public class OrderConfirmationService {
         return orderRepository.save(order);
     }
 }
-

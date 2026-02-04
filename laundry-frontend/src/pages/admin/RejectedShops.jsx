@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {getRejectedShops} from "../../api/adminApi";
+import { getRejectedShops } from "../../api/adminApi";
 import ShopTable from '../../components/admin/ShopTable';
 
 const RejectedShops = () => {
@@ -22,9 +22,9 @@ const RejectedShops = () => {
 
     return (
         <div>
-            <div className="mb-6">
-                <h3 className="text-lg font-medium text-slate-600">Rejected Shops</h3>
-                <p className="text-sm text-slate-500">List of shops that were not approved for onboarding.</p>
+            <div className="mb-8">
+                <h3 className="text-2xl font-bold text-white mb-2">Rejected Shops</h3>
+                <p className="text-indigo-200/60">List of shops that were not approved for onboarding.</p>
             </div>
             <ShopTable shops={shops} loading={loading} status="REJECTED" />
         </div>

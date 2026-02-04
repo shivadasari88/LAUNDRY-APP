@@ -1,11 +1,9 @@
-import axios from "axios";
-
-const BASE_URL = "http://localhost:8080/api/provider/orders";
+import api from "../services/api";
 
 export const getOrdersByShop = async (shopId) => {
-    return axios.get(`${BASE_URL}/shop/${shopId}`);
+    return api.get(`/provider/orders/shop/${shopId}`);
 };
 
 export const updateOrderStatus = async (orderId, status) => {
-    return axios.put(`${BASE_URL}/${orderId}/status`, { status });
+    return api.put(`/provider/orders/${orderId}/status`, { status });
 };

@@ -1,0 +1,2 @@
+-- schema init placeholder (intentionally empty)
+-- Removed manual DDL to let Hibernate auto-create the schema

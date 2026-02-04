@@ -23,11 +23,11 @@ const ApprovedShops = () => {
 
     return (
         <div>
-            <div className="mb-6">
-                <h3 className="text-lg font-medium text-slate-600">
+            <div className="mb-8">
+                <h3 className="text-2xl font-bold text-white mb-2">
                     Approved Shops
                 </h3>
-                <p className="text-sm text-slate-500">
+                <p className="text-indigo-200/60">
                     List of all active and approved laundry shops.
                 </p>
             </div>

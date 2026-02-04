@@ -16,7 +16,7 @@ const ProviderDashboard = () => {
   useEffect(() => {
     if (!providerId) return;
 
-    getMyShop(providerId)
+    getMyShop()
       .then(res => setShop(res.data))
       .catch(() => setShop(null))
       .finally(() => setLoading(false));

@@ -3,10 +3,10 @@ package com.laundryapp.entity;
 public enum OrderStatus {
     DRAFT,
     CONFIRMED,
-    PICKED_UP,     // 🔥 new (optional but recommended)
+    PICKED_UP,
     IN_PROGRESS,
     READY,
+    OUT_FOR_DELIVERY,
     DELIVERED,
     CANCELLED
 }
-
