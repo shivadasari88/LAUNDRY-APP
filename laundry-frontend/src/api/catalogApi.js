@@ -26,3 +26,20 @@ export const getMyServices = async () => {
 export const getItemsByService = async (serviceTypeId) => {
     return api.get(`/provider/catalog/services/${serviceTypeId}/items`);
 };
+
+// Start of Editing APIs
+export const updateServiceType = async (id, data) => {
+    return api.put(`/provider/catalog/services/${id}`, data);
+};
+
+export const deleteServiceType = async (id) => {
+    return api.delete(`/provider/catalog/services/${id}`);
+};
+
+export const updateItem = async (id, data) => {
+    return api.put(`/provider/catalog/items/${id}`, data);
+};
+
+export const deleteItem = async (id) => {
+    return api.delete(`/provider/catalog/items/${id}`);
+};

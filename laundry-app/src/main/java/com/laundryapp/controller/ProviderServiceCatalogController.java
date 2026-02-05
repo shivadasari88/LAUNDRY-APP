@@ -86,4 +86,28 @@ public class ProviderServiceCatalogController {
     public List<ServiceItem> getItemsByService(@PathVariable Long serviceTypeId) {
         return serviceCatalogService.getItemsByServiceType(serviceTypeId);
     }
+
+    // ✅ Update Service
+    @PutMapping("/services/{id}")
+    public ServiceType updateService(@PathVariable Long id, @RequestBody ServiceRequest request) {
+        return serviceCatalogService.updateServiceType(id, request);
+    }
+
+    // ✅ Delete Service
+    @DeleteMapping("/services/{id}")
+    public void deleteService(@PathVariable Long id) {
+        serviceCatalogService.deleteServiceType(id);
+    }
+
+    // ✅ Update Item
+    @PutMapping("/items/{id}")
+    public ServiceItem updateItem(@PathVariable Long id, @RequestBody ItemRequest request) {
+        return serviceCatalogService.updateItem(id, request);
+    }
+
+    // ✅ Delete Item
+    @DeleteMapping("/items/{id}")
+    public void deleteItem(@PathVariable Long id) {
+        serviceCatalogService.deleteItem(id);
+    }
 }
