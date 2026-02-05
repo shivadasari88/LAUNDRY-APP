@@ -17,8 +17,7 @@ public class CustomerOrderHistoryService {
 
     public List<OrderHistoryResponse> getOrderHistory(Long customerId) {
 
-        List<Order> orders =
-                orderRepository.findByCustomerIdOrderByIdDesc(customerId);
+        List<Order> orders = orderRepository.findByCustomerIdOrderByIdDesc(customerId);
 
         return orders.stream().map(order -> {
 
@@ -28,8 +27,34 @@ public class CustomerOrderHistoryService {
             res.setTotalAmount(order.getTotalAmount());
             res.setShopName(order.getShop().getName());
 
+            if (order.getGroups() != null) {
+                res.setGroups(order.getGroups().stream().map(g -> {
+                    com.laundryapp.dto.ProviderOrderGroupSummary gs = new com.laundryapp.dto.ProviderOrderGroupSummary();
+                    gs.setGroupId(g.getId());
+                    gs.setGroupName(g.getGroupName());
+                    // Copy photos
+                    if (g.getPhotos() != null) {
+                        gs.setPhotos(new java.util.ArrayList<>(g.getPhotos()));
+                    }
+
+                    if (g.getItems() != null) {
+                        gs.setItems(g.getItems().stream().map(i -> {
+                            com.laundryapp.dto.ProviderOrderItemSummary is = new com.laundryapp.dto.ProviderOrderItemSummary();
+                            is.setItemId(i.getId());
+                            is.setItemName(i.getItemName());
+                            is.setServiceType(i.getServiceType());
+                            is.setFabricType(i.getFabricType());
+                            is.setInstructions(i.getInstructions());
+                            is.setQuantity(i.getQuantity());
+                            is.setTotalPrice(i.getPrice());
+                            return is;
+                        }).collect(java.util.stream.Collectors.toList()));
+                    }
+                    return gs;
+                }).collect(java.util.stream.Collectors.toList()));
+            }
+
             return res;
-        }).toList();
+        }).collect(java.util.stream.Collectors.toList());
     }
 }
-

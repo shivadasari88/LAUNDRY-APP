@@ -34,7 +34,8 @@ const CartSidebar = ({ isOpen, onClose }) => {
     }
   });
 
-  const totalAmount = cart?.totalAmount || 0;
+  // Calculate total locally to ensure it matches the items shown
+  const totalAmount = cartItemsList.reduce((acc, item) => acc + (item.totalPrice || 0), 0);
   const totalItems = cartItemsList.reduce((acc, item) => acc + item.quantity, 0);
 
   // Check if cart has items from different shop

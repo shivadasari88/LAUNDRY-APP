@@ -53,7 +53,7 @@ const ItemModal = ({ item, onClose, onAddToCart }) => {
   const addNewItem = () => {
     const newItem = {
       id: Date.now(),
-      name: `${item.name} ${itemsInGroup.length + 1}`,
+      name: `${item.name || 'Item'} ${itemsInGroup.length + 1}`,
       service: 'Washing', // Default
       fabricType: '',
       quantity: 1,
@@ -166,10 +166,10 @@ const ItemModal = ({ item, onClose, onAddToCart }) => {
             {[1, 2, 3].map((stepNum) => (
               <div key={stepNum} className="flex items-center">
                 <div className={`w-10 h-10 rounded-full flex items-center justify-center border-2 transition-all duration-500 ${stepNum < step
-                    ? 'bg-green-500/20 border-green-400 text-green-300'
-                    : stepNum === step
-                      ? 'bg-blue-500 border-blue-400 text-white shadow-lg shadow-blue-500/50'
-                      : 'bg-white/10 border-white/20 text-white/50'
+                  ? 'bg-green-500/20 border-green-400 text-green-300'
+                  : stepNum === step
+                    ? 'bg-blue-500 border-blue-400 text-white shadow-lg shadow-blue-500/50'
+                    : 'bg-white/10 border-white/20 text-white/50'
                   }`}>
                   {stepNum < step ? '✓' : stepNum}
                 </div>
@@ -424,8 +424,8 @@ const ItemModal = ({ item, onClose, onAddToCart }) => {
                             key={currentItem.id}
                             onClick={() => setCurrentItemIndex(index)}
                             className={`px-4 py-2.5 rounded-xl border transition-all duration-300 ${currentItemIndex === index
-                                ? 'bg-linear-to-r from-blue-500 to-blue-600 border-blue-400 text-white shadow-lg'
-                                : 'bg-white/10 border-white/20 text-white hover:bg-white/20'
+                              ? 'bg-linear-to-r from-blue-500 to-blue-600 border-blue-400 text-white shadow-lg'
+                              : 'bg-white/10 border-white/20 text-white hover:bg-white/20'
                               }`}
                           >
                             {currentItem.name}
@@ -439,7 +439,12 @@ const ItemModal = ({ item, onClose, onAddToCart }) => {
                           <h5 className="font-bold text-white mb-4 flex items-center justify-between">
                             <span className="flex items-center gap-2">
                               <span className="text-blue-300">🔄</span>
-                              {currentItem.name}
+                              <input
+                                type="text"
+                                value={currentItem.name}
+                                onChange={(e) => updateCurrentItem('name', e.target.value)}
+                                className="bg-transparent border-b border-white/20 text-white font-bold focus:outline-none focus:border-blue-400 w-48"
+                              />
                             </span>
                             <span className="text-sm text-white/50">
                               Photo {currentItem.imageIndex + 1}
@@ -456,8 +461,8 @@ const ItemModal = ({ item, onClose, onAddToCart }) => {
                                     key={service}
                                     type="button"
                                     className={`p-4 rounded-xl border-2 transition-all duration-300 ${currentItem.service === service
-                                        ? 'bg-linear-to-r from-blue-500/30 to-blue-600/20 border-blue-400 text-white'
-                                        : 'border-white/20 text-white/80 hover:border-blue-400/50 hover:bg-white/10'
+                                      ? 'bg-linear-to-r from-blue-500/30 to-blue-600/20 border-blue-400 text-white'
+                                      : 'border-white/20 text-white/80 hover:border-blue-400/50 hover:bg-white/10'
                                       }`}
                                     onClick={() => updateCurrentItem('service', service)}
                                   >

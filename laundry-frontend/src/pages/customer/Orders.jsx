@@ -111,6 +111,57 @@ const Orders = () => {
                                             </button>
                                         )}
                                     </div>
+
+                                    {/* Detailed Items View */}
+                                    {order.groups?.length > 0 && (
+                                        <div className="mt-6 pt-6 border-t border-white/10">
+                                            <h4 className="text-sm font-bold text-white/60 mb-4 uppercase tracking-wider">Order Details</h4>
+                                            <div className="space-y-4">
+                                                {order.groups.map((group, idx) => (
+                                                    <div key={idx} className="bg-white/5 rounded-xl p-4 border border-white/5">
+                                                        <div className="flex justify-between items-center mb-3">
+                                                            <h5 className="font-bold text-blue-300">{group.groupName}</h5>
+                                                            {/* Photos */}
+                                                            {group.photos?.length > 0 && (
+                                                                <div className="flex -space-x-2">
+                                                                    {group.photos.slice(0, 3).map((photo, pIdx) => (
+                                                                        <img
+                                                                            key={pIdx}
+                                                                            src={photo}
+                                                                            alt="Item"
+                                                                            className="w-8 h-8 rounded-full border-2 border-slate-800 object-cover"
+                                                                        />
+                                                                    ))}
+                                                                    {group.photos.length > 3 && (
+                                                                        <div className="w-8 h-8 rounded-full bg-slate-700 border-2 border-slate-800 flex items-center justify-center text-xs text-white">
+                                                                            +{group.photos.length - 3}
+                                                                        </div>
+                                                                    )}
+                                                                </div>
+                                                            )}
+                                                        </div>
+                                                        <div className="space-y-2">
+                                                            {group.items?.map((item, iIdx) => (
+                                                                <div key={iIdx} className="flex justify-between text-sm text-slate-300 ml-2 pl-2 border-l-2 border-white/10">
+                                                                    <div>
+                                                                        <span className="text-white hover:text-blue-200">{item.itemName || "Item"}</span>
+                                                                        <span className="text-slate-500 mx-2">•</span>
+                                                                        <span className="text-slate-400">{item.serviceType}</span>
+                                                                        {item.instructions && (
+                                                                            <p className="text-xs text-slate-500 italic mt-0.5">Note: "{item.instructions}"</p>
+                                                                        )}
+                                                                    </div>
+                                                                    <div className="text-right">
+                                                                        <div className="font-mono">x{item.quantity}</div>
+                                                                    </div>
+                                                                </div>
+                                                            ))}
+                                                        </div>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    )}
                                 </div>
                             </div>
                         );

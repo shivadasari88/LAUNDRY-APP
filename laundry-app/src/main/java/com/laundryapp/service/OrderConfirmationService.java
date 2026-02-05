@@ -37,6 +37,14 @@ public class OrderConfirmationService {
             throw new RuntimeException("Cart is empty");
         }
 
+        // 🔄 Recalculate total from items to ensure accuracy (Fixes race conditions)
+        double calculatedTotal = order.getGroups().stream()
+                .flatMap(g -> g.getItems().stream())
+                .mapToDouble(i -> i.getTotalPrice())
+                .sum();
+
+        order.setTotalAmount(calculatedTotal);
+
         if (order.getTotalAmount() <= 0) {
             throw new RuntimeException("Invalid order total");
         }

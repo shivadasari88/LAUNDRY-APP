@@ -129,10 +129,20 @@ const Orders = () => {
                                                                     ))}
                                                                 </div>
                                                             )}
-                                                            {/* Item list concise */}
-                                                            <div className="text-xs text-slate-400 mt-1">
-                                                                {group.items?.map(i => i.itemName || "Item").join(", ").substring(0, 30)}
-                                                                {(group.items?.reduce((acc, curr) => acc + (curr.itemName || "").length, 0) || 0) > 30 ? "..." : ""}
+                                                            {/* Detailed Item List */}
+                                                            <div className="mt-2 space-y-2">
+                                                                {group.items?.map((item, iIdx) => (
+                                                                    <div key={iIdx} className="text-xs text-slate-300 border-l-2 border-white/10 pl-2">
+                                                                        <div className="flex justify-between">
+                                                                            <span className="font-medium text-white">{item.itemName || "Item"}</span>
+                                                                            <span className="text-slate-500">x{item.quantity}</span>
+                                                                        </div>
+                                                                        <div className="text-slate-400">{item.serviceType}</div>
+                                                                        {item.instructions && (
+                                                                            <div className="text-yellow-500/80 italic mt-0.5">"{item.instructions}"</div>
+                                                                        )}
+                                                                    </div>
+                                                                ))}
                                                             </div>
                                                         </div>
                                                     ))}
