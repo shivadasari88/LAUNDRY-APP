@@ -73,7 +73,7 @@ const Home = () => {
     if (selectedService) {
       filtered = filtered.filter(shop =>
         shop.services?.some(
-          service => service.name === selectedService
+          service => (service.serviceName || service.name) === selectedService
         )
       );
     }

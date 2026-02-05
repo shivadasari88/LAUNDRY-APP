@@ -161,7 +161,7 @@ const Shop = () => {
           <p className="text-white/70 leading-relaxed max-w-3xl">{shop.description}</p>
           <div className="flex flex-wrap gap-3 mt-6">
             {shop.services?.map((service, index) => {
-              const serviceName = typeof service === 'string' ? service : service.name;
+              const serviceName = typeof service === 'string' ? service : (service.serviceName || service.name);
               return (
                 <span key={index} className="px-4 py-1.5 bg-blue-500/10 rounded-full text-blue-300 border border-blue-500/20 text-sm font-medium">
                   {serviceName}
@@ -185,8 +185,8 @@ const Shop = () => {
                   : 'bg-white/5 text-white/60 border-white/10 hover:bg-white/10 hover:text-white'
                 }`}
             >
-              <div className="text-2xl mb-1">{services.find(s => s.name === service.name)?.icon || '🧺'}</div>
-              {service.name}
+              <div className="text-2xl mb-1">{services.find(s => s.serviceName === service.serviceName)?.icon || '🧺'}</div>
+              {service.serviceName || service.name}
             </button>
           ))}
         </div>
