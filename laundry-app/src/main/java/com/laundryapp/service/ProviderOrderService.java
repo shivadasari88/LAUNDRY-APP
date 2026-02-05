@@ -94,6 +94,8 @@ public class ProviderOrderService {
 
                         ir.setItemName(item.getItemName());
                         ir.setServiceType(item.getServiceType());
+                        ir.setFabricType(item.getFabricType());
+                        ir.setInstructions(item.getInstructions());
                         ir.setQuantity(item.getQuantity());
                         ir.setTotalPrice(item.getTotalPrice());
 
