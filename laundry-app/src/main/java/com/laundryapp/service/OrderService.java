@@ -68,13 +68,17 @@ public class OrderService {
     @Autowired
     private com.laundryapp.repository.OrderItemRepository orderItemRepository;
 
-    public com.laundryapp.dto.GroupResponse createGroup(Long orderId, String groupName) {
-        Order order = orderRepository.findById(orderId)
+    public com.laundryapp.dto.GroupResponse createGroup(com.laundryapp.dto.CreateGroupRequest request) {
+        Order order = orderRepository.findById(request.getOrderId())
                 .orElseThrow(() -> new RuntimeException("Order not found"));
 
         com.laundryapp.entity.OrderGroup group = new com.laundryapp.entity.OrderGroup();
         group.setOrder(order);
-        group.setGroupName(groupName);
+        group.setGroupName(request.getGroupName());
+
+        if (request.getPhotos() != null) {
+            group.setPhotos(request.getPhotos());
+        }
 
         com.laundryapp.entity.OrderGroup savedGroup = orderGroupRepository.save(group);
 

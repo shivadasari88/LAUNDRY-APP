@@ -98,7 +98,7 @@ const Orders = () => {
                                 </tr>
                             ) : (
                                 orders.map((order) => (
-                                    <tr key={order.id} className="hover:bg-slate-700/30 transition-colors">
+                                    <tr key={order.orderId || order.id} className="hover:bg-slate-700/30 transition-colors">
                                         <td className="px-6 py-4 font-mono text-white">#{order.orderDisplayId || order.orderId || order.id}</td>
                                         <td className="px-6 py-4">
                                             <div className="font-bold text-white">{order.customerName}</div>
@@ -106,9 +106,40 @@ const Orders = () => {
                                         </td>
                                         <td className="px-6 py-4">
                                             {/* Logic to show item summary */}
-                                            {order.groups?.length > 0
-                                                ? `${order.groups.length} Groups`
-                                                : order.itemsDescription || 'Items'}
+                                            {/* Logic to show item summary */}
+                                            {order.groups?.length > 0 ? (
+                                                <div className="space-y-2">
+                                                    {order.groups.map((group, idx) => (
+                                                        <div key={idx} className="bg-slate-800/50 p-2 rounded border border-white/5">
+                                                            <div className="flex justify-between items-center mb-1">
+                                                                <span className="font-bold text-xs text-indigo-300">{group.groupName}</span>
+                                                                <span className="text-xs text-slate-500">{group.items?.length || 0} items</span>
+                                                            </div>
+                                                            {/* Photos Thumbnails */}
+                                                            {group.photos?.length > 0 && (
+                                                                <div className="flex gap-1 overflow-x-auto pb-1 scrollbar-hide">
+                                                                    {group.photos.map((photo, pIdx) => (
+                                                                        <img
+                                                                            key={pIdx}
+                                                                            src={photo}
+                                                                            alt="Item"
+                                                                            className="w-10 h-10 object-cover rounded border border-white/10 hover:scale-150 transition-transform cursor-pointer"
+                                                                            title="Click to zoom (future)"
+                                                                        />
+                                                                    ))}
+                                                                </div>
+                                                            )}
+                                                            {/* Item list concise */}
+                                                            <div className="text-xs text-slate-400 mt-1">
+                                                                {group.items?.map(i => i.itemName || "Item").join(", ").substring(0, 30)}
+                                                                {(group.items?.reduce((acc, curr) => acc + (curr.itemName || "").length, 0) || 0) > 30 ? "..." : ""}
+                                                            </div>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            ) : (
+                                                order.itemsDescription || 'Items'
+                                            )}
                                         </td>
                                         <td className="px-6 py-4 font-bold text-white">₹{order.totalAmount || order.amount}</td>
                                         <td className="px-6 py-4">

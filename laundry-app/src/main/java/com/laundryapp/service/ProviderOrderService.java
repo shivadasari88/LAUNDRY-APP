@@ -81,6 +81,12 @@ public class ProviderOrderService {
                 gr.setGroupName(group.getGroupName());
                 gr.setGroupTotal(group.getGroupTotal() != null ? group.getGroupTotal() : 0.0);
 
+                if (group.getPhotos() != null) {
+                    gr.setPhotos(group.getPhotos());
+                } else {
+                    gr.setPhotos(java.util.Collections.emptyList());
+                }
+
                 if (group.getItems() != null) {
                     List<ProviderOrderItemSummary> items = group.getItems().stream().map(item -> {
 

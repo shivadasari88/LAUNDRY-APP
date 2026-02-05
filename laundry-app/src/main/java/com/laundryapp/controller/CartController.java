@@ -62,9 +62,8 @@ public class CartController {
 
     @PostMapping("/groups")
     public com.laundryapp.dto.GroupResponse createGroup(
-            @RequestParam Long orderId,
-            @RequestParam String groupName) {
-        return orderService.createGroup(orderId, groupName);
+            @org.springframework.web.bind.annotation.RequestBody com.laundryapp.dto.CreateGroupRequest request) {
+        return orderService.createGroup(request);
     }
 
     @PostMapping("/item")

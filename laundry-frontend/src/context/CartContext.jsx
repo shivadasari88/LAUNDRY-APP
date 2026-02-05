@@ -36,10 +36,13 @@ export const CartProvider = ({ children }) => {
   };
 
   // ✅ STEP 2: CREATE GROUP
-  const createGroup = async (currentOrderId, groupName) => {
-    const res = await api.post('/customer/cart/groups', null, {
-      params: { orderId: currentOrderId, groupName: groupName }
-    });
+  const createGroup = async (currentOrderId, groupName, photos) => {
+    const payload = {
+      orderId: currentOrderId,
+      groupName: groupName,
+      photos: photos || []
+    };
+    const res = await api.post('/customer/cart/groups', payload);
     return res.data; // returns group object with id
   };
 
@@ -75,7 +78,7 @@ export const CartProvider = ({ children }) => {
       const currentOrderId = await initCart(currentShopId);
 
       // 2. Create Group
-      const group = await createGroup(currentOrderId, groupData.groupName);
+      const group = await createGroup(currentOrderId, groupData.groupName, groupData.images?.map(img => img.base64));
       const groupId = group.groupId;
 
       // 3. Loop & Add Items

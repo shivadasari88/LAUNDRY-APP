@@ -9,16 +9,28 @@ const ItemModal = ({ item, onClose, onAddToCart }) => {
   const fileInputRef = useRef(null);
 
   // Step 1: Upload Images
-  const handleImageUpload = (e) => {
+  const handleImageUpload = async (e) => {
     const files = Array.from(e.target.files);
-    const imageUrls = files.map(file => ({
-      id: Date.now() + Math.random(),
-      url: URL.createObjectURL(file),
-      items: [],
-      name: file.name
+
+    // Convert all to Base64
+    const newImages = await Promise.all(files.map(async file => {
+      return new Promise((resolve) => {
+        const reader = new FileReader();
+        reader.onloadend = () => {
+          resolve({
+            id: Date.now() + Math.random(),
+            url: URL.createObjectURL(file), // Keep for preview
+            base64: reader.result, // Send to backend
+            items: [],
+            name: file.name
+          });
+        };
+        reader.readAsDataURL(file);
+      });
     }));
-    setImages(prev => [...prev, ...imageUrls]);
-    
+
+    setImages(prev => [...prev, ...newImages]);
+
     // Auto-proceed to step 2 if images uploaded
     if (files.length > 0) {
       setTimeout(() => setStep(2), 500);
@@ -31,7 +43,7 @@ const ItemModal = ({ item, onClose, onAddToCart }) => {
       alert('Please give this group a name (e.g., "My Shirts", "Office Wear")');
       return;
     }
-    
+
     // Initialize items array
     const items = [];
     setItemsInGroup(items);
@@ -59,17 +71,17 @@ const ItemModal = ({ item, onClose, onAddToCart }) => {
     setItemsInGroup(prev => {
       const updated = [...prev];
       if (updated[currentItemIndex]) {
-        updated[currentItemIndex] = { 
-          ...updated[currentItemIndex], 
-          [field]: value 
+        updated[currentItemIndex] = {
+          ...updated[currentItemIndex],
+          [field]: value
         };
-        
+
         // Update price when service changes
         if (field === 'service' || field === 'quantity') {
           const serviceMultiplier = value === 'Dry Cleaning' ? 1.5 : 1;
-          updated[currentItemIndex].price = (updated[currentItemIndex].basePrice || item.price || 0) * 
-                                           serviceMultiplier * 
-                                           updated[currentItemIndex].quantity;
+          updated[currentItemIndex].price = (updated[currentItemIndex].basePrice || item.price || 0) *
+            serviceMultiplier *
+            updated[currentItemIndex].quantity;
         }
       }
       return updated;
@@ -141,8 +153,8 @@ const ItemModal = ({ item, onClose, onAddToCart }) => {
                 </div>
               )}
             </div>
-            <button 
-              onClick={onClose} 
+            <button
+              onClick={onClose}
               className="w-10 h-10 rounded-full bg-white/10 border border-white/20 text-white hover:bg-white/20 transition-all duration-300 flex items-center justify-center"
             >
               ✕
@@ -153,19 +165,17 @@ const ItemModal = ({ item, onClose, onAddToCart }) => {
           <div className="flex items-center justify-center mt-6 gap-2">
             {[1, 2, 3].map((stepNum) => (
               <div key={stepNum} className="flex items-center">
-                <div className={`w-10 h-10 rounded-full flex items-center justify-center border-2 transition-all duration-500 ${
-                  stepNum < step 
-                    ? 'bg-green-500/20 border-green-400 text-green-300' 
-                    : stepNum === step 
-                    ? 'bg-blue-500 border-blue-400 text-white shadow-lg shadow-blue-500/50' 
-                    : 'bg-white/10 border-white/20 text-white/50'
-                }`}>
+                <div className={`w-10 h-10 rounded-full flex items-center justify-center border-2 transition-all duration-500 ${stepNum < step
+                    ? 'bg-green-500/20 border-green-400 text-green-300'
+                    : stepNum === step
+                      ? 'bg-blue-500 border-blue-400 text-white shadow-lg shadow-blue-500/50'
+                      : 'bg-white/10 border-white/20 text-white/50'
+                  }`}>
                   {stepNum < step ? '✓' : stepNum}
                 </div>
                 {stepNum < 3 && (
-                  <div className={`w-16 h-1 mx-2 transition-all duration-500 ${
-                    stepNum < step ? 'bg-green-400' : 'bg-white/20'
-                  }`}></div>
+                  <div className={`w-16 h-1 mx-2 transition-all duration-500 ${stepNum < step ? 'bg-green-400' : 'bg-white/20'
+                    }`}></div>
                 )}
               </div>
             ))}
@@ -188,7 +198,7 @@ const ItemModal = ({ item, onClose, onAddToCart }) => {
                   Take clear photos showing all items. You'll specify services for each item in the next steps.
                 </p>
               </div>
-              
+
               <div className="border-2 border-dashed border-white/30 rounded-3xl p-12 text-center hover:border-blue-400/50 transition-all duration-300 bg-white/5 backdrop-blur-sm">
                 <input
                   ref={fileInputRef}
@@ -233,9 +243,9 @@ const ItemModal = ({ item, onClose, onAddToCart }) => {
                   <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                     {images.map((img, index) => (
                       <div key={img.id} className="relative group">
-                        <img 
-                          src={img.url} 
-                          alt={`Upload ${index + 1}`} 
+                        <img
+                          src={img.url}
+                          alt={`Upload ${index + 1}`}
                           className="w-full h-48 object-cover rounded-2xl border-2 border-white/20 group-hover:border-blue-400/50 transition-all duration-300"
                         />
                         <div className="absolute top-3 right-3 bg-black/70 text-white text-xs px-3 py-1 rounded-full">
@@ -284,7 +294,7 @@ const ItemModal = ({ item, onClose, onAddToCart }) => {
                   Give your group a descriptive name to help both you and the service provider identify these items.
                 </p>
               </div>
-              
+
               <div className="max-w-2xl mx-auto">
                 <div className="mb-8">
                   <label className="block mb-3 font-medium text-white text-lg">
@@ -359,9 +369,9 @@ const ItemModal = ({ item, onClose, onAddToCart }) => {
                   <div className="space-y-6">
                     {images.map((img, index) => (
                       <div key={img.id} className="relative rounded-2xl overflow-hidden border-2 border-white/10 hover:border-blue-400/50 transition-all duration-300">
-                        <img 
-                          src={img.url} 
-                          alt={`Group ${index + 1}`} 
+                        <img
+                          src={img.url}
+                          alt={`Group ${index + 1}`}
                           className="w-full h-56 object-cover bg-linear-to-r from-gray-900 to-slate-800"
                         />
                         <div className="p-4 bg-linear-to-r from-white/5 to-white/10 backdrop-blur-sm">
@@ -413,11 +423,10 @@ const ItemModal = ({ item, onClose, onAddToCart }) => {
                           <button
                             key={currentItem.id}
                             onClick={() => setCurrentItemIndex(index)}
-                            className={`px-4 py-2.5 rounded-xl border transition-all duration-300 ${
-                              currentItemIndex === index 
-                              ? 'bg-linear-to-r from-blue-500 to-blue-600 border-blue-400 text-white shadow-lg' 
-                              : 'bg-white/10 border-white/20 text-white hover:bg-white/20'
-                            }`}
+                            className={`px-4 py-2.5 rounded-xl border transition-all duration-300 ${currentItemIndex === index
+                                ? 'bg-linear-to-r from-blue-500 to-blue-600 border-blue-400 text-white shadow-lg'
+                                : 'bg-white/10 border-white/20 text-white hover:bg-white/20'
+                              }`}
                           >
                             {currentItem.name}
                           </button>
@@ -446,11 +455,10 @@ const ItemModal = ({ item, onClose, onAddToCart }) => {
                                   <button
                                     key={service}
                                     type="button"
-                                    className={`p-4 rounded-xl border-2 transition-all duration-300 ${
-                                      currentItem.service === service 
-                                      ? 'bg-linear-to-r from-blue-500/30 to-blue-600/20 border-blue-400 text-white' 
-                                      : 'border-white/20 text-white/80 hover:border-blue-400/50 hover:bg-white/10'
-                                    }`}
+                                    className={`p-4 rounded-xl border-2 transition-all duration-300 ${currentItem.service === service
+                                        ? 'bg-linear-to-r from-blue-500/30 to-blue-600/20 border-blue-400 text-white'
+                                        : 'border-white/20 text-white/80 hover:border-blue-400/50 hover:bg-white/10'
+                                      }`}
                                     onClick={() => updateCurrentItem('service', service)}
                                   >
                                     <div className="text-lg mb-1">{service}</div>
