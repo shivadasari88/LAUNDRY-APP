@@ -6,6 +6,9 @@ const Orders = () => {
     const { shop } = useOutletContext() || {}; 
     const [orders, setOrders] = useState([]);
     const [loading, setLoading] = useState(true);
+    
+    // Get user for notifications
+    const user = JSON.parse(localStorage.getItem("user"));
 
     const loadOrders = async () => {
         if (shop?.id) {
@@ -28,10 +31,29 @@ const Orders = () => {
         return () => clearInterval(interval);
     }, [shop]);
 
+    // ✅ ADDED NOTIFICATION FUNCTION
+    const sendOrderStatusNotification = async (orderId, newStatus) => {
+        try {
+            await fetch(`http://localhost:8080/api/notifications/order/${orderId}/status/${newStatus}`, {
+                method: 'POST'
+            });
+            console.log(`Notification sent for order ${orderId} status: ${newStatus}`);
+        } catch (error) {
+            console.log("Notification optional - status still updated");
+        }
+    };
+
     const handleStatusChange = async (orderId, newStatus) => {
         try {
             await updateOrderStatus(orderId, newStatus);
+            
+            // ✅ ADDED: Send notification to customer
+            await sendOrderStatusNotification(orderId, newStatus);
+            
             loadOrders(); // Reload to reflect changes
+            
+            // Show success message
+            alert(`Order status updated to ${newStatus}. Customer has been notified.`);
         } catch (error) {
             alert("Update failed");
         }

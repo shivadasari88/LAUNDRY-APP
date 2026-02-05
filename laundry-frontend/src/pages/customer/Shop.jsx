@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { useCart } from '../../context/CartContext';
 import ItemList from '../../components/ItemList';
 import ItemModal from '../../components/ItemModel';
 import CartSidebar from '../../components/CartSidebar';
-import { getShopById, getShopServices } from '../../api/customerApi'; 
+import { getShopById, getShopServices } from '../../api/customerApi';
+import NotificationBell from '../../components/NotificationBell';
 
 const Shop = () => {
   const { shopId } = useParams();
@@ -14,8 +14,11 @@ const Shop = () => {
   const [selectedItem, setSelectedItem] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [cart, setCart] = useState([]); // Added cart state
   
-  const { addItemToCart } = useCart();
+  // FOR NOTIFICATIONS
+  const userId = localStorage.getItem('userId') || 1;
+  const userRole = 'CUSTOMER';
 
   useEffect(() => {
     const fetchData = async () => {
@@ -53,9 +56,11 @@ const Shop = () => {
     if (shopId) fetchData();
   }, [shopId]);
 
+  // Add item to cart
   const handleAddToCart = (itemData) => {
     const cartItem = {
       ...itemData,
+      id: Date.now(), // Unique ID for cart item
       shopId: parseInt(shopId),
       shopName: shop?.name,
       price: itemData.totalPrice !== undefined ? itemData.totalPrice : (itemData.price || 0),
@@ -63,9 +68,35 @@ const Shop = () => {
         items: itemData.items.map(subItem => ({ ...subItem, shopId: parseInt(shopId) }))
       })
     };
-    addItemToCart(cartItem);
+    
+    setCart(prevCart => [...prevCart, cartItem]);
     setIsModalOpen(false);
     setIsCartOpen(true); 
+  };
+
+  // Remove item from cart
+  const handleRemoveItem = (index) => {
+    setCart(prevCart => prevCart.filter((_, i) => i !== index));
+  };
+
+  // Clear cart
+  const handleClearCart = () => {
+    setCart([]);
+  };
+
+  // Calculate total amount
+  const calculateTotal = () => {
+    return cart.reduce((sum, item) => sum + (item.totalPrice || item.price || 0), 0);
+  };
+
+  // Handle order placed from CartSidebar
+  const handleOrderPlaced = (orderId) => {
+    // Clear cart after successful order
+    setCart([]);
+    setIsCartOpen(false);
+    
+    // Show success message
+    alert(`Order #${orderId} placed successfully! Check notifications for updates.`);
   };
 
   if (loading || !shop) return <div className="text-white text-center p-10">Loading...</div>;
@@ -77,8 +108,21 @@ const Shop = () => {
         <div className="flex gap-4 items-center">
             <Link to="/home" className="px-4 py-2 border rounded-full">Back</Link>
             
-            {/* ✅ CLEAN NAVBAR (Only Cart) */}
-            <button onClick={() => setIsCartOpen(true)} className="px-4 py-2 bg-blue-600 rounded-full">Cart</button>
+            {/* NOTIFICATION BELL */}
+            <NotificationBell userId={userId} userRole={userRole} />
+            
+            {/* CART BUTTON WITH COUNT */}
+            <button 
+              onClick={() => setIsCartOpen(true)} 
+              className="px-4 py-2 bg-blue-600 rounded-full flex items-center gap-2 relative"
+            >
+              <span>Cart</span>
+              {cart.length > 0 && (
+                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                  {cart.length}
+                </span>
+              )}
+            </button>
         </div>
       </header>
 
@@ -87,14 +131,33 @@ const Shop = () => {
           <h1 className="text-4xl font-bold mb-2">{shop.name}</h1>
           <p className="opacity-80">{shop.description}</p>
         </div>
-        <ItemList items={items} onItemSelect={(item) => { setSelectedItem(item); setIsModalOpen(true); }} />
+        <ItemList 
+          items={items} 
+          onItemSelect={(item) => { 
+            setSelectedItem(item); 
+            setIsModalOpen(true); 
+          }} 
+        />
       </main>
 
       {isModalOpen && selectedItem && (
-        <ItemModal item={selectedItem} onClose={() => setIsModalOpen(false)} onAddToCart={handleAddToCart} />
+        <ItemModal 
+          item={selectedItem} 
+          onClose={() => setIsModalOpen(false)} 
+          onAddToCart={handleAddToCart} 
+        />
       )}
 
-      <CartSidebar isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} shopId={parseInt(shopId)} />
+      <CartSidebar 
+        isOpen={isCartOpen} 
+        onClose={() => setIsCartOpen(false)} 
+        shopId={parseInt(shopId)}
+        cartItems={cart}
+        totalAmount={calculateTotal()}
+        onRemoveItem={handleRemoveItem}
+        onClearCart={handleClearCart}
+        onPlaceOrder={handleOrderPlaced}
+      />
     </div>
   );
 };

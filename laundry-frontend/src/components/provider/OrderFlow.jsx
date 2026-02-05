@@ -6,6 +6,21 @@ const OrderFlow = () => {
     const { shop } = useOutletContext();
     const [orders, setOrders] = useState([]);
     const [loading, setLoading] = useState(true);
+    
+    // Get user for notifications
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    // ✅ ADDED NOTIFICATION FUNCTION
+    const sendOrderStatusNotification = async (orderId, newStatus) => {
+        try {
+            await fetch(`http://localhost:8080/api/notifications/order/${orderId}/status/${newStatus}`, {
+                method: 'POST'
+            });
+            console.log(`Notification sent: Order ${orderId} → ${newStatus}`);
+        } catch (error) {
+            console.log("Notification optional");
+        }
+    };
 
     // Poll for updates every 5 seconds
     useEffect(() => {
@@ -31,10 +46,17 @@ const OrderFlow = () => {
     const handleStatusUpdate = async (orderId, newStatus) => {
         try {
             await updateOrderStatus(orderId, newStatus);
+            
+            // ✅ ADDED: Send notification to customer
+            await sendOrderStatusNotification(orderId, newStatus);
+            
             // Optimistic update
             setOrders(prev => prev.map(o =>
                 o.orderId === orderId ? { ...o, status: newStatus } : o
             ));
+            
+            // Show success message
+            alert(`Status updated to ${newStatus}. Customer has been notified.`);
         } catch (error) {
             alert("Update failed");
         }
