@@ -40,6 +40,15 @@ public class CustomerOrderController {
                 request.getDeliveryAddress());
     }
 
+    @PostMapping("/cancel")
+    public void cancelOrder(
+            @org.springframework.security.core.annotation.AuthenticationPrincipal org.springframework.security.core.userdetails.UserDetails userDetails,
+            @org.springframework.web.bind.annotation.RequestParam Long orderId) {
+
+        com.laundryapp.entity.User user = userRepository.findByUsername(userDetails.getUsername());
+        orderConfirmationService.cancelOrder(orderId, user.getId());
+    }
+
     @org.springframework.web.bind.annotation.GetMapping("/list")
     public java.util.List<com.laundryapp.entity.OrderHistoryResponse> getOrders(
             @org.springframework.security.core.annotation.AuthenticationPrincipal org.springframework.security.core.userdetails.UserDetails userDetails) {
