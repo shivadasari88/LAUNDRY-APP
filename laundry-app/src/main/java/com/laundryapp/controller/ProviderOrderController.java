@@ -27,7 +27,6 @@ public class ProviderOrderController {
     @GetMapping("/shop/{shopId}")
     public List<ProviderOrderResponse> getOrdersByShop(
             @PathVariable Long shopId) {
-
         return providerOrderService.getOrdersForShop(shopId);
     }
 
@@ -47,7 +46,6 @@ public class ProviderOrderController {
 
         return providerOrderService.updateOrderStatus(
                 orderId,
-                request.getStatus()
-        );
+                request.getStatus());
     }
 }

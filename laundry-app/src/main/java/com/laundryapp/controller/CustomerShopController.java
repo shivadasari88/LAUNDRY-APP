@@ -44,4 +44,7 @@ public class CustomerShopController {
 	    public List<ServiceItem> getItems(@PathVariable Long serviceId) {
 	        return customerShopService.getItems(serviceId);
 	    }
+	    
+
+
 }

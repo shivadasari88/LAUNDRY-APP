@@ -1,112 +1,167 @@
-// src/context/CartContext.jsx - COMPLETE FIXED VERSION
-import { createContext, useContext, useState, useCallback } from 'react';
+// src/context/CartContext.jsx
+import { createContext, useContext, useState } from "react";
+import api from "../services/api";
 
 const CartContext = createContext();
 
-export const useCart = () => {
-  const context = useContext(CartContext);
-  if (!context) {
-    throw new Error('useCart must be used within CartProvider');
-  }
-  return context;
-};
+export const useCart = () => useContext(CartContext);
 
 export const CartProvider = ({ children }) => {
-  const [cartItems, setCartItems] = useState([]);
-  const [cartShopId, setCartShopId] = useState(null);
+  const [orderId, setOrderId] = useState(null);
+  const [shopId, setShopId] = useState(null);
+  const [cart, setCart] = useState(null);
+  const [loading, setLoading] = useState(false);
 
-  const addItemToCart = useCallback((item) => {
-    setCartItems(prev => {
-      // Check if this is a group item
-      if (item.groupName) {
-        // Add group as new item
-        return [...prev, item];
-      } else {
-        // For single items, check if similar item exists
-        const existingIndex = prev.findIndex(
-          cartItem => cartItem.id === item.id && cartItem.service === item.service
-        );
+  // ✅ STEP 1: INIT CART (DRAFT ORDER)
+  const initCart = async (shopIdParam) => {
+    // If we already have an orderId for THIS shop, return it
+    if (orderId && shopId === shopIdParam) return orderId;
 
-        if (existingIndex >= 0) {
-          const updated = [...prev];
-          updated[existingIndex] = {
-            ...updated[existingIndex],
-            quantity: updated[existingIndex].quantity + item.quantity,
-            price: updated[existingIndex].basePrice * (updated[existingIndex].quantity + item.quantity)
-          };
-          return updated;
-        } else {
-          return [...prev, item];
-        }
-      }
-    });
-    
-    // Set shop ID if this is first item from this shop
-    if (!cartShopId && item.shopId) {
-      setCartShopId(item.shopId);
+    setLoading(true);
+    try {
+      const res = await api.post('/customer/cart/init', null, {
+        params: { shopId: shopIdParam }
+      });
+      const data = res.data;
+
+      setOrderId(data.orderId);
+      setShopId(data.shopId);
+      return data.orderId;
+    } catch (error) {
+      console.error("Init Cart Failed:", error);
+      throw error;
+    } finally {
+      setLoading(false);
     }
-  }, [cartShopId]);
-
-  const removeItemFromCart = useCallback((index) => {
-    setCartItems(prev => {
-      const updated = [...prev];
-      updated.splice(index, 1);
-      // Clear shop ID if cart is empty
-      if (updated.length === 0) {
-        setCartShopId(null);
-      }
-      return updated;
-    });
-  }, []);
-
-  const updateQuantity = useCallback((index, newQuantity) => {
-    if (newQuantity < 1) return;
-    
-    setCartItems(prev => {
-      const updated = [...prev];
-      updated[index] = {
-        ...updated[index],
-        quantity: newQuantity,
-        price: updated[index].basePrice * newQuantity
-      };
-      return updated;
-    });
-  }, []);
-
-  const clearCart = useCallback(() => {
-    setCartItems([]);
-    setCartShopId(null);
-  }, []);
-
-  const totalAmount = cartItems.reduce((sum, item) => {
-    if (item.groupName) {
-      return sum + (item.totalPrice || 0);
-    } else {
-      return sum + (item.price || 0);
-    }
-  }, 0);
-
-  const totalItems = cartItems.reduce((sum, item) => {
-    if (item.groupName) {
-      return sum + (item.totalQuantity || item.items?.length || 1);
-    } else {
-      return sum + (item.quantity || 1);
-    }
-  }, 0);
-
-  const value = {
-    cartItems,
-    cartShopId,
-    totalItems,
-    addItemToCart,
-    removeItemFromCart,
-    updateQuantity,
-    clearCart,
-    totalAmount
   };
 
+  // ✅ STEP 2: CREATE GROUP
+  const createGroup = async (currentOrderId, groupName, photos) => {
+    const payload = {
+      orderId: currentOrderId,
+      groupName: groupName,
+      photos: photos || []
+    };
+    const res = await api.post('/customer/cart/groups', payload);
+    return res.data; // returns group object with id
+  };
+
+  // ✅ STEP 3: ADD ITEM
+  const addItem = async (payload) => {
+    const res = await api.post('/customer/cart/item', payload);
+    return res.data;
+  };
+
+  // ✅ STEP 4: REFRESH CART
+  const refreshCart = async () => {
+    const res = await api.get('/customer/cart/view');
+    const data = res.data;
+    setCart(data);
+
+    // Sync state if reloading page
+    if (data && data.orderId) {
+      setOrderId(data.orderId);
+      setShopId(data.shopId);
+    }
+
+    return data;
+  };
+
+  // ✅ NEW: ORCHESTRATOR - SYNC GROUP TO BACKEND
+  const syncGroupToBackend = async (groupData) => {
+    setLoading(true);
+    try {
+      // 1. Init Cart (or get existing)
+      const currentShopId = groupData.baseItem.shopId || shopId;
+      if (!currentShopId) throw new Error("Shop ID missing");
+
+      const currentOrderId = await initCart(currentShopId);
+
+      // 2. Create Group
+      const group = await createGroup(currentOrderId, groupData.groupName, groupData.images?.map(img => img.base64));
+      const groupId = group.groupId;
+
+      // 3. Loop & Add Items
+      const promises = groupData.items.map(item => {
+        return addItem({
+          orderId: currentOrderId,
+          groupId: groupId,
+          serviceItemId: groupData.baseItem.id,
+          serviceType: item.service,
+          fabricType: item.fabricType,
+          quantity: item.quantity,
+          instructions: item.specialInstructions,
+          price: item.price
+        });
+      });
+
+      await Promise.all(promises);
+
+      // 4. Refresh Cart
+      await refreshCart();
+
+    } catch (error) {
+      console.error("Sync Failed:", error);
+      alert("Failed to add to cart. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // ✅ STEP 5: CONFIRM ORDER
+  const confirmOrder = async (payload) => {
+    const res = await api.post('/customer/order/confirm', payload);
+    return res.data;
+  };
+
+  // ✅ STEP 6: REMOVE ITEM
+  const removeItemFromCart = async (itemId) => {
+    await api.delete(`/customer/cart/item/${itemId}`);
+  };
+
+  // ✅ STEP 7: UPDATE QUANTITY
+  const updateQuantity = async (itemId, quantity) => {
+    await api.put(`/customer/cart/item/${itemId}`, null, {
+      params: { quantity }
+    });
+  };
+
+  // ✅ STEP 8: CLEAR CART
+  const clearCart = async () => {
+    await api.delete('/customer/cart/clear');
+    setCart(null);
+    setOrderId(null);
+    setShopId(null);
+  };
+
+  // Calculate derived state: flattened cart items
+  const cartItems = (cart?.groups || []).flatMap(group =>
+    (group.items || []).map(item => ({
+      ...item,
+      groupName: group.groupName,
+      groupId: group.groupId
+    }))
+  );
+
   return (
-    <CartContext.Provider value={value}>
+    <CartContext.Provider
+      value={{
+        orderId,
+        shopId,
+        cart,
+        cartItems, // Exposed derived state
+        loading,
+        initCart,
+        createGroup,
+        addItem,
+        refreshCart,
+        syncGroupToBackend,
+        confirmOrder,
+        removeItemFromCart,
+        updateQuantity,
+        clearCart,
+      }}
+    >
       {children}
     </CartContext.Provider>
   );

@@ -8,6 +8,7 @@ public class LaundryAppApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(LaundryAppApplication.class, args);
+		System.out.println("Running...");
 	}
 
 }

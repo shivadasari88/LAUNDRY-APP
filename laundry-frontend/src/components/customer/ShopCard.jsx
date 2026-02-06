@@ -16,7 +16,7 @@ const ShopCard = ({ shop, onClick }) => {
   };
 
   const getServiceColor = (service) => {
-    switch(service) {
+    switch (service) {
       case 'Washing': return 'bg-gradient-to-r from-blue-500/20 to-blue-600/10 text-blue-100 border-blue-400/30';
       case 'Dry Cleaning': return 'bg-gradient-to-r from-purple-500/20 to-purple-600/10 text-purple-100 border-purple-400/30';
       case 'Ironing': return 'bg-gradient-to-r from-orange-500/20 to-amber-600/10 text-orange-100 border-orange-400/30';
@@ -26,13 +26,13 @@ const ShopCard = ({ shop, onClick }) => {
   };
 
   return (
-    <div 
+    <div
       className="group relative bg-white/5 backdrop-blur-lg rounded-3xl p-6 border border-white/10 shadow-lg hover:shadow-2xl hover:border-white/20 transition-all duration-500 cursor-pointer overflow-hidden"
       onClick={onClick}
     >
       {/* Hover Glow Effect */}
       <div className="absolute inset-0 bg-linear-to-br from-blue-500/0 via-indigo-600/0 to-purple-500/0 group-hover:from-blue-500/5 group-hover:via-indigo-600/5 group-hover:to-purple-500/5 transition-all duration-500"></div>
-      
+
       {/* Premium Badge */}
       {shop.rating >= 4.5 && (
         <div className="absolute top-4 right-4 z-10">
@@ -77,14 +77,17 @@ const ShopCard = ({ shop, onClick }) => {
           <p className="text-white/80 font-medium">Services Offered</p>
         </div>
         <div className="flex flex-wrap gap-2">
-          {shop.services.map((service, index) => (
-            <span 
-              key={index} 
-              className={`px-3 py-2 text-sm font-medium rounded-lg border ${getServiceColor(service)} transition-transform group-hover:scale-105`}
-            >
-              {service}
-            </span>
-          ))}
+          {shop.services?.map((service, index) => {
+            const serviceName = typeof service === 'string' ? service : (service.serviceName || service.name);
+            return (
+              <span
+                key={index}
+                className={`px-3 py-2 text-sm font-medium rounded-lg border ${getServiceColor(serviceName)} transition-transform group-hover:scale-105`}
+              >
+                {serviceName}
+              </span>
+            );
+          })}
         </div>
       </div>
 

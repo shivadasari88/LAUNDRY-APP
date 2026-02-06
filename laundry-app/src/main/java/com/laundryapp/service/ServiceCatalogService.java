@@ -70,4 +70,42 @@ public class ServiceCatalogService {
 
         return serviceItemRepository.findByServiceType(serviceType);
     }
+
+    // ✅ Update Service Type
+    public ServiceType updateServiceType(Long id, ServiceRequest request) {
+        ServiceType serviceType = serviceTypeRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Service type not found"));
+
+        serviceType.setServiceName(request.getServiceName());
+        return serviceTypeRepository.save(serviceType);
+    }
+
+    // ✅ Delete Service Type
+    public void deleteServiceType(Long id) {
+        if (!serviceTypeRepository.existsById(id)) {
+            throw new RuntimeException("Service type not found");
+        }
+        serviceTypeRepository.deleteById(id);
+    }
+
+    // ✅ Update Item
+    public ServiceItem updateItem(Long id, ItemRequest request) {
+        ServiceItem item = serviceItemRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Item not found"));
+
+        item.setItemName(request.getItemName());
+        item.setCategory(request.getCategory());
+        item.setPrice(request.getPrice());
+        item.setPopular(request.isPopular());
+
+        return serviceItemRepository.save(item);
+    }
+
+    // ✅ Delete Item
+    public void deleteItem(Long id) {
+        if (!serviceItemRepository.existsById(id)) {
+            throw new RuntimeException("Item not found");
+        }
+        serviceItemRepository.deleteById(id);
+    }
 }

@@ -62,6 +62,16 @@ public class ShopService {
         return shopRepository.findByApprovalStatus(ApprovalStatus.PENDING);
     }
 
+    // ✅ Admin views ONLY approved shops
+    public List<Shop> getApprovedShops() {
+        return shopRepository.findByApprovalStatus(ApprovalStatus.APPROVED);
+    }
+
+    // ✅ Admin views ONLY rejected shops
+    public List<Shop> getRejectedShops() {
+        return shopRepository.findByApprovalStatus(ApprovalStatus.REJECTED);
+    }
+
     // ✅ Admin views ALL shops (🔥 REQUIRED FOR STEP 7)
     public List<Shop> getAllShops() {
         return shopRepository.findAll();
@@ -89,5 +99,11 @@ public class ShopService {
 
         shop.setApprovalStatus(ApprovalStatus.REJECTED);
         return shopRepository.save(shop);
+    }
+
+    // Get Shop by ID
+    public Shop getShopById(Long shopId) {
+        return shopRepository.findById(shopId)
+                .orElseThrow(() -> new RuntimeException("Shop not found"));
     }
 }

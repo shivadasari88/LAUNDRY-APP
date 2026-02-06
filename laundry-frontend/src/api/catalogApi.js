@@ -1,20 +1,45 @@
-import axios from "axios";
-
-const BASE_URL = "http://localhost:8080/api/provider/catalog";
+import api from "../services/api";
 
 // ✅ Add Service
 export const addServiceType = async (serviceRequest) => {
     // serviceRequest should be: { serviceName: "Dry Cleaning", shopId: 1 }
-    console.log("Sending to Backend:", serviceRequest); 
-    return axios.post(`${BASE_URL}/services`, serviceRequest);
+    console.log("Sending to Backend:", serviceRequest);
+    return api.post(`/provider/catalog/services`, serviceRequest);
 };
 
 // ✅ Add Item
 export const addItem = async (itemRequest) => {
-    return axios.post(`${BASE_URL}/items`, itemRequest);
+    return api.post(`/provider/catalog/items`, itemRequest);
 };
 
 // ✅ Get Services
 export const getServicesByShop = async (shopId) => {
-    return axios.get(`${BASE_URL}/shop/${shopId}/services`);
+    return api.get(`/provider/catalog/shop/${shopId}`);
+};
+
+// ✅ Get My Services (Secure)
+export const getMyServices = async () => {
+    return api.get(`/provider/catalog/my-services`);
+};
+
+// ✅ Get Items by Service
+export const getItemsByService = async (serviceTypeId) => {
+    return api.get(`/provider/catalog/services/${serviceTypeId}/items`);
+};
+
+// Start of Editing APIs
+export const updateServiceType = async (id, data) => {
+    return api.put(`/provider/catalog/services/${id}`, data);
+};
+
+export const deleteServiceType = async (id) => {
+    return api.delete(`/provider/catalog/services/${id}`);
+};
+
+export const updateItem = async (id, data) => {
+    return api.put(`/provider/catalog/items/${id}`, data);
+};
+
+export const deleteItem = async (id) => {
+    return api.delete(`/provider/catalog/items/${id}`);
 };

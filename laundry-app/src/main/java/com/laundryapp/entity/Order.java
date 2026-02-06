@@ -12,31 +12,51 @@ import jakarta.persistence.*;
 @Table(name = "orders")
 public class Order {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "customer_id")
-    private User customer;
+	@ManyToOne
+	@JoinColumn(name = "customer_id")
+	private User customer;
 
-    @ManyToOne
-    @JoinColumn(name = "shop_id")
-    private Shop shop;
+	@ManyToOne
+	@JoinColumn(name = "shop_id")
+	private Shop shop;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "status", length = 20) // 👈 IMPORTANT
-    private OrderStatus status;
+	@Enumerated(EnumType.STRING)
+	@Column(name = "status", length = 20) // 👈 IMPORTANT
+	private OrderStatus status;
 
+	private Double totalAmount;
 
-    private Double totalAmount;
+	@OneToMany(mappedBy = "order", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JsonManagedReference
+	@JsonIgnore
 
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JsonManagedReference
-    @JsonIgnore
+	private List<OrderGroup> groups = new ArrayList<>();
 
-    private List<OrderGroup> groups = new ArrayList<>();
-    
+	@Column(name = "pickup_address", length = 500)
+	private String pickupAddress;
+
+	@Column(name = "delivery_address", length = 500)
+	private String deliveryAddress;
+
+	public String getPickupAddress() {
+		return pickupAddress;
+	}
+
+	public void setPickupAddress(String pickupAddress) {
+		this.pickupAddress = pickupAddress;
+	}
+
+	public String getDeliveryAddress() {
+		return deliveryAddress;
+	}
+
+	public void setDeliveryAddress(String deliveryAddress) {
+		this.deliveryAddress = deliveryAddress;
+	}
 
 	public Long getId() {
 		return id;
@@ -86,7 +106,6 @@ public class Order {
 		this.groups = groups;
 	}
 
-    // getters & setters
-    
-    
+	// getters & setters
+
 }

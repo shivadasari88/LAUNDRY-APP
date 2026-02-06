@@ -42,12 +42,10 @@ public class CustomerShopService {
 	        return serviceTypeRepository.findByShop(shop);
 	    }
 
-	    // 4️⃣ Items under a service
 	    public List<ServiceItem> getItems(Long serviceId) {
-	        ServiceType service = serviceTypeRepository.findById(serviceId)
-	                .orElseThrow(() -> new RuntimeException("Service not found"));
-	        return serviceItemRepository.findByServiceType(service);
+	        return serviceItemRepository.findByServiceType_Id(serviceId);
 	    }
+
 	  
 	  
 }

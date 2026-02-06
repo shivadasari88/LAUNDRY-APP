@@ -20,27 +20,39 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "order_groups")
 public class OrderGroup {
-	
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
 
-    private String groupName; // "Office Shirts - March"
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "order_id")
-    @JsonManagedReference
-    @JsonIgnore
+	private String groupName; // "Office Shirts - March"
 
-    private Order order;
+	@ManyToOne
+	@JoinColumn(name = "order_id")
+	@JsonManagedReference
+	@JsonIgnore
 
-    private Double groupTotal;
-    
-    @OneToMany(mappedBy = "group", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JsonManagedReference
+	private Order order;
 
-    private List<OrderItem> items = new ArrayList<>();
+	private Double groupTotal;
 
+	@OneToMany(mappedBy = "group", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JsonManagedReference
+
+	private List<OrderItem> items = new ArrayList<>();
+
+	@jakarta.persistence.ElementCollection
+	@jakarta.persistence.CollectionTable(name = "order_group_photos", joinColumns = @jakarta.persistence.JoinColumn(name = "group_id"))
+	@jakarta.persistence.Column(name = "photo_data", columnDefinition = "LONGTEXT")
+	private List<String> photos = new ArrayList<>();
+
+	public List<String> getPhotos() {
+		return photos;
+	}
+
+	public void setPhotos(List<String> photos) {
+		this.photos = photos;
+	}
 
 	public List<OrderItem> getItems() {
 		return items;
@@ -81,7 +93,5 @@ public class OrderGroup {
 	public void setGroupTotal(Double groupTotal) {
 		this.groupTotal = groupTotal;
 	}
-    
-    
-    
+
 }

@@ -1,11 +1,9 @@
-import axios from "axios";
-
-const BASE_URL = "http://localhost:8080/api/provider/shop";
+import api from "../services/api";
 
 export const createShop = (data) => {
-    return axios.post(`${BASE_URL}/create`, data);
+  return api.post(`/provider/shop/create`, data);
 };
 
-export const getMyShop = (providerId) => {
-    return axios.get(`${BASE_URL}/${providerId}`);
+export const getMyShop = () => {
+  return api.get(`/provider/shop/my-shop`);
 };

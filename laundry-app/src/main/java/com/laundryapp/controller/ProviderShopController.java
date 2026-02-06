@@ -15,13 +15,23 @@ public class ProviderShopController {
     @Autowired
     private ShopService shopService;
 
+    @Autowired
+    private com.laundryapp.repository.UserRepository userRepository;
+
     @PostMapping("/create")
-    public Shop createShop(@RequestBody ShopCreateRequest request) {
+    public Shop createShop(
+            @org.springframework.security.core.annotation.AuthenticationPrincipal org.springframework.security.core.userdetails.UserDetails userDetails,
+            @RequestBody ShopCreateRequest request) {
+
+        com.laundryapp.entity.User user = userRepository.findByUsername(userDetails.getUsername());
+        request.setProviderId(user.getId()); // Enforce provider ID from token
         return shopService.createShop(request);
     }
 
-    @GetMapping("/{providerId}")
-    public Shop getMyShop(@PathVariable Long providerId) {
-        return shopService.getShopByProvider(providerId);
+    @GetMapping("/my-shop")
+    public Shop getMyShop(
+            @org.springframework.security.core.annotation.AuthenticationPrincipal org.springframework.security.core.userdetails.UserDetails userDetails) {
+        com.laundryapp.entity.User user = userRepository.findByUsername(userDetails.getUsername());
+        return shopService.getShopByProvider(user.getId());
     }
 }
