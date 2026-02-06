@@ -4,14 +4,18 @@ import Landing from "./pages/Landing";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 
+// Provider Components
 import ProviderDashboard from "./pages/provider/ProviderDashboard";
-import ProviderLayout from "./components/provider/ProviderLayout";
 import Services from "./components/provider/Services";
 import Orders from "./components/provider/Orders";
+import ProviderProfile from "./components/provider/ProviderProfile"; 
+import OrderFlow from "./components/provider/OrderFlow"; 
 
+// Admin Components
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import AdminShopDetails from "./pages/admin/AdminShopDetails";
 
+// Customer Components
 import Home from "./pages/customer/Home";
 import Shop from "./pages/customer/Shop";
 
@@ -35,9 +39,12 @@ export default function App() {
 
           {/* Provider */}
           <Route path="/provider" element={<ProviderDashboard />}>
-            {/* These render INSIDE ProviderLayout */}
             <Route path="services" element={<Services />} />
             <Route path="orders" element={<Orders />} />
+            <Route path="profile" element={<ProviderProfile />} />
+            
+            {/* ✅ RENAMED ROUTE TO 'status' */}
+            <Route path="status" element={<OrderFlow />} />
           </Route>
 
           {/* Admin */}
