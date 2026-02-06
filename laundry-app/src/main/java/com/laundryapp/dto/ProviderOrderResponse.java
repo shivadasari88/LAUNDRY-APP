@@ -8,9 +8,23 @@ public class ProviderOrderResponse {
     private String customerName;
     private double totalAmount;
     private String status;
+    private String pickupAddress;
+    private String deliveryAddress;
     private List<ProviderOrderGroupSummary> groups;
     
     
+	public String getPickupAddress() {
+		return pickupAddress;
+	}
+	public void setPickupAddress(String pickupAddress) {
+		this.pickupAddress = pickupAddress;
+	}
+	public String getDeliveryAddress() {
+		return deliveryAddress;
+	}
+	public void setDeliveryAddress(String deliveryAddress) {
+		this.deliveryAddress = deliveryAddress;
+	}
 	public Long getOrderId() {
 		return orderId;
 	}

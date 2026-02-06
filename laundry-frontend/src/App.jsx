@@ -13,12 +13,15 @@ import OrderFlow from "./components/provider/OrderFlow";
 
 // Admin Components
 import AdminDashboard from "./pages/admin/AdminDashboard";
+import AdminShopDetails from "./pages/admin/AdminShopDetails";
 
 // Customer Components
 import Home from "./pages/customer/Home";
 import Shop from "./pages/customer/Shop";
 
 import { CartProvider } from "./context/CartContext";
+import ApprovedShops from "./pages/admin/ApprovedShops";
+import RejectedShops from "./pages/admin/RejectedShops";
 
 export default function App() {
   return (
@@ -46,6 +49,10 @@ export default function App() {
 
           {/* Admin */}
           <Route path="/admin" element={<AdminDashboard />} />
+          <Route path="/admin/shop/:shopId" element={<AdminShopDetails />} />
+          <Route path="/admin/approvedShops" element={<ApprovedShops />} />
+          <Route path="/admin/rejectedShops" element={<RejectedShops />} />
+
         </Routes>
       </BrowserRouter>
     </CartProvider>

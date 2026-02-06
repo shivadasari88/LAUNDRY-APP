@@ -13,7 +13,8 @@ public class OrderConfirmationService {
     @Autowired
     private OrderRepository orderRepository;
 
-    public Order confirmOrder(Long orderId, Long customerId) {
+    public Order confirmOrder(Long orderId, Long customerId, String pickupAddress,
+            String deliveryAddress) {
 
         Order order = orderRepository.findById(orderId)
                 .orElseThrow(() -> new RuntimeException("Order not found"));
@@ -39,6 +40,11 @@ public class OrderConfirmationService {
         if (order.getTotalAmount() <= 0) {
             throw new RuntimeException("Invalid order total");
         }
+        
+        order.setPickupAddress(pickupAddress);
+        order.setDeliveryAddress(
+                deliveryAddress != null ? deliveryAddress : pickupAddress
+        );
 
         // ✅ CONFIRM ORDER
         order.setStatus(OrderStatus.CONFIRMED);
