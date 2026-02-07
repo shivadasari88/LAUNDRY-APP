@@ -1,8 +1,16 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 import NotificationDropdown from '../common/NotificationDropdown';
 
 const ProviderLayout = ({ children }) => {
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        localStorage.removeItem("user");
+        localStorage.removeItem("role");
+        navigate("/login");
+    };
+
     return (
         // ✅ Added bg-gradient-to-br from-slate-900 to-indigo-950 for that deep blue look
         <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-900 to-indigo-950 text-slate-100 font-sans">
