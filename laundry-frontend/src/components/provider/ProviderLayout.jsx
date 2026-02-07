@@ -1,6 +1,14 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const ProviderLayout = ({ children }) => {
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        localStorage.removeItem("user");
+        localStorage.removeItem("role");
+        navigate("/login");
+    };
+
     return (
         // ✅ Added bg-gradient-to-br from-slate-900 to-indigo-950 for that deep blue look
         <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-900 to-indigo-950 text-slate-100 font-sans">
@@ -11,7 +19,7 @@ const ProviderLayout = ({ children }) => {
                     <h1 className="text-xl font-bold bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">
                         Provider Portal
                     </h1>
-                    <nav className="flex gap-6">
+                    <nav className="flex gap-6 items-center">
                         <NavLink
                             to="."
                             end
@@ -37,6 +45,12 @@ const ProviderLayout = ({ children }) => {
                         >
                             Services
                         </NavLink>
+                        <button
+                            onClick={handleLogout}
+                            className="px-3 py-2 rounded-lg text-red-400 hover:text-white hover:bg-red-500/20 transition-all font-medium border border-transparent hover:border-red-500/30"
+                        >
+                            Logout
+                        </button>
                     </nav>
                 </div>
             </header>

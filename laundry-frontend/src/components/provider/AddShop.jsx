@@ -2,6 +2,21 @@ import { useState } from "react";
 import { createShop } from "../../api/shopApi";
 import { Store, MapPin, Phone, FileText, Clock, Truck, Plus } from "lucide-react";
 
+const InputField = ({ icon: Icon, name, placeholder, value, onChange }) => (
+    <div className="relative group">
+        <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+            <Icon className="h-5 w-5 text-indigo-300/50 group-focus-within:text-indigo-400 transition-colors" />
+        </div>
+        <input
+            name={name}
+            value={value}
+            onChange={onChange}
+            className="w-full bg-white/5 border border-white/10 text-white placeholder-white/30 text-sm rounded-xl focus:ring-2 focus:ring-indigo-500/50 focus:border-indigo-500 block pl-10 p-3.5 transition-all outline-none hover:bg-white/10"
+            placeholder={placeholder}
+        />
+    </div>
+);
+
 const AddShop = () => {
     // ✅ Get provider from login
     const storedUser = JSON.parse(localStorage.getItem("user"));
@@ -42,20 +57,7 @@ const AddShop = () => {
         }
     };
 
-    const InputField = ({ icon: Icon, name, placeholder, value, onChange }) => (
-        <div className="relative group">
-            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                <Icon className="h-5 w-5 text-indigo-300/50 group-focus-within:text-indigo-400 transition-colors" />
-            </div>
-            <input
-                name={name}
-                value={value}
-                onChange={onChange}
-                className="w-full bg-white/5 border border-white/10 text-white placeholder-white/30 text-sm rounded-xl focus:ring-2 focus:ring-indigo-500/50 focus:border-indigo-500 block pl-10 p-3.5 transition-all outline-none hover:bg-white/10"
-                placeholder={placeholder}
-            />
-        </div>
-    );
+
 
     return (
         <div className="min-h-screen bg-slate-900 flex items-center justify-center p-6">
