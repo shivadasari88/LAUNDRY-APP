@@ -3,6 +3,7 @@ import { Outlet, Link, useLocation } from 'react-router-dom';
 import { ShoppingCart, User, Home, Package, LogOut, Menu, X } from 'lucide-react';
 import { useCart } from '../../context/CartContext';
 import CartSidebar from './CartSidebar';
+import NotificationDropdown from '../common/NotificationDropdown';
 
 const CustomerLayout = () => {
     const location = useLocation();
@@ -61,6 +62,7 @@ const CustomerLayout = () => {
 
                         {/* Right Actions */}
                         <div className="hidden md:flex items-center gap-4">
+                            <NotificationDropdown />
                             {/* Cart Button */}
                             <button
                                 onClick={() => setIsCartOpen(true)}
@@ -87,6 +89,7 @@ const CustomerLayout = () => {
 
                         {/* Mobile Menu Button */}
                         <div className="md:hidden flex items-center gap-4">
+                            <NotificationDropdown />
                             <button
                                 onClick={() => setIsCartOpen(true)}
                                 className="relative p-2 text-gray-400 hover:text-white"

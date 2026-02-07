@@ -18,6 +18,9 @@ public class ProviderOrderService {
     @Autowired
     private OrderRepository orderRepository;
 
+    @Autowired
+    private NotificationService notificationService;
+
     public List<ProviderOrderResponse> getOrdersForShop(Long shopId) {
 
         List<Order> orders = orderRepository.findByShopIdAndStatusNot(
@@ -35,29 +38,45 @@ public class ProviderOrderService {
         return mapToResponse(order);
     }
 
+    @jakarta.transaction.Transactional
     public ProviderOrderResponse updateOrderStatus(
             Long orderId,
             String newStatus) {
 
-        Order order = orderRepository.findById(orderId)
-                .orElseThrow(() -> new RuntimeException("Order not found"));
-
-        OrderStatus status;
         try {
-            status = OrderStatus.valueOf(newStatus.toUpperCase());
-        } catch (IllegalArgumentException ex) {
-            throw new RuntimeException("Invalid order status");
+            Order order = orderRepository.findById(orderId)
+                    .orElseThrow(() -> new RuntimeException("Order not found with ID: " + orderId));
+
+            OrderStatus status;
+            try {
+                status = OrderStatus.valueOf(newStatus.toUpperCase());
+            } catch (IllegalArgumentException ex) {
+                throw new RuntimeException("Invalid order status: " + newStatus);
+            }
+
+            // ❌ Prevent illegal transitions (optional but recommended)
+            if (order.getStatus() == OrderStatus.DRAFT) {
+                throw new RuntimeException("Cannot update draft order");
+            }
+
+            order.setStatus(status);
+            Order savedOrder = orderRepository.save(order);
+
+            // 🔔 TRIGGER NOTIFICATION (Safe - won't fail transaction)
+            try {
+                notificationService.sendOrderStatusNotification(savedOrder.getId(), status);
+            } catch (Exception e) {
+                System.err.println("Failed to send notification (non-blocking): " + e.getMessage());
+                e.printStackTrace();
+            }
+
+            return mapToResponse(savedOrder);
+
+        } catch (Exception e) {
+            System.err.println("Error updating order status: " + e.getMessage());
+            e.printStackTrace();
+            throw e; // Rethrow to ensure controller knows about the failure
         }
-
-        // ❌ Prevent illegal transitions (optional but recommended)
-        if (order.getStatus() == OrderStatus.DRAFT) {
-            throw new RuntimeException("Cannot update draft order");
-        }
-
-        order.setStatus(status);
-        orderRepository.save(order);
-
-        return mapToResponse(order);
     }
 
     private ProviderOrderResponse mapToResponse(Order order) {

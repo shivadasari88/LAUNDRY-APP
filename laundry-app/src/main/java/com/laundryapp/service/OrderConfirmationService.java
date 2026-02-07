@@ -13,6 +13,9 @@ public class OrderConfirmationService {
     @Autowired
     private OrderRepository orderRepository;
 
+    @Autowired
+    private NotificationService notificationService;
+
     public Order confirmOrder(Long orderId, Long customerId, String pickupAddress,
             String deliveryAddress) {
 
@@ -65,7 +68,16 @@ public class OrderConfirmationService {
         // ✅ CONFIRM ORDER
         order.setStatus(OrderStatus.CONFIRMED);
 
-        return orderRepository.save(order);
+        Order savedOrder = orderRepository.save(order);
+
+        // 🔔 TRIGGER NOTIFICATION
+        try {
+            notificationService.sendOrderStatusNotification(savedOrder.getId(), OrderStatus.CONFIRMED);
+        } catch (Exception e) {
+            System.err.println("Failed to send notification: " + e.getMessage());
+        }
+
+        return savedOrder;
     }
 
     public void cancelOrder(Long orderId, Long customerId) {
