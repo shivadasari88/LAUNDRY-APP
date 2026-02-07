@@ -1,5 +1,7 @@
 import { NavLink, useNavigate } from "react-router-dom";
 
+import NotificationDropdown from '../common/NotificationDropdown';
+
 const ProviderLayout = ({ children }) => {
     const navigate = useNavigate();
 
@@ -19,39 +21,36 @@ const ProviderLayout = ({ children }) => {
                     <h1 className="text-xl font-bold bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">
                         Provider Portal
                     </h1>
-                    <nav className="flex gap-6 items-center">
-                        <NavLink
-                            to="."
-                            end
-                            className={({ isActive }) =>
-                                `px-3 py-2 rounded-lg transition-all ${isActive ? "bg-indigo-600 text-white shadow-lg shadow-indigo-500/30" : "text-slate-400 hover:text-white"}`
-                            }
-                        >
-                            Dashboard
-                        </NavLink>
-                        <NavLink
-                            to="orders"
-                            className={({ isActive }) =>
-                                `px-3 py-2 rounded-lg transition-all ${isActive ? "bg-indigo-600 text-white shadow-lg shadow-indigo-500/30" : "text-slate-400 hover:text-white"}`
-                            }
-                        >
-                            Orders
-                        </NavLink>
-                        <NavLink
-                            to="services"
-                            className={({ isActive }) =>
-                                `px-3 py-2 rounded-lg transition-all ${isActive ? "bg-indigo-600 text-white shadow-lg shadow-indigo-500/30" : "text-slate-400 hover:text-white"}`
-                            }
-                        >
-                            Services
-                        </NavLink>
-                        <button
-                            onClick={handleLogout}
-                            className="px-3 py-2 rounded-lg text-red-400 hover:text-white hover:bg-red-500/20 transition-all font-medium border border-transparent hover:border-red-500/30"
-                        >
-                            Logout
-                        </button>
-                    </nav>
+                    <div className="flex items-center gap-4">
+                        <nav className="flex gap-6">
+                            <NavLink
+                                to="."
+                                end
+                                className={({ isActive }) =>
+                                    `px-3 py-2 rounded-lg transition-all ${isActive ? "bg-indigo-600 text-white shadow-lg shadow-indigo-500/30" : "text-slate-400 hover:text-white"}`
+                                }
+                            >
+                                Dashboard
+                            </NavLink>
+                            <NavLink
+                                to="orders"
+                                className={({ isActive }) =>
+                                    `px-3 py-2 rounded-lg transition-all ${isActive ? "bg-indigo-600 text-white shadow-lg shadow-indigo-500/30" : "text-slate-400 hover:text-white"}`
+                                }
+                            >
+                                Orders
+                            </NavLink>
+                            <NavLink
+                                to="services"
+                                className={({ isActive }) =>
+                                    `px-3 py-2 rounded-lg transition-all ${isActive ? "bg-indigo-600 text-white shadow-lg shadow-indigo-500/30" : "text-slate-400 hover:text-white"}`
+                                }
+                            >
+                                Services
+                            </NavLink>
+                        </nav>
+                        <NotificationDropdown />
+                    </div>
                 </div>
             </header>
 

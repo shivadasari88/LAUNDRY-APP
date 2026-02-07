@@ -21,6 +21,9 @@ public class ShopService {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private NotificationService notificationService;
+
     // ================= PROVIDER =================
 
     // Provider creates shop
@@ -43,7 +46,21 @@ public class ShopService {
         shop.setApprovalStatus(ApprovalStatus.PENDING);
         shop.setProvider(provider);
 
-        return shopRepository.save(shop);
+        Shop savedShop = shopRepository.save(shop);
+
+        // Notify Admins
+        List<User> admins = userRepository.findByRole(com.laundryapp.entity.Role.ADMIN);
+        for (User admin : admins) {
+            notificationService.createNotification(
+                    admin.getId(),
+                    "ADMIN",
+                    null, // No Order ID
+                    "New shop request: " + savedShop.getName() + " by " + provider.getUsername(),
+                    null // No Order Status
+            );
+        }
+
+        return savedShop;
     }
 
     // Provider views own shop

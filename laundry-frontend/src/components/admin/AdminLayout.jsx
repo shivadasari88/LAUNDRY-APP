@@ -1,5 +1,6 @@
 import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { LayoutDashboard, CheckCircle, XCircle, LogOut, Store } from "lucide-react";
+import NotificationDropdown from '../common/NotificationDropdown';
 
 export default function AdminLayout() {
     const location = useLocation();
@@ -68,8 +69,14 @@ export default function AdminLayout() {
             </aside>
 
             {/* MAIN CONTENT AREA */}
-            <main className="flex-1 ml-64 p-8">
-                <div className="max-w-7xl mx-auto">
+            <main className="flex-1 ml-64">
+                <header className="flex justify-end p-4 bg-[#0f172a] border-b border-white/5 sticky top-0 z-20">
+                    <div className="flex items-center gap-4">
+                        <span className="text-sm text-gray-400">Welcome, Admin</span>
+                        <NotificationDropdown />
+                    </div>
+                </header>
+                <div className="max-w-7xl mx-auto p-8">
                     <Outlet />
                 </div>
             </main>
